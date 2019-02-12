@@ -8,6 +8,7 @@ namespace FunctionalPrograms
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
 
     /// <summary>
@@ -39,6 +40,10 @@ namespace FunctionalPrograms
                     rows = Convert.ToInt32(strRows);
                     rowFlag = false;
                 }
+                else
+                {
+                    Console.WriteLine("Enter only Integres");
+                }
             }
 
             bool columnFlag = true;
@@ -50,13 +55,18 @@ namespace FunctionalPrograms
                 if (Utility.IsNumber(strColumns) == true)
                 {
                     columns = Convert.ToInt32(strColumns);
-                    rowFlag = false;
+                    columnFlag = false;
+                }
+                else
+                {
+                    Console.WriteLine("Enter only Integres");
                 }
             }
 
             array = new double[rows, columns];
 
-            //// iteration as many as rows
+        //// iteration as many as rows
+        loopagain:
             for (int q = 0; q < rows; q++)
             {
                 Console.WriteLine("Enter the elements in " + rowNumber + " row");
@@ -66,9 +76,18 @@ namespace FunctionalPrograms
                 for (int time = 0; time < columns; time++)
                 {
                     string num = Console.ReadLine();
-                    userNumber = Convert.ToInt32(num);
-                    array[i, j] = userNumber;
-                    j++; ////for moving to next Column
+                    if (Utility.IsNumber(num) == false)
+                    {
+                        Console.WriteLine("You can add only Numbers");
+                        rowNumber = 1;
+                        goto loopagain;
+                    }
+                    else
+                    {
+                        userNumber = Convert.ToInt32(num);
+                        array[i, j] = userNumber;
+                        j++; ////for moving to next Column
+                    }
                 }
 
                 j = 0; //// resetting the j(column value to 0)
@@ -91,9 +110,10 @@ namespace FunctionalPrograms
             {
                 for (int col = 0; col < colCount; col++)
                 {
-                    Console.Write(array[row, col]);
-                    Console.WriteLine();
+                    Console.Write(string.Empty + array[row, col] + string.Empty);
                 }
+
+                Console.WriteLine();
             }
         }
     }
