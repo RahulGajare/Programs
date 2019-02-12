@@ -37,6 +37,7 @@ namespace FunctionalPrograms
                 Console.WriteLine("10) StopWatch");
                 Console.WriteLine("11) 2D Array");
                 Console.WriteLine("12) Quadratic Equation roots");
+                Console.WriteLine("13) WindChill");
 
                 Console.WriteLine("======================================================================================================================");
 
@@ -131,6 +132,11 @@ namespace FunctionalPrograms
                             break;
                         }
 
+                    case 13:
+                        {
+                            WindChill.CalculateWindChill();
+                            break;
+                        }
 
                     default:
                         {
