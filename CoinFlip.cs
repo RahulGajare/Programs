@@ -20,6 +20,7 @@ namespace FunctionalPrograms
         ///  Takes the Number of times to flipCoin from user and Calculates Percentage of Heads or Tails ,
         ///  based on the Random Number generated.
         /// </summary>
+        
         public static void FlipCoin()
         {
             int heads = 0;
@@ -30,6 +31,7 @@ namespace FunctionalPrograms
             Console.WriteLine("Enter the number of times to Flip the Coin");
 
             string timeOfFlips = Console.ReadLine();
+            
             if (Utility.IsNumber(timeOfFlips) == false)
             {
                 Console.WriteLine("wrong input,give an number");

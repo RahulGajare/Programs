@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace FunctionalPrograms
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
     class TicTacToe
     {
         public static void StartTicTacToe()

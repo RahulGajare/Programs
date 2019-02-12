@@ -34,7 +34,7 @@ namespace FunctionalPrograms
             {
                 Console.WriteLine("Enter the number of Rows");
                 string strRows = Console.ReadLine();
-
+               
                 if (Utility.IsNumber(strRows) == true)
                 {
                     rows = Convert.ToInt32(strRows);

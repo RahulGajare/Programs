@@ -38,6 +38,8 @@ namespace FunctionalPrograms
                 Console.WriteLine("11) 2D Array");
                 Console.WriteLine("12) Quadratic Equation roots");
                 Console.WriteLine("13) WindChill");
+                Console.WriteLine("14) TicTacToe");
+
 
                 Console.WriteLine("======================================================================================================================");
 
@@ -135,6 +137,12 @@ namespace FunctionalPrograms
                     case 13:
                         {
                             WindChill.CalculateWindChill();
+                            break;
+                        }
+
+                    case 14:
+                        {
+                            TicTacToe.StartTicTacToe();
                             break;
                         }
 
