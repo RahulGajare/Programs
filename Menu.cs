@@ -35,6 +35,9 @@ namespace FunctionalPrograms
                 Console.WriteLine("8) Sum Of Triplets to 0");
                 Console.WriteLine("9) Distance");
                 Console.WriteLine("10) StopWatch");
+                Console.WriteLine("11) 2D Array");
+                Console.WriteLine("12) Quadratic Equation roots");
+
                 Console.WriteLine("======================================================================================================================");
 
                 try
@@ -107,16 +110,27 @@ namespace FunctionalPrograms
                     case 9:
                         {
                             Distance.CalculateEuclideanDistance();
-
                             break;
                         }
 
                     case 10:
                         {
                             StopWatchProgram.StartStopWatch();
-
                             break;
                         }
+
+                    case 11:
+                        {
+                            _2DArray.Print2DArray();
+                            break;
+                        }
+
+                    case 12:
+                        {
+                            Quadraticequation.Quadraticroots();
+                            break;
+                        }
+
 
                     default:
                         {
