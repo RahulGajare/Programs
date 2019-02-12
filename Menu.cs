@@ -19,8 +19,8 @@ namespace FunctionalPrograms
         /// <param name="args">The arguments.</param>
        public static void Main(string[] args)
         {           
-            int option = -1;///option for choosing a number from menu.
-            bool flag = true;///flag for keep looping untill a valid option from the existing menu is choose.
+            int option = -1; ////option for choosing a number from menu.
+            bool flag = true; ////flag for keep looping untill a valid option from the existing menu is choose.
             while (flag)
             {
                 Console.WriteLine("======================================================================================================================");
@@ -85,6 +85,7 @@ namespace FunctionalPrograms
                             HarmonicNumbers.GetHarmonicValue();
                             break;
                         }
+
                     case 6:
                         {
                             PrimeFactors.GetPrimeFactors();
