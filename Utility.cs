@@ -7,6 +7,7 @@
 namespace FunctionalPrograms
 {
     using System;
+    using System.Diagnostics;
 
     /// <summary>
     /// Utility class has methods that are required to use multiple times. 
@@ -102,5 +103,19 @@ namespace FunctionalPrograms
 
             return numberArray;
         }
+
+        /// <summary>
+        /// Gives the elapsed time between start and stop of stopwatch
+        /// </summary>
+        public static void StartStopWatch()
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            Console.WriteLine("Stopwatch Started,Press Enter key to stop");
+            Console.ReadKey();
+            Console.WriteLine("Total Elapsed time = " + stopWatch.Elapsed);
+        }
     }
+
+   
 }
