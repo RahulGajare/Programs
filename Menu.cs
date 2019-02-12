@@ -34,6 +34,7 @@ namespace FunctionalPrograms
                 Console.WriteLine("7) Gambler");
                 Console.WriteLine("8) Sum Of Triplets to 0");
                 Console.WriteLine("9) Distance");
+                Console.WriteLine("10) StopWatch");
                 Console.WriteLine("======================================================================================================================");
 
                 try
@@ -105,6 +106,13 @@ namespace FunctionalPrograms
                     case 9:
                         {
                             Distance.CalculateEuclideanDistance();
+
+                            break;
+                        }
+
+                    case 10:
+                        {
+                            StopWatchProgram.StartStopWatch();
 
                             break;
                         }
