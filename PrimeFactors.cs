@@ -21,41 +21,48 @@ namespace FunctionalPrograms
         /// </summary>
         public static void GetPrimeFactors()
         {
-            bool keepLooping = true;
-            ////for keep repeating program  untill a valid Integer is given.
-            while (keepLooping)
+            try
             {
-                Console.WriteLine("Enter a Number you want Prime Factors for.");
-                string snumber = Console.ReadLine();
+                bool keepLooping = true;
+                ////for keep repeating program  untill a valid Integer is given.
+                while (keepLooping)
+                {
+                    Console.WriteLine("Enter a Number you want Prime Factors for.");
+                    string snumber = Console.ReadLine();
 
-                if (Utility.IsNumber(snumber) == false)
-                {
-                    Console.WriteLine("Invald Input , Enter only integers");
-                    continue;
-                }
-                else
-                {
-                    int number = Convert.ToInt32(snumber);
-                    Console.WriteLine("The Prime Factors of " + number + " are");
-                    while (number % 2 == 0)
+                    if (Utility.IsNumber(snumber) == false)
                     {
-                       number = number / 2;
-                        Console.WriteLine("2 ");
+                        Console.WriteLine("Invald Input , Enter only integers");
+                        continue;
                     }
-
-                    ////keeps dividing a number untill the iterator reaches the number.
-                    for (int i = 3; i <= number; i = i + 2) 
+                    else
                     {
-                        if (number % i == 0)
+                        int number = Convert.ToInt32(snumber);
+                        Console.WriteLine("The Prime Factors of " + number + " are");
+                        while (number % 2 == 0)
                         {
-                            Console.WriteLine(i);
-                            number = number / i;
+                            number = number / 2;
+                            Console.WriteLine("2 ");
                         }
-                    }
 
-                    keepLooping = false; //// program ended sucessfully                  
+                        ////keeps dividing a number untill the iterator reaches the number.
+                        for (int i = 3; i <= number; i = i + 2)
+                        {
+                            if (number % i == 0)
+                            {
+                                Console.WriteLine(i);
+                                number = number / i;
+                            }
+                        }
+
+                        keepLooping = false; //// program ended sucessfully                  
+                    }
                 }
-            }          
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }  
         }
     }
 }

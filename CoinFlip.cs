@@ -23,38 +23,46 @@ namespace FunctionalPrograms
         
         public static void FlipCoin()
         {
-            int heads = 0;
-            int tails = 0;
-            int numberOfFlips;
-            Random randomNumber = new Random();
-
-            Console.WriteLine("Enter the number of times to Flip the Coin");
-
-            string timeOfFlips = Console.ReadLine();
-            
-            if (Utility.IsNumber(timeOfFlips) == false)
+            try
             {
-                Console.WriteLine("wrong input,give an number");
-                return;
-            }
-            else
-            {
-                numberOfFlips = Convert.ToInt32(timeOfFlips);
-                //// this iterates as many as number of flips ,given by the user.
-                for (int i = 0; i < numberOfFlips; i++)
+                int heads = 0;
+                int tails = 0;
+                int numberOfFlips;
+                Random randomNumber = new Random();
+
+                Console.WriteLine("Enter the number of times to Flip the Coin");
+
+                string timeOfFlips = Console.ReadLine();
+
+                if (Utility.IsNumber(timeOfFlips) == false)
                 {
-                    if (randomNumber.NextDouble() > 0.5)
-                    {
-                        tails++;
-                    }
-                    else
-                    {
-                        heads++;
-                    }
+                    Console.WriteLine("wrong input,give an number");
+                    return;
                 }
+                else
+                {
+                    numberOfFlips = Convert.ToInt32(timeOfFlips);
+                    //// this iterates as many as number of flips ,given by the user.
+                    for (int i = 0; i < numberOfFlips; i++)
+                    {
+                        if (randomNumber.NextDouble() > 0.5)
+                        {
+                            tails++;
+                        }
+                        else
+                        {
+                            heads++;
+                        }
+                    }
 
-                Console.WriteLine("Heads Percentage = " + ((heads * 100) / numberOfFlips) + "%");
-                Console.WriteLine("Tails Percentage = " + ((tails * 100) / numberOfFlips) + "%");
+                    Console.WriteLine("Heads Percentage = " + ((heads * 100) / numberOfFlips) + "%");
+                    Console.WriteLine("Tails Percentage = " + ((tails * 100) / numberOfFlips) + "%");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.ToString());
             }
         }
     }

@@ -18,140 +18,152 @@ namespace FunctionalPrograms
         /// </summary>
         /// <param name="args">The arguments.</param>
        public static void Main(string[] args)
-        {           
-            int option = -1; ////option for choosing a number from menu.
-            bool flag = true; ////flag for keep looping untill a valid option from the existing menu is choose.
-            while (flag)
+        {
+            try
             {
-                Console.WriteLine("======================================================================================================================");
-                Console.WriteLine("Select the program from below .Enter 0 to exit");
-                Console.WriteLine("1) Replace String Template");
-                Console.WriteLine("2) CoinFlip");
-                Console.WriteLine("3) LeapYear");
-                Console.WriteLine("4) Power Of 2");
-                Console.WriteLine("5) Harmonic value");
-                Console.WriteLine("6) Prime Factors");
-                Console.WriteLine("7) Gambler");
-                Console.WriteLine("8) Sum Of Triplets to 0");
-                Console.WriteLine("9) Distance");
-                Console.WriteLine("10) StopWatch");
-                Console.WriteLine("11) 2D Array");
-                Console.WriteLine("12) Quadratic Equation roots");
-                Console.WriteLine("13) WindChill");
-                Console.WriteLine("14) TicTacToe");
-
-
-                Console.WriteLine("======================================================================================================================");
-
-                try
+                int option = -1; ////option for choosing a number from menu.
+                bool flag = true; ////flag for keep looping untill a valid option from the existing menu is choose.
+                while (flag)
                 {
-                    option = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("======================================================================================================================");
+                    Console.WriteLine("Select the program from below .Enter 0 to exit");
+                    Console.WriteLine("1) Replace String Template");
+                    Console.WriteLine("2) CoinFlip");
+                    Console.WriteLine("3) LeapYear");
+                    Console.WriteLine("4) Power Of 2");
+                    Console.WriteLine("5) Harmonic value");
+                    Console.WriteLine("6) Prime Factors");
+                    Console.WriteLine("7) Gambler");
+                    Console.WriteLine("8) Sum Of Triplets to 0");
+                    Console.WriteLine("9) Distance");
+                    Console.WriteLine("10) StopWatch");
+                    Console.WriteLine("11) 2D Array");
+                    Console.WriteLine("12) Quadratic Equation roots");
+                    Console.WriteLine("13) WindChill");
+                    Console.WriteLine("14) TicTacToe");
+                    Console.WriteLine("15) CouponNumbers");
+                    Console.WriteLine("======================================================================================================================");
+
+                    try
+                    {
+                        option = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Invalid Command");
+                        continue;
+                    }
+
+                    switch (option)
+                    {
+                        case 0:
+                            {
+                                flag = false;
+                                break;
+                            }
+
+                        case 1:
+                            {
+                                ReplaceString.ReplaceName();
+                                break;
+                            }
+
+                        case 2:
+                            {
+                                CoinFlip.FlipCoin();
+                                break;
+                            }
+
+                        case 3:
+                            {
+                                LeapYear.CheckLeapYear();
+
+                                break;
+                            }
+
+                        case 4:
+                            {
+                                PowerOf2.PowerOfTwo();
+                                break;
+                            }
+
+                        case 5:
+                            {
+                                HarmonicNumbers.GetHarmonicValue();
+                                break;
+                            }
+
+                        case 6:
+                            {
+                                PrimeFactors.GetPrimeFactors();
+                                break;
+                            }
+
+                        case 7:
+                            {
+                                Gambler.GamblerPlay();
+                                break;
+                            }
+
+                        case 8:
+                            {
+                                Triplets.FindTriplet();
+                                break;
+                            }
+
+                        case 9:
+                            {
+                                Distance.CalculateEuclideanDistance();
+                                break;
+                            }
+
+                        case 10:
+                            {
+                                StopWatchProgram.StartStopWatch();
+                                break;
+                            }
+
+                        case 11:
+                            {
+                                _2DArray.Print2DArray();
+                                break;
+                            }
+
+                        case 12:
+                            {
+                                Quadraticequation.Quadraticroots();
+                                break;
+                            }
+
+                        case 13:
+                            {
+                                WindChill.CalculateWindChill();
+                                break;
+                            }
+
+                        case 14:
+                            {
+                                TicTacToe.StartTicTacToe();
+                                break;
+                            }
+
+                        case 15:
+                            {
+                                Coupon.GenerateCoupon();
+                                break;
+                            }
+
+                        default:
+                            {
+                                Console.WriteLine("Invalid Option");
+                                break;
+                            }
+                    }
                 }
-                catch (Exception)
-                {
-                    Console.WriteLine("Invalid Command");
-                    continue;
-                }
-
-                switch (option)
-                {
-                    case 0:
-                        {
-                            flag = false;
-                            break;
-                        }
-
-                    case 1:
-                        {
-                            ReplaceString.ReplaceName();
-                            break;
-                        }
-
-                    case 2:
-                        {
-                            CoinFlip.FlipCoin();
-                            break;
-                        }
-
-                    case 3:
-                        {
-                            LeapYear.CheckLeapYear();
-
-                            break;
-                        }
-
-                    case 4:
-                        {
-                            PowerOf2.PowerOfTwo();
-                            break;
-                        }
-
-                    case 5:
-                        {
-                            HarmonicNumbers.GetHarmonicValue();
-                            break;
-                        }
-
-                    case 6:
-                        {
-                            PrimeFactors.GetPrimeFactors();
-                            break;
-                        }
-
-                    case 7:
-                        {
-                            Gambler.GamblerPlay();
-                            break;
-                        }
-
-                    case 8:
-                        {
-                            Triplets.FindTriplet();
-                            break;
-                        }
-
-                    case 9:
-                        {
-                            Distance.CalculateEuclideanDistance();
-                            break;
-                        }
-
-                    case 10:
-                        {
-                            StopWatchProgram.StartStopWatch();
-                            break;
-                        }
-
-                    case 11:
-                        {
-                            _2DArray.Print2DArray();
-                            break;
-                        }
-
-                    case 12:
-                        {
-                            Quadraticequation.Quadraticroots();
-                            break;
-                        }
-
-                    case 13:
-                        {
-                            WindChill.CalculateWindChill();
-                            break;
-                        }
-
-                    case 14:
-                        {
-                            TicTacToe.StartTicTacToe();
-                            break;
-                        }
-
-                    default:
-                        {
-                            Console.WriteLine("Invalid Option");
-                            break;
-                        }
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
         }
     }

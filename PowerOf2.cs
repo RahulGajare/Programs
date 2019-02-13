@@ -20,38 +20,45 @@ namespace FunctionalPrograms
         /// </summary>
         public static void PowerOfTwo()
         {
-            bool keepLooping = true;
-            int number;
-            ////keeps looping untill program executes completely.
-            while (keepLooping)
+            try
             {
-                Console.WriteLine("Enter a Number ");
-                string snumber = Console.ReadLine();
+                bool keepLooping = true;
+                int number;
+                ////keeps looping untill program executes completely.
+                while (keepLooping)
+                {
+                    Console.WriteLine("Enter a Number ");
+                    string snumber = Console.ReadLine();
 
-                if (Utility.IsNumber(snumber) == false)
-                {
-                    Console.WriteLine("Enter a proper Number");
-                    continue;
-                }
-                else
-                {
-                    number = Convert.ToInt32(snumber);
-                    if (number > 31)
+                    if (Utility.IsNumber(snumber) == false)
                     {
-                        Console.WriteLine("Enter a number less then 31");
+                        Console.WriteLine("Enter a proper Number");
                         continue;
                     }
                     else
                     {
-                        for (int i = 0; i < number; i++)
+                        number = Convert.ToInt32(snumber);
+                        if (number > 31)
                         {
-                            Console.WriteLine("Power of 2^" + i + "=" + Math.Pow(2, i));
+                            Console.WriteLine("Enter a number less then 31");
+                            continue;
                         }
-                    }
+                        else
+                        {
+                            for (int i = 0; i < number; i++)
+                            {
+                                Console.WriteLine("Power of 2^" + i + "=" + Math.Pow(2, i));
+                            }
+                        }
 
-                    keepLooping = false;
+                        keepLooping = false;
+                    }
                 }
-            }              
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }       
         }
     }
 }

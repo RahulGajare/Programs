@@ -21,38 +21,46 @@ namespace FunctionalPrograms
         /// </summary>
         public static void GetHarmonicValue()
         {
-            double sum = 0;
-            bool keepLooping = true; ////for keep repeating program  untill a valid Integer is given.
-            while (keepLooping)
+            try
             {
-                Console.WriteLine("Enter a Number");
-                string snumber = Console.ReadLine();
-                if (Utility.IsNumber(snumber) == false)
+                double sum = 0;
+                bool keepLooping = true; ////for keep repeating program  untill a valid Integer is given.
+                while (keepLooping)
                 {
-                    Console.WriteLine("Invalid Number, Enter only Integers");
-                    continue;
-                }
-                else
-                {
-                    int number = Convert.ToInt32(snumber);
-                    if (number <= 0)
+                    Console.WriteLine("Enter a Number");
+                    string snumber = Console.ReadLine();
+                    if (Utility.IsNumber(snumber) == false)
                     {
-                        Console.WriteLine("Enter a Number greater than Zero.");
+                        Console.WriteLine("Invalid Number, Enter only Integers");
                         continue;
                     }
                     else
                     {
-                        //// To keep adding to sum until 1/1 + 1/2 + ... + 1/N ;
-                        for (int i = 1; i <= number; i++)
+                        int number = Convert.ToInt32(snumber);
+                        if (number <= 0)
                         {
-                            sum = sum + (1 / i);
+                            Console.WriteLine("Enter a Number greater than Zero.");
+                            continue;
                         }
+                        else
+                        {
+                            //// To keep adding to sum until 1/1 + 1/2 + ... + 1/N ;
+                            for (int i = 1; i <= number; i++)
+                            {
+                                sum = sum + (1 / i);
+                            }
 
-                        Console.WriteLine("harmonic value for number " + number + "is " + sum);
-                        keepLooping = false;
+                            Console.WriteLine("harmonic value for number " + number + "is " + sum);
+                            keepLooping = false;
+                        }
                     }
                 }
-            }          
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

@@ -23,7 +23,14 @@ namespace FunctionalPrograms
         /// </summary>
         public static void StartStopWatch()
         {
-            Utility.StartStopWatch();
+            try
+            {
+                Utility.StartStopWatch();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

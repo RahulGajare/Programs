@@ -21,51 +21,58 @@ namespace FunctionalPrograms
         /// </summary>
         public static void CalculateWindChill()
         {
-            double tempearature = 0;
-            double velocity = 0;
-            double result;
-
-            bool tempFlag = true;
-            while (tempFlag)
+            try
             {
-                Console.WriteLine("Enter the temperature in farenheit");
+                double tempearature = 0;
+                double velocity = 0;
+                double result;
+
+                bool tempFlag = true;
+                while (tempFlag)
                 {
-                    string strTemperature = Console.ReadLine();
-                    if (Utility.IsNumber(strTemperature) == false)
+                    Console.WriteLine("Enter the temperature in farenheit");
                     {
-                        Console.WriteLine("Wrong input");
-                        continue;
-                    }
-                    else
-                    {
-                        tempearature = Convert.ToDouble(strTemperature);
-                        tempFlag = false;
+                        string strTemperature = Console.ReadLine();
+                        if (Utility.IsNumber(strTemperature) == false)
+                        {
+                            Console.WriteLine("Wrong input");
+                            continue;
+                        }
+                        else
+                        {
+                            tempearature = Convert.ToDouble(strTemperature);
+                            tempFlag = false;
+                        }
                     }
                 }
-            }
 
-            bool velocityFlag = true;
-            while (velocityFlag)
-            {
-                Console.WriteLine("Enter the Velocity in Miles/hour");
+                bool velocityFlag = true;
+                while (velocityFlag)
                 {
-                    string strvelocity = Console.ReadLine();
-                    if (Utility.IsNumber(strvelocity) == false)
+                    Console.WriteLine("Enter the Velocity in Miles/hour");
                     {
-                        Console.WriteLine("Wrong input");
-                        continue;
-                    }
-                    else
-                    {
-                        velocity = Convert.ToDouble(strvelocity);
-                        velocityFlag = false;
+                        string strvelocity = Console.ReadLine();
+                        if (Utility.IsNumber(strvelocity) == false)
+                        {
+                            Console.WriteLine("Wrong input");
+                            continue;
+                        }
+                        else
+                        {
+                            velocity = Convert.ToDouble(strvelocity);
+                            velocityFlag = false;
+                        }
                     }
                 }
+
+                result = 35.74 + (0.6215 * tempearature) + ((0.4275 * tempearature - 35.75) * Math.Pow(velocity, 0.16));
+
+                Console.WriteLine("The Tempearature will be = " + result + "°F");
             }
-
-            result = 35.74 + (0.6215 * tempearature) + ((0.4275 * tempearature - 35.75) * Math.Pow(velocity, 0.16));
-
-            Console.WriteLine("The Tempearature will be = " + result + "°F");
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

@@ -21,29 +21,36 @@ namespace FunctionalPrograms
         /// </summary>
         public static void FindTriplet()
         {
-            int numberOfTripletFound = 0;
-           int[] intArray = Utility.TakeInputIntArray();
-
-            //// for the first Element in Array
-            for (int i = 0; i < intArray.Length - 2; i++)
+            try
             {
-                ////for the second Element in Array
-                for (int j = i + 1; j < intArray.Length - 1; j++)
+                int numberOfTripletFound = 0;
+                int[] intArray = Utility.TakeInputIntArray();
+
+                //// for the first Element in Array
+                for (int i = 0; i < intArray.Length - 2; i++)
                 {
-                    ////for the third Element in Array
-                    for (int k = j + 1; k < intArray.Length; k++)
+                    ////for the second Element in Array
+                    for (int j = i + 1; j < intArray.Length - 1; j++)
                     {
-                        if (intArray[i] + intArray[j] + intArray[k] == 0)
+                        ////for the third Element in Array
+                        for (int k = j + 1; k < intArray.Length; k++)
                         {
-                            Console.WriteLine(string.Empty + intArray[i] + intArray[j] + intArray[k] + " = 0");
-                            Console.WriteLine();
-                            numberOfTripletFound++;
+                            if (intArray[i] + intArray[j] + intArray[k] == 0)
+                            {
+                                Console.WriteLine(string.Empty + intArray[i] + intArray[j] + intArray[k] + " = 0");
+                                Console.WriteLine();
+                                numberOfTripletFound++;
+                            }
                         }
                     }
                 }
+
+                Console.WriteLine("Number of Triplet found " + numberOfTripletFound);
             }
-            
-                Console.WriteLine("Number of Triplet found " + numberOfTripletFound);     
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }  
         }
     }
 }

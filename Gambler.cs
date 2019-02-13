@@ -22,72 +22,80 @@ namespace FunctionalPrograms
         /// </summary>
         public static void GamblerPlay()
         {
-            int stake = 0;
-            int userGoal = 0;
-            int wins = 0;
-            int loose = 0;
-            bool stakeFlag = true;
-            bool goalFlag = true;
-
-            while (stakeFlag)
+            try
             {
-                Console.WriteLine("Enter the Stake you have");
-                string strStake = Console.ReadLine();
+                int stake = 0;
+                int userGoal = 0;
+                int wins = 0;
+                int loose = 0;
+                bool stakeFlag = true;
+                bool goalFlag = true;
 
-                if (Utility.IsNumber(strStake))
+                while (stakeFlag)
                 {
-                    stake = Convert.ToInt32(strStake);
-                    stakeFlag = false;
+                    Console.WriteLine("Enter the Stake you have");
+                    string strStake = Console.ReadLine();
+
+                    if (Utility.IsNumber(strStake))
+                    {
+                        stake = Convert.ToInt32(strStake);
+                        stakeFlag = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Stake should be in Integers Only");
+                    }
+                }
+
+                while (goalFlag)
+                {
+                    Console.WriteLine("Enter your goal");
+                    string strGoal = Console.ReadLine();
+
+                    if (Utility.IsNumber(strGoal))
+                    {
+                        userGoal = Convert.ToInt32(strGoal);
+                        goalFlag = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Goal should be in Integers Only");
+                    }
+                }
+
+                Random rdm = new Random();
+
+                while (stake != 0 && stake != userGoal)
+                {
+                    double r = rdm.NextDouble();
+
+                    if (r < 0.5)
+                    {
+                        loose++;
+                        stake--;
+                    }
+                    else
+                    {
+                        wins++;
+                        stake++;
+                    }
+                }
+                Console.WriteLine("No of Wins = " + wins);
+                Console.WriteLine("No of loose = " + loose);
+                Console.WriteLine("No of bets = " + (loose + wins));
+                if (stake == userGoal)
+                {
+                    Console.WriteLine("Congrats you have reached your goal = " + userGoal);
                 }
                 else
                 {
-                    Console.WriteLine("Stake should be in Integers Only");
+                    Console.WriteLine("You loose ,stake = " + stake);
                 }
             }
-
-            while (goalFlag)
+            catch (Exception ex)
             {
-                Console.WriteLine("Enter your goal");
-                string strGoal = Console.ReadLine();
 
-                if (Utility.IsNumber(strGoal))
-                {
-                    userGoal = Convert.ToInt32(strGoal);
-                    goalFlag = false;
-                }
-                else
-                {
-                    Console.WriteLine("Goal should be in Integers Only");
-                }
-            }
-
-            Random rdm = new Random();
-
-            while (stake != 0 && stake != userGoal)
-            {
-                double r = rdm.NextDouble();
-
-                if (r < 0.5)
-                {
-                    loose++;
-                    stake--;
-                }
-                else
-                {
-                    wins++;
-                    stake++;
-                }
-            }
-            Console.WriteLine("No of Wins = " + wins);
-            Console.WriteLine("No of loose = " + loose);
-            Console.WriteLine("No of bets = " + (loose + wins));
-            if (stake == userGoal)
-            {
-                Console.WriteLine("Congrats you have reached your goal = " + userGoal);
-            }
-            else
-            {
-                Console.WriteLine("You loose ,stake = " + stake);
+                Console.WriteLine(ex.ToString());
             }
         }
     }

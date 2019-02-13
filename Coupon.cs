@@ -21,53 +21,61 @@ namespace FunctionalPrograms
         /// </summary>
         public static void GenerateCoupon()
         {
-            int numberOfCoupons = 0;
-            int[] couponArray = null;
-            bool assignFlag = true; ////This will only allow to assign the value in array if its new.
-
-            Random random = new Random(Guid.NewGuid().GetHashCode());
-
-            bool flag = true;
-            while (flag)
+            try
             {
-                Console.WriteLine("Enter the Number of Coupons you want to generate");
-                string strNumberOfCoupons = Console.ReadLine();
+                int numberOfCoupons = 0;
+                int[] couponArray = null;
+                bool assignFlag = true; ////This will only allow to assign the value in array if its new.
 
-                if (Utility.IsNumber(strNumberOfCoupons) == false)
+                Random random = new Random(Guid.NewGuid().GetHashCode());
+
+                bool flag = true;
+                while (flag)
                 {
-                    Console.WriteLine("Wrong Input, Enter only Integer");
-                    continue;
+                    Console.WriteLine("Enter the Number of Coupons you want to generate");
+                    string strNumberOfCoupons = Console.ReadLine();
+
+                    if (Utility.IsNumber(strNumberOfCoupons) == false)
+                    {
+                        Console.WriteLine("Wrong Input, Enter only Integer");
+                        continue;
+                    }
+
+                    numberOfCoupons = Convert.ToInt32(strNumberOfCoupons);
+                    flag = false;
                 }
 
-                numberOfCoupons = Convert.ToInt32(strNumberOfCoupons);
-                flag = false;
-            }
+                couponArray = new int[numberOfCoupons];
 
-            couponArray = new int[numberOfCoupons];
-
-            int j = 0; //// index value for CouponArray
-            while (numberOfCoupons != 0)
-            {               
-                int number = random.Next(100, 999);
-
-                foreach (int i in couponArray)
+                int j = 0; //// index value for CouponArray
+                while (numberOfCoupons != 0)
                 {
-                    if (i == number)
+                    int number = random.Next(100, 999);
+
+                    foreach (int i in couponArray)
                     {
-                        flag = false;
+                        if (i == number)
+                        {
+                            flag = false;
+                        }
+                    }
+
+                    if (assignFlag)
+                    {
+                        couponArray[j] = number;
+                        j++;
+                        numberOfCoupons--;
                     }
                 }
 
-                if (assignFlag)
-                {
-                    couponArray[j] = number;
-                    j++;
-                    numberOfCoupons--;
-                }              
+                Console.WriteLine("The Generated Coupons are ");
+                Utility.PrintArray(couponArray);
             }
+            catch (Exception ex)
+            {
 
-            Console.WriteLine("The Generated Coupons are ");
-            Utility.PrintArray(couponArray);
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

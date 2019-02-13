@@ -21,14 +21,22 @@ namespace FunctionalPrograms
         /// <returns>returns false if string is null or empty</returns>
         public static bool CheckString(string name)
         {
-            if (string.IsNullOrEmpty(name))
+            try
             {
-                Console.WriteLine("Name cant be empty, Enter proper name");
-                return false;
+                if (string.IsNullOrEmpty(name))
+                {
+                    Console.WriteLine("Name cant be empty, Enter proper name");
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return true;
+                Console.WriteLine(ex.ToString());
+                return false;
             }
         }
 
@@ -41,15 +49,23 @@ namespace FunctionalPrograms
         /// </returns>
         public static bool IsNumber(string input)
         {
-            for (int i = 0; i < input.Length; i++)
+            try
             {
-                if (char.IsDigit(input[i]) == false)
+                for (int i = 0; i < input.Length; i++)
                 {
-                    return false;
+                    if (char.IsDigit(input[i]) == false)
+                    {
+                        return false;
+                    }
                 }
-            }
 
-            return true;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
         }
 
         /// <summary>
@@ -59,49 +75,57 @@ namespace FunctionalPrograms
         /// <returns>int Array</returns>
         public static int[] TakeInputIntArray()
         {
-            int[] numberArray = new int[0];
-            bool flag = true; //// for keepasking the inputs untill correct Integers is given.
-            while (flag)
+            try
             {
-                Console.WriteLine("Enter the Numbers of digits");
-                string strNumberOfDigits = Console.ReadLine();
-
-                if (Utility.IsNumber(strNumberOfDigits) == false)
+                int[] numberArray = new int[0];
+                bool flag = true; //// for keepasking the inputs untill correct Integers is given.
+                while (flag)
                 {
-                    Console.WriteLine("Enter Only integers");
-                    continue;
-                }
-                else
-                {
-                    int numberOfDigits = Convert.ToInt32(strNumberOfDigits);
-                     numberArray = new int[numberOfDigits];
+                    Console.WriteLine("Enter the Numbers of digits");
+                    string strNumberOfDigits = Console.ReadLine();
 
-                    bool flag2 = true;
-                     Loop: //// this lable for goto outside the for loop below.
-                    while (flag2)
+                    if (Utility.IsNumber(strNumberOfDigits) == false)
                     {
-                        Console.WriteLine("Enter the Numbers one by one");
-                        for (int i = 0; i < numberOfDigits; i++)
-                        {
-                            string strNumber = Console.ReadLine();
-                            if (Utility.IsNumber(strNumber) == false)
-                            {
-                                Console.WriteLine("You can only add integers");
-                                goto Loop;
-                            }
-                            else
-                            {
-                                numberArray[i] = Convert.ToInt32(strNumber);
-                            }
-                        }
+                        Console.WriteLine("Enter Only integers");
+                        continue;
+                    }
+                    else
+                    {
+                        int numberOfDigits = Convert.ToInt32(strNumberOfDigits);
+                        numberArray = new int[numberOfDigits];
 
-                        flag2 = false;
-                        flag = false;
+                        bool flag2 = true;
+                    Loop: //// this lable for goto outside the for loop below.
+                        while (flag2)
+                        {
+                            Console.WriteLine("Enter the Numbers one by one");
+                            for (int i = 0; i < numberOfDigits; i++)
+                            {
+                                string strNumber = Console.ReadLine();
+                                if (Utility.IsNumber(strNumber) == false)
+                                {
+                                    Console.WriteLine("You can only add integers");
+                                    goto Loop;
+                                }
+                                else
+                                {
+                                    numberArray[i] = Convert.ToInt32(strNumber);
+                                }
+                            }
+
+                            flag2 = false;
+                            flag = false;
+                        }
                     }
                 }
-            }
 
-            return numberArray;
+                return numberArray;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return new int[0];
+            }
         }
 
         /// <summary>
@@ -109,14 +133,37 @@ namespace FunctionalPrograms
         /// </summary>
         public static void StartStopWatch()
         {
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-            Console.WriteLine("Stopwatch Started,Press Enter key to stop");
-            Console.ReadKey();
-            Console.WriteLine("Total Elapsed time = " + stopWatch.Elapsed);
+            try
+            {
+                Stopwatch stopWatch = new Stopwatch();
+                stopWatch.Start();
+                Console.WriteLine("Stopwatch Started,Press Enter key to stop");
+                Console.ReadKey();
+                Console.WriteLine("Total Elapsed time = " + stopWatch.Elapsed);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
-    }
 
-
-    
+      /// <summary>
+      /// Prints given array
+      /// </summary>
+      /// <param name="array"> int []</param>
+        public static void PrintArray(int[] array)
+        {
+            try
+            {
+                for (int i = 0; i < array.Length; i++)
+                {
+                    Console.WriteLine(array[i]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+    } 
 }

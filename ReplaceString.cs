@@ -19,27 +19,34 @@ namespace FunctionalPrograms
         /// Calling this method will replace  input(String) and replace it with template.
         public static void ReplaceName()
         {
-            bool keepLooping = true;
-
-            while (keepLooping)
+            try
             {
-                Console.WriteLine("Enter your Name");
-                string name = Console.ReadLine();
-                if (name.Length < 3)
-                {
-                    Console.WriteLine("Name length should be greater than 3");
-                    continue;
-                }
+                bool keepLooping = true;
 
-                if (Utility.CheckString(name))
+                while (keepLooping)
                 {
-                    Console.WriteLine("Hello <<" + name + ">>, How are you?");
-                    keepLooping = false; //// program ended sucessfully
+                    Console.WriteLine("Enter your Name");
+                    string name = Console.ReadLine();
+                    if (name.Length < 3)
+                    {
+                        Console.WriteLine("Name length should be greater than 3");
+                        continue;
+                    }
+
+                    if (Utility.CheckString(name))
+                    {
+                        Console.WriteLine("Hello <<" + name + ">>, How are you?");
+                        keepLooping = false; //// program ended sucessfully
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
-                else
-                {
-                    return;
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
         }
     }

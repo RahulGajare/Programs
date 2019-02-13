@@ -19,39 +19,47 @@ namespace FunctionalPrograms
         /// </summary>
         public static void CheckLeapYear()
         {
-            int year;
-            bool keepLooping = true;
-            while (keepLooping)
+            try
             {
-                Console.WriteLine("Enter the year you want to check");
-                string syear = Console.ReadLine();
-
-                if (Utility.IsNumber(syear) == false)
+                int year;
+                bool keepLooping = true;
+                while (keepLooping)
                 {
-                    Console.WriteLine("Invalid year");
-                }
-                else
-                {
-                    year = Convert.ToInt32(syear);
+                    Console.WriteLine("Enter the year you want to check");
+                    string syear = Console.ReadLine();
 
-                    if (year % 4 == 0 && year % 100 != 0)
+                    if (Utility.IsNumber(syear) == false)
                     {
-                        Console.WriteLine("Year " + year + " is a Leap Year");
+                        Console.WriteLine("Invalid year");
                     }
                     else
                     {
-                        if (year % 400 == 0)
+                        year = Convert.ToInt32(syear);
+
+                        if (year % 4 == 0 && year % 100 != 0)
                         {
                             Console.WriteLine("Year " + year + " is a Leap Year");
                         }
                         else
                         {
-                            Console.WriteLine("Year " + year + " is not a Leap Year");
+                            if (year % 400 == 0)
+                            {
+                                Console.WriteLine("Year " + year + " is a Leap Year");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Year " + year + " is not a Leap Year");
+                            }
                         }
                     }
-                }
 
-                keepLooping = false;
+                    keepLooping = false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.ToString());
             }
         }
     }
