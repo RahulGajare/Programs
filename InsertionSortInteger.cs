@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IntBubbleSort.cs" company="Bridgelabz">
+// <copyright file="InsertionSortInteger.cs" company="Bridgelabz">
 //   Copyright © 2018 Company
 // </copyright>
 // <creator name="Rahul Gajare"/>
@@ -14,18 +14,18 @@ namespace Algorithms
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Sorts using bubbleSort Method
+    /// Sorts the Integers using Insertion Sort
     /// </summary>
-    public class IntBubbleSort
+    public class InsertionSortInteger
     {
         /// <summary>
-        /// Bubbles the sort int.
+        /// Integers the insertion sort.
         /// </summary>
-        public static void BubbleSortInt()
+        public static void IntegerInsertionSort()
         {
             int[] userArray = Utility.TakeInputIntArray();
-            Console.WriteLine("Bubble Sorted");
-            Utility.PrintArrayInt(Utility.BubbleSortInt(userArray));
+            Console.WriteLine("Insertion Sorted");
+            Utility.PrintArrayInt(Utility.InsertionSortInt(userArray));
             Console.Read();
         }
     }

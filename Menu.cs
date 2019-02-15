@@ -1,15 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Menu.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace Algorithms
-
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    /// <summary>
+    /// Entry point of this project
+    /// </summary>
     public class Menu
     {
-        public static void Main(string[] args)
+        /// <summary>
+        /// Defines the entry point of the application.
+        /// </summary>
+        /// <exception cref="Exception">throws exception</exception>
+        public static void Main()
         {
             try
             {
@@ -28,6 +41,9 @@ namespace Algorithms
                     Console.WriteLine("7) String Bubble sort");
                     Console.WriteLine("8) Integer Bubble sort");
                     Console.WriteLine("9) Temperature Conversion");
+                    Console.WriteLine("10) Convert to Binary");
+                    Console.WriteLine("11) Integer Insertion sort");
+                    Console.WriteLine("12) String Insertion sort");
                 
                     Console.WriteLine("======================================================================================================================");
 
@@ -96,13 +112,31 @@ namespace Algorithms
                                 IntBinarySearch.BinarySearchInt();
                                 break;
                             }
+
                         case 9:
                             {
                                 Temperatureconversion.ConvertTemp();
                                 break;
                             }
-                            
 
+                        case 10:
+                            {
+                                ToBinary.ConvertToBinary();
+                                break;
+                            }
+
+                        case 11:
+                            {
+                                InsertionSortInteger.IntegerInsertionSort();
+                                break;
+                            }
+
+                        case 12:
+                            {
+                                InsertionSortString.StringInsertionSort();
+                                break;
+                            }
+                   
                         default:
                             {
                                 Console.WriteLine("Invalid Option");

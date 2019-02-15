@@ -23,8 +23,8 @@ namespace Algorithms
         /// </summary>
         public static void AnagramString()
         {
-            string firstString = "";
-            string secondString = "";
+            string firstString = string.Empty;
+            string secondString = string.Empty;
 
             bool loop1 = true; //// for keep asking for first string untill valid string is given 
             while (loop1)
@@ -54,12 +54,9 @@ namespace Algorithms
                 }
 
                 loop2 = false;
-
             }
 
-            
-
-            if (Utility.CheckAnagram(firstString ,secondString))
+            if (Utility.CheckAnagram(firstString, secondString))
             {
                 Console.WriteLine("The Given Strings are Anagrams");
             }

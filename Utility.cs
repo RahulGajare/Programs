@@ -8,12 +8,15 @@
 namespace Algorithms
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using System.Collections;
-
+  
+    /// <summary>
+    /// Consist of Utility Method
+    /// </summary>
     public class Utility
     {
         /// <summary>
@@ -23,15 +26,13 @@ namespace Algorithms
         /// <returns>returns false if string is null or empty</returns>
         public static bool CheckString(string name)
         {
-            
             if (string.IsNullOrEmpty(name.Trim()))
-            {
-                
-                return true; ;
+            {       
+                return true;
             }
             else
             {
-                return false; ;
+                return false;
             }
         }
 
@@ -44,10 +45,11 @@ namespace Algorithms
         /// </returns>
         public static bool IsNumber(string input)
         {
-            if (input.Trim().Equals(""))
+            if (input.Trim().Equals(string.Empty))
             {
                 return false;
             }
+
             for (int i = 0; i < input.Length; i++)
             {
                 if (char.IsDigit(input[i]) == false)
@@ -114,7 +116,7 @@ namespace Algorithms
         /// <summary>
         /// Takes the input  for string array.
         /// </summary>
-        /// <returns></returns>
+        /// <returns> returns filled string Array</returns>
         public static string[] TakeInputStringArray()
         {
             string[] stringArray = new string[0];
@@ -144,7 +146,6 @@ namespace Algorithms
                 stringArray[i] = Console.ReadLine();
             }
 
-
             return stringArray;
         }
 
@@ -157,10 +158,8 @@ namespace Algorithms
             try
             {
                 for (int i = 0; i < array.Length; i++)
-                {
-                    
-                        Console.Write(array[i] + " ");
-                  
+                {                 
+                        Console.Write(array[i] + " ");           
                 }
             }
             catch (Exception ex)
@@ -179,9 +178,7 @@ namespace Algorithms
             {
                 for (int i = 0; i < userArray.Length; i++)
                 {
-
                     Console.Write(userArray[i] + " ");
-
                 }
             }
             catch (Exception ex)
@@ -193,13 +190,13 @@ namespace Algorithms
         /// <summary>
         /// Checks the anagram.
         /// </summary>
-        /// <returns></returns>
-        public static bool  CheckAnagram(string s1 , string s2 )
-        {
-            
-            Char[] ca1 = s1.ToCharArray();
+        /// <param name="s1">The s1.</param>
+        /// <param name="s2">The s2.</param>
+        /// <returns> returns true if given Anagram are true</returns>
+        public static bool CheckAnagram(string s1, string s2)
+        {       
+            char[] ca1 = s1.ToCharArray();
             char[] ca2 = s2.ToCharArray();
-
             Array.Sort(ca1);
             Array.Sort(ca2);
 
@@ -217,8 +214,9 @@ namespace Algorithms
         }
 
         /// <summary>
-        /// Prints the prime numbers between the given numbers.
+        /// Gets the prime numbers list.
         /// </summary>
+        /// <returns> returns array of prime Numbers</returns>
         public static ArrayList GetPrimeNumbersList()
         {
             ArrayList primeNumberArrayList = new ArrayList();
@@ -270,10 +268,10 @@ namespace Algorithms
                     Console.WriteLine("Last number should be greater than the initial Value ");
                     continue;
                 }
+
                 lastFlag = false;
             }
-
-            
+   
             //// For keep checking for PrimeNumber till last Range.
             for (int i = initialNumber; i <= lastNumber; i++)
             {
@@ -346,22 +344,21 @@ namespace Algorithms
             bool found = false; //// To check if atleast One Palindrome is found.
 
             ////Here i points starts from the first element 
-            for (int i = 0; i < list.Count; i ++)
+            for (int i = 0; i < list.Count; i++)
             {
                 //// Here the element at i is compared to each element at value of j.
                 for (int j = 0; j < list.Count; j++)
                 {
                     if (j != i)
                     {
-                        if(list[i].ToString().Length == list[j].ToString().Length)
+                        if (list[i].ToString().Length == list[j].ToString().Length)
                         {
                             if (CheckAnagram(list[i].ToString(), list[j].ToString()))
                             {
                                 found = true;
                                 Console.WriteLine(list[i].ToString() + "is anagram of " + list[j].ToString());
                             }
-                        }
-                       
+                        }                   
                     }
                 }
             }
@@ -377,22 +374,20 @@ namespace Algorithms
         /// Checks the palindrome.
         /// </summary>
         /// <param name="userString">The user string.</param>
-        /// <returns></returns>
-        public static bool CheckPalindrome(string userString )
+        /// <returns>returns true if given string is Palindrome</returns>
+        public static bool CheckPalindrome(string userString)
         {
-            char[] s1CharArray = userString.ToCharArray();
-            
-
-            for (int i =0; i < s1CharArray.Length/2; i++)
+            char[] userstringCharArray = userString.ToCharArray();           
+            for (int i = 0; i < userstringCharArray.Length / 2; i++)
             {
-                int j = s1CharArray.Length - 1 - i;
+                int j = userstringCharArray.Length - 1 - i;
 
-                s1CharArray[i] = (char) (s1CharArray[i] ^ s1CharArray[j]);
-                s1CharArray[j] = (char) (s1CharArray[i] ^ s1CharArray[j]);
-                s1CharArray[i] = (char) (s1CharArray[i] ^ s1CharArray[j]);
+                userstringCharArray[i] = (char)(userstringCharArray[i] ^ userstringCharArray[j]);
+                userstringCharArray[j] = (char)(userstringCharArray[i] ^ userstringCharArray[j]);
+                userstringCharArray[i] = (char)(userstringCharArray[i] ^ userstringCharArray[j]);
             }
 
-            if (new String(s1CharArray).Equals(userString))
+            if (new string(userstringCharArray).Equals(userString))
             {
                 return true;
             }
@@ -406,13 +401,13 @@ namespace Algorithms
         /// <param name="list">The list.</param>
         public static void PrintPrimePalindrome(ArrayList list)
         {
-            bool found = false;//// To check if atleast One Palindrome is found.
+            bool found = false; //// To check if atleast One Palindrome is found.
             foreach (int i in list)
             {
                 if (CheckPalindrome(i.ToString()))
                 {                
                     Console.WriteLine(i);
-                    found= true;
+                    found = true;
                 }
             }
 
@@ -423,17 +418,16 @@ namespace Algorithms
             }
         }
 
-
         /// <summary>
         /// Bubbles sorts the given int stringArray.
         /// </summary>
         /// <param name="userArray">The user userArray.</param>
-        /// <returns></returns>
+        /// <returns>returns sorted  int array</returns>
         public static int[] BubbleSortInt(int[] userArray)
         {
             for (int i = 0; i <= userArray.Length - 1; i++)
             {
-                for (int j = i+1; j < userArray.Length; j++)
+                for (int j = i + 1; j < userArray.Length; j++)
                 {
                     if (userArray[i] > userArray[j])
                     {
@@ -451,7 +445,7 @@ namespace Algorithms
         /// Bubbles the sort string.
         /// </summary>
         /// <param name="userArray">The user array.</param>
-        /// <returns></returns>
+        /// <returns> returns sorted string</returns>
         public static string[] BubbleSortString(string[] userArray)
         {
             for (int i = 0; i <= userArray.Length - 1; i++)
@@ -470,13 +464,12 @@ namespace Algorithms
             return userArray;
         }
 
-
         /// <summary>
         /// Searches an given Integer using Binary search method
         /// </summary>
         /// <param name="userArray">The user array.</param>
         /// <param name="search">The search.</param>
-        /// <returns></returns>
+        /// <returns> Returns true if found</returns>
         public static bool BinarySearchInteger(int[] userArray, int search)
         {
             Array.Sort(userArray);
@@ -503,7 +496,6 @@ namespace Algorithms
             }
 
             return false;
-
         }
 
         /// <summary>
@@ -511,7 +503,7 @@ namespace Algorithms
         /// </summary>
         /// <param name="userArray">The user array.</param>
         /// <param name="search">The search.</param>
-        /// <returns></returns>
+        /// <returns> returns found</returns>
         public static bool BinarySearchString(string[] userArray, string search)
         {
             Array.Sort(userArray);
@@ -538,18 +530,74 @@ namespace Algorithms
             }
 
             return false;
-
         }
 
+        /// <summary>
+        /// Celsius to fahrenheit.
+        /// </summary>
+        /// <param name="celsius">The celsius.</param>
+        /// <returns> Celsius To Fahrenheit </returns>
         public static int CelsiusToFahrenheit(int celsius)
         {
-            return (celsius * 9 / 5) + (32);
+            return (celsius * 9 / 5) + 32;
         }
 
+        /// <summary>
+        /// Fahrenheits to celsius.
+        /// </summary>
+        /// <param name="fahrenheit">The fahrenheit.</param>
+        /// <returns> returns Celsius value</returns>
         public static int FahrenheitToCelsius(int fahrenheit)
         {
             return (fahrenheit - 32) * (5 / 9);
         }
 
+        /// <summary>
+        /// Insertions the sort int.
+        /// </summary>
+        /// <param name="userArray">The user array.</param>
+        /// <returns>sorted int Array</returns>
+        public static int[] InsertionSortInt(int[] userArray)
+        {
+            int hold;
+            for (int i = 1; i < userArray.Length; i++)
+            {
+                hold = userArray[i];
+                int j = i;
+                while (j > 0 && userArray[j - 1] > hold)
+                {
+                    userArray[j] = userArray[j - 1];
+                    j--;
+                }
+
+                userArray[j] = hold;        
+            }
+
+            return userArray;
+        }
+
+        /// <summary>
+        /// Insertions the sort string.
+        /// </summary>
+        /// <param name="userArray">The user array.</param>
+        /// <returns> sorted String Array</returns>
+        public static string[] InsertionSortString(string[] userArray)
+        {
+            string hold;
+            for (int i = 1; i < userArray.Length; i++)
+            {
+                hold = userArray[i];
+                int j = i;
+                while (j > 0 && userArray[j - 1].CompareTo(hold) > 0)
+                {
+                    userArray[j] = userArray[j - 1];
+                    j--;
+                }
+
+                userArray[j] = hold;
+            }
+
+            return userArray;
+        }
     }
 }

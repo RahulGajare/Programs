@@ -1,16 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="IntBinarySearch.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace Algorithms
 {
-    class IntBinarySearch
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    /// <summary>
+    /// Searches an Int using BinarySearch Method
+    /// </summary>
+    public class IntBinarySearch
     {
+        /// <summary>
+        /// Binaries the search int.
+        /// </summary>
         public static void BinarySearchInt()
         {
-            int [] userArray = Utility.TakeInputIntArray();
+            int[] userArray = Utility.TakeInputIntArray();
             int numberToSearch = 0;
             bool flag = true;
             while (flag)
@@ -23,9 +36,8 @@ namespace Algorithms
                 }
 
                 numberToSearch = Convert.ToInt32(strInt);
-                    flag = false ;
+                flag = false;
             }
-
 
             if (Utility.BinarySearchInteger(userArray, numberToSearch) == false)
             {
@@ -35,6 +47,7 @@ namespace Algorithms
             {
                 Console.WriteLine("found ");
             }
+
             Console.Read();
         }
     }

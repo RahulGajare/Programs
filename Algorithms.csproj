@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Anagram.cs" />
+    <Compile Include="InsertionSortInteger.cs" />
+    <Compile Include="InsertionSortString.cs" />
     <Compile Include="TemperatureConversion.cs" />
     <Compile Include="IntBinarySearch.cs" />
     <Compile Include="IntBubbleSort.cs" />
@@ -54,6 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringBinarySearch.cs" />
     <Compile Include="StringBubbleSort.cs" />
+    <Compile Include="ToBinary.cs" />
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
