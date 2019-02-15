@@ -14,6 +14,7 @@ namespace Algorithms
             Console.WriteLine("Bubble Sorted");
             Utility.PrintArrayInt(Utility.BubbleSortInt(userArray));
             Console.Read();
+
         }
     }
 }

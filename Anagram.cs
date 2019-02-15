@@ -23,12 +23,41 @@ namespace Algorithms
         /// </summary>
         public static void AnagramString()
         {
-            Console.WriteLine("Enter the 1st String");
-            string firstString = Console.ReadLine();
+            string firstString = "";
+            string secondString = "";
 
-            Console.WriteLine("Enter the 2nd String");
-            string secondString = Console.ReadLine();
+            bool loop1 = true; //// for keep asking for first string untill valid string is given 
+            while (loop1)
+            {
+                Console.WriteLine("Enter the 1st String");
+                 firstString = Console.ReadLine();
 
+                if (Utility.CheckString(firstString))
+                {
+                    Console.WriteLine("String cant be empty, Enter proper String");
+                    continue;
+                }
+
+                loop1 = false;
+            }
+
+            bool loop2 = true; //// for keep asking for second string untill valid string is given
+            while (loop2)
+            {
+                Console.WriteLine("Enter the 2nd String");
+                secondString = Console.ReadLine();
+
+                if (Utility.CheckString(secondString))
+                {
+                    Console.WriteLine("Name cant be empty, Enter proper name");
+                    continue;
+                }
+
+                loop2 = false;
+
+            }
+
+            
 
             if (Utility.CheckAnagram(firstString ,secondString))
             {

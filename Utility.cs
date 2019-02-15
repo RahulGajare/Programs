@@ -23,14 +23,15 @@ namespace Algorithms
         /// <returns>returns false if string is null or empty</returns>
         public static bool CheckString(string name)
         {
-            if (string.IsNullOrEmpty(name))
+            
+            if (string.IsNullOrEmpty(name.Trim()))
             {
-                Console.WriteLine("Name cant be empty, Enter proper name");
-                return false;
+                
+                return true; ;
             }
             else
             {
-                return true;
+                return false; ;
             }
         }
 
@@ -43,6 +44,10 @@ namespace Algorithms
         /// </returns>
         public static bool IsNumber(string input)
         {
+            if (input.Trim().Equals(""))
+            {
+                return false;
+            }
             for (int i = 0; i < input.Length; i++)
             {
                 if (char.IsDigit(input[i]) == false)
@@ -442,6 +447,11 @@ namespace Algorithms
             return userArray;
         }
 
+        /// <summary>
+        /// Bubbles the sort string.
+        /// </summary>
+        /// <param name="userArray">The user array.</param>
+        /// <returns></returns>
         public static string[] BubbleSortString(string[] userArray)
         {
             for (int i = 0; i <= userArray.Length - 1; i++)
@@ -531,9 +541,15 @@ namespace Algorithms
 
         }
 
+        public static int CelsiusToFahrenheit(int celsius)
+        {
+            return (celsius * 9 / 5) + (32);
+        }
 
-
-
+        public static int FahrenheitToCelsius(int fahrenheit)
+        {
+            return (fahrenheit - 32) * (5 / 9);
+        }
 
     }
 }
