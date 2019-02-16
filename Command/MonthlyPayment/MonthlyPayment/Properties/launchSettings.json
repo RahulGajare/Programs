@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MonthlyPayment": {
+      "commandName": "Project",
+      "commandLineArgs": "55 2019 8"
+    }
+  }
+}

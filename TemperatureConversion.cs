@@ -55,47 +55,13 @@ namespace Algorithms
                 {
                     case 1:
                         {
-                            bool loopCelsius = true;
-                            ////keeps looping till correct value for Celsius is given
-                            while (loopCelsius) 
-                            {
-                                Console.WriteLine("Enter the Celsius value");
-                                string stringCelsius = Console.ReadLine();
-
-                                if (Utility.IsNumber(stringCelsius) == false)
-                                {
-                                    Console.WriteLine("Invalid value for Celsius Specified");
-                                    continue;
-                                }
-
-                                Console.WriteLine(Utility.CelsiusToFahrenheit(Convert.ToInt32(stringCelsius)));
-                                loopCelsius = false;
-                                return;
-                            }
-
+                            TemperatureMenuCall.CelsiusToFarhenheit();
                             break;
                         }
 
                     case 2:
                         {
-                            bool loopFahrenheit = true;
-                            ////keeps looping till correct value for Fahrenheit is given
-                            while (loopFahrenheit) 
-                            {
-                                Console.WriteLine("Enter the Fahrenheit value");
-                                string stringFahrenheit = Console.ReadLine();
-
-                                if (Utility.IsNumber(stringFahrenheit) == false)
-                                {
-                                    Console.WriteLine("Invalid value for Celsius Specified");
-                                    continue;
-                                }
-
-                                Console.WriteLine(Utility.FahrenheitToCelsius(Convert.ToInt32(stringFahrenheit)));
-                                loopFahrenheit = false;
-                                return;
-                            }
-
+                            TemperatureMenuCall.FarhenheitToCelsius();
                             break;
                         }
                 }

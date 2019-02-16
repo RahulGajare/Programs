@@ -718,22 +718,29 @@ namespace Algorithms
         /// <returns> returns true or false</returns>
         public static bool PowerOf2(int x)
         {
-            if (x == 0)
+            try
             {
-                return false;
-            }
-
-            while (x != 1)
-            {
-                if (x % 2 == 0)
+                if (x == 0)
                 {
                     return false;
                 }
 
-                x = x / 2;
-            }
+                while (x != 1)
+                {
+                    if (x % 2 == 0)
+                    {
+                        return false;
+                    }
 
-            return true;            
+                    x = x / 2;
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }      
         }    
     }
 }

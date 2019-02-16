@@ -48,6 +48,7 @@
     <Compile Include="InsertionSortString.cs" />
     <Compile Include="sqrt.cs" />
     <Compile Include="SwapNibble.cs" />
+    <Compile Include="TemperatureMenuCall.cs" />
     <Compile Include="TemperatureConversion.cs" />
     <Compile Include="IntBinarySearch.cs" />
     <Compile Include="IntBubbleSort.cs" />
