@@ -24,39 +24,46 @@ namespace Algorithms
         /// </summary>
         public static void BinarySearchString()
         {
-            string filePath = string.Empty;
-            bool loop = true;
-            while (loop)
+            try
             {
-                Console.WriteLine("Enter the Path of file you want to search a Name from.");
-
-                filePath = Console.ReadLine();
-                if (File.Exists(filePath) == false)
+                string filePath = string.Empty;
+                bool loop = true;
+                while (loop)
                 {
-                    Console.WriteLine("Specified file does not exist, try again");
-                    continue;
+                    Console.WriteLine("Enter the Path of file you want to search a Name from.");
+
+                    filePath = Console.ReadLine();
+                    if (File.Exists(filePath) == false)
+                    {
+                        Console.WriteLine("Specified file does not exist, try again");
+                        continue;
+                    }
+
+                    loop = false;
                 }
 
-                loop = false;
+                Console.WriteLine("Enter the string you want to search");
+                string toSearch = Console.ReadLine();
+
+                string fileContent = System.IO.File.ReadAllText(filePath);
+
+                string[] namesArray = fileContent.Split(',');
+
+                if (Utility.BinarySearchString(namesArray, toSearch))
+                {
+                    Console.WriteLine("found " + toSearch);
+                }
+                else
+                {
+                    Console.WriteLine("Not found ");
+                }
+
+                Console.Read();
             }
-
-            Console.WriteLine("Enter the string you want to search");
-            string toSearch = Console.ReadLine();
-
-            string fileContent = System.IO.File.ReadAllText(filePath);
-
-            string[] namesArray = fileContent.Split(',');
-
-            if (Utility.BinarySearchString(namesArray, toSearch))
+            catch (Exception ex)
             {
-                Console.WriteLine("found " + toSearch);
+                throw new Exception(ex.Message);
             }
-            else
-            {
-                Console.WriteLine("Not found ");
-            }
-
-            Console.Read();
         }
     }
 }

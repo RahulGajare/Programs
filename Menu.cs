@@ -44,6 +44,9 @@ namespace Algorithms
                     Console.WriteLine("10) Convert to Binary");
                     Console.WriteLine("11) Integer Insertion sort");
                     Console.WriteLine("12) String Insertion sort");
+                    Console.WriteLine("13) Vending Machine");
+                    Console.WriteLine("14) Find square root");
+                    Console.WriteLine("15) SwapNibble");
                 
                     Console.WriteLine("======================================================================================================================");
 
@@ -136,7 +139,25 @@ namespace Algorithms
                                 InsertionSortString.StringInsertionSort();
                                 break;
                             }
-                   
+
+                        case 13:
+                            {
+                                VendingMachine.Vendingmachine();
+                                break;
+                            }
+
+                        case 14:
+                            {
+                                Sqrt.FindSqrt();
+                                break;
+                            }
+
+                        case 15:
+                            {
+                                SwapNibble.SwapNibbles();
+                                break;
+                            }
+
                         default:
                             {
                                 Console.WriteLine("Invalid Option");

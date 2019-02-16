@@ -23,9 +23,15 @@ namespace Algorithms
         /// </summary>
         public static void PrintPrimeNumber()
         {
-            Utility.PrintArrayList(Utility.GetPrimeNumbersList());
-            
-            Console.Read();
-        }     
+            try
+            {
+                Utility.PrintArrayList(Utility.GetPrimeNumbersList());
+                Console.Read();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

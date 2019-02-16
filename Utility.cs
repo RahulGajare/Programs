@@ -13,7 +13,7 @@ namespace Algorithms
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-  
+
     /// <summary>
     /// Consist of Utility Method
     /// </summary>
@@ -26,13 +26,20 @@ namespace Algorithms
         /// <returns>returns false if string is null or empty</returns>
         public static bool CheckString(string name)
         {
-            if (string.IsNullOrEmpty(name.Trim()))
-            {       
-                return true;
-            }
-            else
+            try
             {
-                return false;
+                if (string.IsNullOrEmpty(name.Trim()))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -45,20 +52,27 @@ namespace Algorithms
         /// </returns>
         public static bool IsNumber(string input)
         {
-            if (input.Trim().Equals(string.Empty))
+            try
             {
-                return false;
-            }
-
-            for (int i = 0; i < input.Length; i++)
-            {
-                if (char.IsDigit(input[i]) == false)
+                if (input.Trim().Equals(string.Empty))
                 {
                     return false;
                 }
-            }
 
-            return true;
+                for (int i = 0; i < input.Length; i++)
+                {
+                    if (char.IsDigit(input[i]) == false)
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -68,49 +82,56 @@ namespace Algorithms
         /// <returns>int stringArray</returns>
         public static int[] TakeInputIntArray()
         {
-            int[] numberArray = new int[0];
-            bool flag = true; //// for keepasking the inputs untill correct Integers is given.
-            while (flag)
+            try
             {
-                Console.WriteLine("Enter the Numbers of digits");
-                string strNumberOfDigits = Console.ReadLine();
-
-                if (Utility.IsNumber(strNumberOfDigits) == false)
+                int[] numberArray = new int[0];
+                bool flag = true; //// for keepasking the inputs untill correct Integers is given.
+                while (flag)
                 {
-                    Console.WriteLine("Enter Only integers");
-                    continue;
-                }
-                else
-                {
-                    int numberOfDigits = Convert.ToInt32(strNumberOfDigits);
-                    numberArray = new int[numberOfDigits];
+                    Console.WriteLine("Enter the Numbers of digits");
+                    string strNumberOfDigits = Console.ReadLine();
 
-                    bool flag2 = true;
-                Loop: //// this lable for goto outside the for loop below.
-                    while (flag2)
+                    if (Utility.IsNumber(strNumberOfDigits) == false)
                     {
-                        Console.WriteLine("Enter the Numbers one by one");
-                        for (int i = 0; i < numberOfDigits; i++)
-                        {
-                            string strNumber = Console.ReadLine();
-                            if (Utility.IsNumber(strNumber) == false)
-                            {
-                                Console.WriteLine("You can only add integers");
-                                goto Loop;
-                            }
-                            else
-                            {
-                                numberArray[i] = Convert.ToInt32(strNumber);
-                            }
-                        }
+                        Console.WriteLine("Enter Only integers");
+                        continue;
+                    }
+                    else
+                    {
+                        int numberOfDigits = Convert.ToInt32(strNumberOfDigits);
+                        numberArray = new int[numberOfDigits];
 
-                        flag2 = false;
-                        flag = false;
+                        bool flag2 = true;
+                        Loop: //// this lable for goto outside the for loop below.
+                        while (flag2)
+                        {
+                            Console.WriteLine("Enter the Numbers one by one");
+                            for (int i = 0; i < numberOfDigits; i++)
+                            {
+                                string strNumber = Console.ReadLine();
+                                if (Utility.IsNumber(strNumber) == false)
+                                {
+                                    Console.WriteLine("You can only add integers");
+                                    goto Loop;
+                                }
+                                else
+                                {
+                                    numberArray[i] = Convert.ToInt32(strNumber);
+                                }
+                            }
+
+                            flag2 = false;
+                            flag = false;
+                        }
                     }
                 }
-            }
 
-            return numberArray;
+                return numberArray;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -119,34 +140,41 @@ namespace Algorithms
         /// <returns> returns filled string Array</returns>
         public static string[] TakeInputStringArray()
         {
-            string[] stringArray = new string[0];
-            int numberOfStrings = 0;
-            bool flag = true; //// for keepasking the inputs untill correct Integers is given.
-            while (flag)
+            try
             {
-                Console.WriteLine("Enter the Numbers of strings you want to Enter");
-                string strNumberOfStrings = Console.ReadLine();
+                string[] stringArray = new string[0];
+                int numberOfStrings = 0;
+                bool flag = true; //// for keepasking the inputs untill correct Integers is given.
+                while (flag)
+                {
+                    Console.WriteLine("Enter the Numbers of strings you want to Enter");
+                    string strNumberOfStrings = Console.ReadLine();
 
-                if (Utility.IsNumber(strNumberOfStrings) == false)
-                {
-                    Console.WriteLine("Enter Only integers");
-                    continue;
+                    if (Utility.IsNumber(strNumberOfStrings) == false)
+                    {
+                        Console.WriteLine("Enter Only integers");
+                        continue;
+                    }
+                    else
+                    {
+                        numberOfStrings = Convert.ToInt32(strNumberOfStrings);
+                        stringArray = new string[numberOfStrings];
+                        flag = false;
+                    }
                 }
-                else
+
+                Console.WriteLine("Enter the Strings One by one");
+                for (int i = 0; i < numberOfStrings; i++)
                 {
-                    numberOfStrings = Convert.ToInt32(strNumberOfStrings);
-                    stringArray = new string[numberOfStrings];
-                    flag = false;
+                    stringArray[i] = Console.ReadLine();
                 }
+
+                return stringArray;
             }
-
-            Console.WriteLine("Enter the Strings One by one");
-            for (int i = 0; i < numberOfStrings; i++)
+            catch (Exception ex)
             {
-                stringArray[i] = Console.ReadLine();
+                throw new Exception(ex.Message);
             }
-
-            return stringArray;
         }
 
         /// <summary>
@@ -158,8 +186,8 @@ namespace Algorithms
             try
             {
                 for (int i = 0; i < array.Length; i++)
-                {                 
-                        Console.Write(array[i] + " ");           
+                {
+                    Console.Write(array[i] + " ");
                 }
             }
             catch (Exception ex)
@@ -194,22 +222,29 @@ namespace Algorithms
         /// <param name="s2">The s2.</param>
         /// <returns> returns true if given Anagram are true</returns>
         public static bool CheckAnagram(string s1, string s2)
-        {       
-            char[] ca1 = s1.ToCharArray();
-            char[] ca2 = s2.ToCharArray();
-            Array.Sort(ca1);
-            Array.Sort(ca2);
-
-            string str1 = new string(ca1);
-            string str2 = new string(ca2);
-
-            if (str1.Equals(str2))
+        {
+            try
             {
-                return true;
+                char[] ca1 = s1.ToCharArray();
+                char[] ca2 = s2.ToCharArray();
+                Array.Sort(ca1);
+                Array.Sort(ca2);
+
+                string str1 = new string(ca1);
+                string str2 = new string(ca2);
+
+                if (str1.Equals(str2))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return false;
+                throw new Exception(ex.Message);
             }
         }
 
@@ -249,7 +284,7 @@ namespace Algorithms
                 initialFlag = false;
             }
 
-            bool lastFlag = true;
+            bool lastFlag = true; //// keep asking the user till valid number is given.
             while (lastFlag)
             {
                 Console.WriteLine("Enter the Last Number ,you want to print Prime Numbers till");
@@ -271,7 +306,7 @@ namespace Algorithms
 
                 lastFlag = false;
             }
-   
+
             //// For keep checking for PrimeNumber till last Range.
             for (int i = initialNumber; i <= lastNumber; i++)
             {
@@ -358,7 +393,7 @@ namespace Algorithms
                                 found = true;
                                 Console.WriteLine(list[i].ToString() + "is anagram of " + list[j].ToString());
                             }
-                        }                   
+                        }
                     }
                 }
             }
@@ -377,10 +412,12 @@ namespace Algorithms
         /// <returns>returns true if given string is Palindrome</returns>
         public static bool CheckPalindrome(string userString)
         {
-            char[] userstringCharArray = userString.ToCharArray();           
+            char[] userstringCharArray = userString.ToCharArray();
+
+            ////this loops for the half of the length of array.
             for (int i = 0; i < userstringCharArray.Length / 2; i++)
             {
-                int j = userstringCharArray.Length - 1 - i;
+                int j = userstringCharArray.Length - 1 - i; //// as i value increases the j will decreases from last
 
                 userstringCharArray[i] = (char)(userstringCharArray[i] ^ userstringCharArray[j]);
                 userstringCharArray[j] = (char)(userstringCharArray[i] ^ userstringCharArray[j]);
@@ -404,8 +441,9 @@ namespace Algorithms
             bool found = false; //// To check if atleast One Palindrome is found.
             foreach (int i in list)
             {
+                ////if the Number is true for palindrome ,prints to the console.
                 if (CheckPalindrome(i.ToString()))
-                {                
+                {
                     Console.WriteLine(i);
                     found = true;
                 }
@@ -425,8 +463,10 @@ namespace Algorithms
         /// <returns>returns sorted  int array</returns>
         public static int[] BubbleSortInt(int[] userArray)
         {
+            ////this loops for one less than the  length of array
             for (int i = 0; i <= userArray.Length - 1; i++)
             {
+                ////this points to the next element of i;
                 for (int j = i + 1; j < userArray.Length; j++)
                 {
                     if (userArray[i] > userArray[j])
@@ -448,20 +488,29 @@ namespace Algorithms
         /// <returns> returns sorted string</returns>
         public static string[] BubbleSortString(string[] userArray)
         {
-            for (int i = 0; i <= userArray.Length - 1; i++)
+            try
             {
-                for (int j = i + 1; j < userArray.Length; j++)
+                ////this loops for one less than the  length of array
+                for (int i = 0; i <= userArray.Length - 1; i++)
                 {
-                    if (userArray[i].CompareTo(userArray[j]) > 0)
+                    ////this points to the next element of i;
+                    for (int j = i + 1; j < userArray.Length; j++)
                     {
-                        string temp = userArray[i];
-                        userArray[i] = userArray[j];
-                        userArray[j] = temp;
+                        if (userArray[i].CompareTo(userArray[j]) > 0)
+                        {
+                            string temp = userArray[i];
+                            userArray[i] = userArray[j];
+                            userArray[j] = temp;
+                        }
                     }
                 }
-            }
 
-            return userArray;
+                return userArray;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -472,30 +521,38 @@ namespace Algorithms
         /// <returns> Returns true if found</returns>
         public static bool BinarySearchInteger(int[] userArray, int search)
         {
-            Array.Sort(userArray);
-            int first = 0;
-            int last = userArray.Length - 1;
-            int middle = (first + last) / 2;
-
-            while (first <= last)
+            try
             {
-                if (userArray[middle] < search)
+                Array.Sort(userArray);
+                int first = 0; ////Initially points to the first element of array.
+                int last = userArray.Length - 1; ////Initially points to the last element of array.
+                int middle = (first + last) / 2; /////Initially points to the middle element between fisrt and last. 
+
+                ////loops until there is no element between first and last
+                while (first <= last)
                 {
-                    first = middle + 1;
-                }
-                else if (userArray[middle] == search)
-                {
-                    return true;
-                }
-                else
-                {
-                    last = middle - 1;
+                    if (userArray[middle] < search)
+                    {
+                        first = middle + 1;
+                    }
+                    else if (userArray[middle] == search)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        last = middle - 1;
+                    }
+
+                    middle = (first + last) / 2;
                 }
 
-                middle = (first + last) / 2;
+                return false;
             }
-
-            return false;
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -506,30 +563,38 @@ namespace Algorithms
         /// <returns> returns found</returns>
         public static bool BinarySearchString(string[] userArray, string search)
         {
-            Array.Sort(userArray);
-            int first = 0;
-            int last = userArray.Length - 1;
-            int middle = (first + last) / 2;
-
-            while (first <= last)
+            try
             {
-                if (userArray[middle].CompareTo(search) < 0)
+                Array.Sort(userArray);
+                int first = 0; ////Initially points to the first element of array.
+                int last = userArray.Length - 1;  ////Initially points to the last element of array.
+                int middle = (first + last) / 2; /////Initially points to the middle element between fisrt and last. 
+
+                ////loops until there is no element between first and last
+                while (first <= last)
                 {
-                    first = middle + 1;
-                }
-                else if (userArray[middle].Equals(search))
-                {
-                    return true;
-                }
-                else
-                {
-                    last = middle - 1;
+                    if (userArray[middle].CompareTo(search) < 0)
+                    {
+                        first = middle + 1;
+                    }
+                    else if (userArray[middle].Equals(search))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        last = middle - 1;
+                    }
+
+                    middle = (first + last) / 2;
                 }
 
-                middle = (first + last) / 2;
+                return false;
             }
-
-            return false;
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -539,7 +604,14 @@ namespace Algorithms
         /// <returns> Celsius To Fahrenheit </returns>
         public static int CelsiusToFahrenheit(int celsius)
         {
-            return (celsius * 9 / 5) + 32;
+            try
+            {
+                return (celsius * 9 / 5) + 32;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -549,7 +621,14 @@ namespace Algorithms
         /// <returns> returns Celsius value</returns>
         public static int FahrenheitToCelsius(int fahrenheit)
         {
-            return (fahrenheit - 32) * (5 / 9);
+            try
+            {
+                return (fahrenheit - 32) * (5 / 9);
+            } 
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -559,21 +638,28 @@ namespace Algorithms
         /// <returns>sorted int Array</returns>
         public static int[] InsertionSortInt(int[] userArray)
         {
-            int hold;
-            for (int i = 1; i < userArray.Length; i++)
+            try
             {
-                hold = userArray[i];
-                int j = i;
-                while (j > 0 && userArray[j - 1] > hold)
+                int hold; //// stores the value where i is pointing.
+                for (int i = 1; i < userArray.Length; i++)
                 {
-                    userArray[j] = userArray[j - 1];
-                    j--;
+                    hold = userArray[i];
+                    int j = i; //// j will point where i is pointing.
+                    while (j > 0 && userArray[j - 1] > hold)
+                    {
+                        userArray[j] = userArray[j - 1];
+                        j--;
+                    }
+
+                    userArray[j] = hold;
                 }
 
-                userArray[j] = hold;        
+                return userArray;
             }
-
-            return userArray;
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -583,21 +669,71 @@ namespace Algorithms
         /// <returns> sorted String Array</returns>
         public static string[] InsertionSortString(string[] userArray)
         {
-            string hold;
-            for (int i = 1; i < userArray.Length; i++)
+            try
             {
-                hold = userArray[i];
-                int j = i;
-                while (j > 0 && userArray[j - 1].CompareTo(hold) > 0)
+                string hold; //// stores the value where i is pointing.
+                for (int i = 1; i < userArray.Length; i++)
                 {
-                    userArray[j] = userArray[j - 1];
-                    j--;
+                    hold = userArray[i];
+                    int j = i; //// j will point where i is pointing.
+                    while (j > 0 && userArray[j - 1].CompareTo(hold) > 0)
+                    {
+                        userArray[j] = userArray[j - 1];
+                        j--;
+                    }
+
+                    userArray[j] = hold;
                 }
 
-                userArray[j] = hold;
+                return userArray;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Swaps the nibbles.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <returns> returns new Number</returns>
+        public static int SwapNibbles(int x)
+        {
+            try
+            {
+                return (x & 0x0F) << 4 |
+                        (x & 0xF0) >> 4;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Powers the of2.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <returns> returns true or false</returns>
+        public static bool PowerOf2(int x)
+        {
+            if (x == 0)
+            {
+                return false;
             }
 
-            return userArray;
-        }
+            while (x != 1)
+            {
+                if (x % 2 == 0)
+                {
+                    return false;
+                }
+
+                x = x / 2;
+            }
+
+            return true;            
+        }    
     }
 }

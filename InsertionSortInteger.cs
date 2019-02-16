@@ -9,6 +9,7 @@ namespace Algorithms
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -23,10 +24,21 @@ namespace Algorithms
         /// </summary>
         public static void IntegerInsertionSort()
         {
-            int[] userArray = Utility.TakeInputIntArray();
-            Console.WriteLine("Insertion Sorted");
-            Utility.PrintArrayInt(Utility.InsertionSortInt(userArray));
-            Console.Read();
+            try
+            {
+                Stopwatch stopWatch = new Stopwatch();
+                int[] userArray = Utility.TakeInputIntArray();
+                Console.WriteLine("Insertion Sorted");
+                stopWatch.Start();
+                Utility.PrintArrayInt(Utility.InsertionSortInt(userArray));
+                stopWatch.Stop();
+                Console.WriteLine("Elapsed time = " + stopWatch.Elapsed);
+                Console.Read();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

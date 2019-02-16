@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ToBinary.cs" company="Bridgelabz">
+// <copyright file="SwapNibble.cs" company="Bridgelabz">
 //   Copyright © 2018 Company
 // </copyright>
 // <creator name="Rahul Gajare"/>
@@ -8,64 +8,55 @@
 namespace Algorithms
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
     /// <summary>
-    /// To convert number to Binary
+    /// Swaps the Nibbles of given Number
     /// </summary>
-    public class ToBinary
+    public class SwapNibble
     {
         /// <summary>
-        /// Converts to binary.
+        /// Swaps the nibbles.
         /// </summary>
-        public static void ConvertToBinary()
+        public static void SwapNibbles()
         {
             try
             {
-                ArrayList binaryArrayList = new ArrayList();
-                string binary = string.Empty;
-
                 int userNumber = 0;
-                bool loopNumber = true;
-
-                while (loopNumber)
+                bool loop = true;
+                while (loop)
                 {
                     Console.WriteLine("Enter the Number");
                     string stringUserNumber = Console.ReadLine();
 
                     if (Utility.IsNumber(stringUserNumber) == false)
                     {
-                        Console.WriteLine("Enter a valid Positive Integer");
+                        Console.WriteLine("Invalid Number");
                         continue;
                     }
 
                     userNumber = Convert.ToInt32(stringUserNumber);
-                    loopNumber = false;
+                    loop = false;
                 }
 
-                while (userNumber > 0)
+                int swappedNibble = Utility.SwapNibbles(userNumber);
+                Console.WriteLine(swappedNibble);
+                if (Utility.PowerOf2(swappedNibble))
                 {
-                    binary = binary + (userNumber % 2).ToString();
-                    userNumber = userNumber / 2;
+                    Console.WriteLine("is Power of 2");
                 }
-
-                char[] binaryCharArray = binary.ToCharArray();
-
-                for (int i = binaryCharArray.Length - 1; i >= 0; i--)
+                else
                 {
-                    Console.Write(binaryCharArray[i]);
+                    Console.WriteLine("is not Power of 2");
                 }
-
-                Console.WriteLine();
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-        }
+        }            
     }
 }

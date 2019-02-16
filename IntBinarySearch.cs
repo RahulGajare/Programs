@@ -9,6 +9,7 @@ namespace Algorithms
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -23,32 +24,43 @@ namespace Algorithms
         /// </summary>
         public static void BinarySearchInt()
         {
-            int[] userArray = Utility.TakeInputIntArray();
-            int numberToSearch = 0;
-            bool flag = true;
-            while (flag)
+            try
             {
-                Console.WriteLine("Enter the int you want to search");
-                string strInt = Console.ReadLine();
-                if (Utility.IsNumber(strInt) == false)
+                Stopwatch stopwatch = new Stopwatch();
+                int[] userArray = Utility.TakeInputIntArray();
+                int numberToSearch = 0;
+                bool flag = true;
+                while (flag)
                 {
-                    Console.WriteLine("You can only search for an Int");
+                    Console.WriteLine("Enter the int you want to search");
+                    string strInt = Console.ReadLine();
+                    if (Utility.IsNumber(strInt) == false)
+                    {
+                        Console.WriteLine("You can only search for an Int");
+                    }
+
+                    numberToSearch = Convert.ToInt32(strInt);
+                    flag = false;
                 }
 
-                numberToSearch = Convert.ToInt32(strInt);
-                flag = false;
-            }
+                stopwatch.Start();
+                if (Utility.BinarySearchInteger(userArray, numberToSearch) == false)
+                {
+                    Console.WriteLine("Does not contain int " + numberToSearch);
+                }
+                else
+                {
+                    stopwatch.Stop();
+                    Console.WriteLine("found ");
+                    Console.WriteLine("Elapsed time = " + stopwatch.Elapsed);       
+                }
 
-            if (Utility.BinarySearchInteger(userArray, numberToSearch) == false)
-            {
-                Console.WriteLine("Does not contain int " + numberToSearch);
+                Console.Read();
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("found ");
+                throw new Exception(ex.Message);
             }
-
-            Console.Read();
         }
     }
 }

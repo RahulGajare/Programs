@@ -23,8 +23,15 @@ namespace Algorithms
         /// </summary>
         public static void PrintPrimeAnagram()
         {
-            Utility.PrintAnagrams(Utility.GetPrimeNumbersList());
-            Console.Read();
+            try
+            {
+                Utility.PrintAnagrams(Utility.GetPrimeNumbersList());
+                Console.Read();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

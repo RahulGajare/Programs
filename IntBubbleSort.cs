@@ -23,10 +23,17 @@ namespace Algorithms
         /// </summary>
         public static void BubbleSortInt()
         {
-            int[] userArray = Utility.TakeInputIntArray();
-            Console.WriteLine("Bubble Sorted");
-            Utility.PrintArrayInt(Utility.BubbleSortInt(userArray));
-            Console.Read();
+            try
+            {
+                int[] userArray = Utility.TakeInputIntArray();
+                Console.WriteLine("Bubble Sorted");
+                Utility.PrintArrayInt(Utility.BubbleSortInt(userArray));
+                Console.Read();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

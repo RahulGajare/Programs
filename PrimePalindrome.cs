@@ -17,14 +17,21 @@ namespace Algorithms
     /// prints Prime Number that are palindrome
     /// </summary>
     public class PrimePalindrome
-    {       
+    {
         /// <summary>
         /// Primes the palindromes.
         /// </summary>
         public static void PrimePalindromes()
         {
-            Utility.PrintPrimePalindrome(Utility.GetPrimeNumbersList());
-            Console.Read();
+            try
+            {
+                Utility.PrintPrimePalindrome(Utility.GetPrimeNumbersList());
+                Console.Read();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
