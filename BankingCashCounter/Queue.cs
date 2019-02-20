@@ -6,7 +6,7 @@ namespace DataStructures.BankingCashCounter
 {
     class Queue
     {
-        int queueMaxSixe;
+        int queueMaxSixe = 500;
         int front = -1;
         int rear = -1;
         Person[] queueArray = new Person[1000];

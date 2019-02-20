@@ -18,6 +18,8 @@ namespace DataStructures.BankingCashCounter
                 return;
             }
 
+            this.balance = balance;
+
         }
 
         public string Name
@@ -32,32 +34,34 @@ namespace DataStructures.BankingCashCounter
             set { this.balance = value; }
         }
 
-        public void Deposite(int depositeAmount)
+        public bool Deposite(int depositeAmount)
         {
             if (depositeAmount <= 0)
             {
                 Console.WriteLine("Please Provide a positive value for amount to deposite");
                 Console.ReadKey();
-                return;
+                return false;
             }
 
             balance = balance + depositeAmount;
             Console.WriteLine("your total Balance = " + balance);
+            return true;
         }
 
-        public void withdraw(int withdrawAmount)
+        public bool Withdraw(int withdrawAmount)
         {
             if (withdrawAmount > balance)
             {
                 Console.WriteLine("You dont have enough money in your Account");
                 Console.ReadKey();
-                return;
+                return false;
            
             }
 
             balance = balance - withdrawAmount;
             Console.WriteLine("Remaining balance = "+ balance);
-           
+            return true;
+       
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataStructures.LinkedList_Ordered_
+namespace DataStructures.BankingCashCounter
 {
     class utility
     {
