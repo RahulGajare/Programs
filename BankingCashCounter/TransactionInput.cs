@@ -12,12 +12,13 @@ namespace DataStructures.BankingCashCounter
 
             while (loopDeposite)
             {
-                Console.WriteLine("Entrer the Money you want to Deposite,You have currently" + person.Balance + "in your account");
+                Console.WriteLine("Enter the Money you want to Deposite,You have currently " + person.Balance + " in your account");
                 string amountToDeposite = Console.ReadLine();
 
                 if (utility.IsNumber(amountToDeposite) == false)
                 {
                     Console.WriteLine("Invalid Input");
+                    continue;
 
                 }
 
@@ -38,12 +39,13 @@ namespace DataStructures.BankingCashCounter
             bool loopWithdraw = true;
             while (loopWithdraw)
             {
-                Console.WriteLine("Entrer the Money you want to Withdraw,You have currently" + person.Balance + "in your account");
+                Console.WriteLine("Enter the Money you want to Withdraw,You have currently " + person.Balance + " in your account");
                 string amountToWithdraw = Console.ReadLine();
 
                 if (utility.IsNumber(amountToWithdraw) == false)
                 {
                     Console.WriteLine("Invalid Input");
+                    continue;
                 }
 
                 if (person.Withdraw(Convert.ToInt32(amountToWithdraw)) == false)

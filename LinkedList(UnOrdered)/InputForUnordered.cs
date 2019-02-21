@@ -1,22 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file="InputForUnordered.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace DataStructures.LinkedList_UnOrdered_
 {
-    public class Input
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+
+    /// <summary>
+    /// Takes input required for this class.
+    /// </summary>
+    public class InputForUnordered
     {
+        /// <summary>
+        /// Unordered LinkedList
+        /// </summary>
         public static void UnOrderedList()
         {
-            string path =string.Empty;
-            SinglyLinkedList<String> singlyLinkedList = new SinglyLinkedList<String>();
+            string path = string.Empty;
+            SinglyLinkedList<string> singlyLinkedList = new SinglyLinkedList<string>();
 
             bool loopPath = true;
             while (loopPath)
             {
                 Console.WriteLine("Specify the path");
-                 path = Console.ReadLine();
+                path = Console.ReadLine();
 
                 if (File.Exists(path) == false)
                 {
@@ -27,14 +40,13 @@ namespace DataStructures.LinkedList_UnOrdered_
 
                 loopPath = false;
             }
-          
 
             string dataFromFile = System.IO.File.ReadAllText(path);
-            String[] splitArray = dataFromFile.Split(" ");
+            string[] splitArray = dataFromFile.Split(" ");
 
             foreach (string word in splitArray)
-            {               
-                    singlyLinkedList.Add(word.Trim());             
+            {
+                singlyLinkedList.Add(word.Trim());
             }
 
             Console.WriteLine("Enter the word you want to search");
@@ -45,7 +57,6 @@ namespace DataStructures.LinkedList_UnOrdered_
                 if (singlyLinkedList.Delete(wordToSearch))
                 {
                     Console.WriteLine("Word " + wordToSearch + " has been removed ");
-                    
                 }
             }
             else
@@ -57,7 +68,5 @@ namespace DataStructures.LinkedList_UnOrdered_
             singlyLinkedList.WriteToFile(path);
             Console.Read();
         }
-
-       
     }
 }

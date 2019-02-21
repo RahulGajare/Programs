@@ -5,9 +5,9 @@ using System.Text;
 
 namespace DataStructures.LinkedList_Ordered_
 {
-    public class Input
+    public class InputForOrdered
     {
-        public static void temp()
+        public static void OrderedLinkedList()
         {
             string path = string.Empty;
             SinglyLinkedList singlyLinkedList = new SinglyLinkedList();

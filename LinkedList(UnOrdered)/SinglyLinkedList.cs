@@ -11,7 +11,7 @@ namespace DataStructures.LinkedList_UnOrdered_
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <seealso cref="DataStructures.LinkedList_UnOrdered_.LinkedList{T}" />
-    public class SinglyLinkedList<T> : LinkedList<T>
+    public class SinglyLinkedList<T> : ILinkedList<T>
     {
         private Node<T> head;
         private Node<T> last;

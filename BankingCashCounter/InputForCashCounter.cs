@@ -4,30 +4,96 @@ using System.Text;
 
 namespace DataStructures.BankingCashCounter
 {
-    class InputForCashCounter
+    public class InputForCashCounter
     {
         public static void Counter()
         {
+            string personName =string.Empty;
             int option = 0;
             Person[] personArray;
             int personNumber = 1;
+            int numberOfPeople = 0;
+            int balance = 0;
 
             Queue queue = new Queue();
 
-            Console.WriteLine("Enter the Number of people in Queue");
-            int numberOfPeople = Convert.ToInt32(Console.ReadLine());
+            bool loopNumberOfPeople = true;
+            while (loopNumberOfPeople)
+            {
+                Console.WriteLine("Enter the Number of people in Queue");
+                string stringNumberOfPeople = Console.ReadLine();
+                if (utility.IsNumber(stringNumberOfPeople) == false)
+                {
+                    Console.WriteLine("Invalid Input ");
+                    continue;
+                }
+
+                
+
+                numberOfPeople = Convert.ToInt32(stringNumberOfPeople);
+                if (numberOfPeople <= 0)
+                {
+                    Console.WriteLine("There must be atleast one person in Queue");
+                    continue;
+                }
+
+                loopNumberOfPeople = false;
+
+            }
+           
+          
 
             personArray = new Person[numberOfPeople];
 
             for (int i = 0; i < numberOfPeople; i++)
             {
-                Console.WriteLine("Enter the Name for the "+personNumber +  " peron");
-                string name = Console.ReadLine();
-                Console.WriteLine("Enter the Balance for person "+ name);
-                int balance = Convert.ToInt32(Console.ReadLine());
+                bool loopPersonName = true;
+                while (loopPersonName)
+                {
+                    Console.WriteLine("Enter the Name for the " + personNumber + " person");
+                     personName = Console.ReadLine();
+
+                    if (utility.CheckString(personName))
+                    {
+                        Console.WriteLine("Please Provide a name");
+                        continue;
+                    }
+
+                    if (utility.ContainsCharacter(personName))
+                    {
+                        Console.WriteLine("No Characters allowed");
+                        continue;
+                    }
+
+                    if (utility.IsNumber(personName))
+                    {
+                        Console.WriteLine("Please provide a proper name");
+                        continue;
+                    }
+
+                    loopPersonName = false;
+                }
+
+                bool loopForBalance = true;
+                while (loopForBalance)
+                {
+                    Console.WriteLine("Enter the Balance for person " + personName);
+                    string stringBalance = Console.ReadLine();
+
+                    if (utility.IsNumber(stringBalance) == false)
+                    {
+                        Console.WriteLine("invalid input");
+                        continue;
+                    }
+
+                    balance = Convert.ToInt32(stringBalance);
+                    loopForBalance = false;
+                }
+               
+                 
                 personNumber++;
 
-                personArray[i]  = new Person(name,balance);
+                personArray[i]  = new Person(personName,balance);
 
             }
 
@@ -40,10 +106,11 @@ namespace DataStructures.BankingCashCounter
         
             int person = 0; //// this for accessing as index for personArray.
 
-            while (true)
+            bool loop = true;
+            while (loop)
             {
                 
-                Console.WriteLine("Person " + personArray[person].Name);
+                Console.WriteLine("Person " + personArray[person].Name + " is at Counter" );
                 Console.WriteLine("What do you want to do");
                 Console.WriteLine("1) deposite");
                 Console.WriteLine("2) withdraw");
@@ -64,6 +131,11 @@ namespace DataStructures.BankingCashCounter
                             TransactionInput.DepositeDetails(personArray[person]);
                             queue.Dequeue();
                             person = person + 1;
+
+                            if (queue.CheckSize() == 0)
+                            {
+                                loop = false;
+                            }
                                 break;
                         }
 
@@ -72,6 +144,12 @@ namespace DataStructures.BankingCashCounter
                             TransactionInput.WithdrawlDetails(personArray[person]);
                             queue.Dequeue();
                             person = person + 1;
+
+
+                            if (queue.CheckSize() == 0)
+                            {
+                                loop = false;
+                            }
                             break;
                         }
 
@@ -81,6 +159,14 @@ namespace DataStructures.BankingCashCounter
                             Console.WriteLine("There are " + size + " in queue");
                             break;
                         }
+
+                    default:
+                        {
+                            Console.WriteLine("Invalid Input");
+                            break;
+                        }
+
+                        
                 }
 
             }

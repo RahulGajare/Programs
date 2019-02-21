@@ -1,22 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="InputForParentheses.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace DataStructures.BalancedParenthses
 {
-    class input
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// Takes required input To Check Parentheses
+    /// </summary>
+    public class InputForParentheses
     {
-        public static void Main()
+        /// <summary>
+        /// Checks the parenthses.
+        /// </summary>
+        public static void CheckParentheses()
         {
             Console.WriteLine("Enter the size of Stack");
             string stringStackSize = Console.ReadLine();
 
-            if (utility.IsNumber(stringStackSize) == false)
+            if (Utility.IsNumber(stringStackSize) == false)
             {
                 Console.WriteLine("invalid number,Enter a positive Integer");
                 Console.Read();
                 return;
             }
+
             Stack stack = new Stack();
 
             stack.StackInitialise(Convert.ToInt32(stringStackSize));
@@ -36,7 +50,7 @@ namespace DataStructures.BalancedParenthses
                 }
                 else
                 {
-                    if(character == ')')
+                    if (character == ')')
                     {
                         try
                         {
@@ -46,8 +60,7 @@ namespace DataStructures.BalancedParenthses
                         {
                             Console.WriteLine("Experession is not Balanced Parentheses");
                             Console.Read();
-                        }
-                        
+                        }          
                     }
                 }
             }
@@ -61,8 +74,7 @@ namespace DataStructures.BalancedParenthses
             {
                 Console.WriteLine("Experession is not Balanced Parentheses");
                 Console.Read();
-            }
-            
+            }           
         }
     }
 }

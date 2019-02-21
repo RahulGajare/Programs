@@ -13,10 +13,9 @@ namespace DataStructures.LinkedList_UnOrdered_
     /// <summary>
     /// Consist of methods for singly Linked List
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public interface LinkedList<T>
+    /// <typeparam name="T">string </typeparam>
+    public interface ILinkedList<T>
     {
-
         /// <summary>
         /// Adds the specified word.
         /// </summary>

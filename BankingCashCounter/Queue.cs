@@ -17,8 +17,7 @@ namespace DataStructures.BankingCashCounter
             if (rear == queueMaxSixe - 1)
             {
                 Console.WriteLine("Queue Overflow");
-                return false;
-                Console.Read();
+                return false;              
             }
             else
             {
@@ -42,7 +41,7 @@ namespace DataStructures.BankingCashCounter
             }
             else
             {
-                Console.WriteLine(queueArray[front].Name + "removed from queue");
+                Console.WriteLine(queueArray[front].Name + " removed from queue");
                 Console.WriteLine("remaining Balance = "+ queueArray[front].Balance);
                 front++;
                 size--;

@@ -26,5 +26,58 @@ namespace DataStructures.BankingCashCounter
                 return false;
             }
         }
+
+        /// <summary>
+        /// Checks the string is empty or Null.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns>returns false if string is null or empty</returns>
+        public static bool CheckString(string name)
+        {
+            try
+            {
+                name = name.Trim();
+                if (string.IsNullOrEmpty(name))
+                {
+                    
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// returns true if string contain any special Character
+        /// </summary>
+        /// <param name="userName">Takes the username </param>
+        /// <returns>returns  if string contains any Character </returns>
+        public static bool ContainsCharacter(string userName)
+        {
+            try
+            {
+                char[] userNameCharacter = userName.ToCharArray();
+                //// check each character in given string wheather it is a Character.
+                for (int i = 0; i < userNameCharacter.Length; i++)
+                {
+                    if (!char.IsLetterOrDigit(userNameCharacter[i]))
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace DataStructures.LinkedList_UnOrdered_
             get { return next; }
             set { this.next = value; }
         }
-
+       
         public long Position
         {
             get { return position; }
