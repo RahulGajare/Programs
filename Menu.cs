@@ -1,18 +1,28 @@
-﻿
-using DataStructures.BalancedParenthses;
-using DataStructures.BankingCashCounter;
-using DataStructures.LinkedList_Ordered_;
-using DataStructures.LinkedList_UnOrdered_;
-using DataStructures.PalindromChecker;
-using DataStructures.Calendar;
-using DataStructures.PrimeNumberIn2DArray;
-using DataStructures.PrimeAnagrams;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="Menu.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace DataStructures
 {
+    using DataStructures.BalancedParenthses;
+    using DataStructures.BankingCashCounter;
+    using DataStructures.LinkedList_Ordered_;
+    using DataStructures.LinkedList_UnOrdered_;
+    using DataStructures.PalindromChecker;
+    using DataStructures.Calendar;
+    using DataStructures.PrimeNumberIn2DArray;
+    using DataStructures.PrimeAnagrams;
+    using DataStructures.CalendarQueue;
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// Entery Point of this project
+    /// </summary>
     public class Menu
     {
         public static void Main()
@@ -32,6 +42,7 @@ namespace DataStructures
                     Console.WriteLine("5) Palindrome Checker using Deque");
                     Console.WriteLine("6) PrimeAnagrams in 2D array");                       
                     Console.WriteLine("7) PrimeNumber in 2D array");
+                    Console.WriteLine("8) Calendar by Queue");
 
                     Console.WriteLine("======================================================================================================================");
 
@@ -97,7 +108,7 @@ namespace DataStructures
 
                         case 8:
                             {
-                                
+                                InputForCalendarQueue.StartCalendar();
                                 break;
                             }
 

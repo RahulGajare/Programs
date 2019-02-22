@@ -38,22 +38,30 @@ namespace DataStructures.LinkedList_Ordered_
         /// <param name="head">The head.</param>
         public static void SortLinkedList(Node head)
         {
-            Node i;
-            Node j;
-
-            i = head;
-
-            for (i = head; i.Next != null; i = i.Next)
+            try
             {
-                for (j = i.Next; j != null; j = j.Next)
+                Node i;
+                Node j;
+
+                i = head;
+
+                //// using Bubble sort method to sort the linked list
+                for (i = head; i.Next != null; i = i.Next)
                 {
-                    if (i.Data > j.Data)
+                    for (j = i.Next; j != null; j = j.Next)
                     {
-                        int temp = i.Data;
-                        i.Data = j.Data;
-                        j.Data = temp;
+                        if (i.Data > j.Data)
+                        {
+                            int temp = i.Data;
+                            i.Data = j.Data;
+                            j.Data = temp;
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -66,22 +74,29 @@ namespace DataStructures.LinkedList_Ordered_
         /// </returns>
         public bool Add(int number)
         {
-            Node n = new Node(number, this.size);
-            this.size++;
-
-            if (this.head == null && this.last == null)
+            try
             {
-                this.head = n;
-                this.last = n;
-            }
-            else
-            {
-                this.last.Next = n;
-                this.last = n;
-            }
+                Node n = new Node(number, this.size); ////A new node is created whenever Add is invoked
+                this.size++;
 
-            SortLinkedList(this.head);
-            return true;
+                if (this.head == null && this.last == null)
+                {
+                    this.head = n;
+                    this.last = n;
+                }
+                else
+                {
+                    this.last.Next = n;
+                    this.last = n;
+                }
+
+                SortLinkedList(this.head);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -93,19 +108,26 @@ namespace DataStructures.LinkedList_Ordered_
         /// </returns>
         public bool Contains(int word)
         {
-            Node temp = this.head;
-
-            while (temp != null)
+            try
             {
-                if (temp.Data.Equals(word))
+                Node temp = this.head;
+
+                while (temp != null)
                 {
-                    return true;
+                    if (temp.Data.Equals(word))
+                    {
+                        return true;
+                    }
+
+                    temp = temp.Next;
                 }
 
-                temp = temp.Next;
+                return false;
             }
-
-            return false;
+            catch ( ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -115,42 +137,49 @@ namespace DataStructures.LinkedList_Ordered_
         /// <returns>returns true or false</returns>
         public bool Delete(int numberToDelete)
         {
-            if (this.head == null)
+            try
             {
-                Console.WriteLine("list is already empty");
-                return false;
-            }
-            else
-            {
-                Node temp = this.head;
-                Node remove = null;
-
-                if (temp.Data.Equals(numberToDelete))
+                if (this.head == null)
                 {
-                    remove = temp;
-                    this.head = temp.Next;
-                    return true;
+                    Console.WriteLine("list is already empty");
+                    return false;
                 }
-
-                for (int i = 0; i < this.size; i++)
+                else
                 {
-                    if (temp.Next.Data.Equals(numberToDelete))
+                    Node temp = this.head;
+                    Node remove = null;
+
+                    if (temp.Data.Equals(numberToDelete))
                     {
-                        remove = temp.Next;
-                        temp.Next = remove.Next;
-                        break;
+                        remove = temp;
+                        this.head = temp.Next;
+                        return true;
                     }
 
-                    temp = temp.Next;
+                    for (int i = 0; i < this.size; i++)
+                    {
+                        if (temp.Next.Data.Equals(numberToDelete))
+                        {
+                            remove = temp.Next;
+                            temp.Next = remove.Next;
+                            break;
+                        }
+
+                        temp = temp.Next;
+                    }
+
+                    Console.WriteLine("removed " + remove.Data);
+                    remove.Next = null;
+
+                    this.Reposition();
+
+                    this.size = this.size - 1;
+                    return true;
                 }
-
-                Console.WriteLine("removed " + remove.Data);
-                remove.Next = null;
-
-                this.Reposition();
-
-                this.size = this.size - 1;
-                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -162,29 +191,36 @@ namespace DataStructures.LinkedList_Ordered_
         /// <returns> returns true or false </returns>
         public bool Insert(int data, long pos)
         {
-            if (pos > this.size)
+            try
             {
-                Console.WriteLine("Specified position is greater than existing size");
-                return false;
-            }
-            else
-            {
-                Node n = new Node(data, pos);
-
-                Node temp = this.head;
-
-                for (int i = 0; i < pos - 1; i++)
+                if (pos > this.size)
                 {
-                    temp = temp.Next;
+                    Console.WriteLine("Specified position is greater than existing size");
+                    return false;
                 }
+                else
+                {
+                    Node n = new Node(data, pos);
 
-                Node n1 = temp.Next;
-                temp.Next = n;
-                n.Next = n1;
-                temp = null;
-                this.size++;
-                this.Reposition();
-                return true;
+                    Node temp = this.head;
+
+                    for (int i = 0; i < pos - 1; i++)
+                    {
+                        temp = temp.Next;
+                    }
+
+                    Node n1 = temp.Next;
+                    temp.Next = n;
+                    n.Next = n1;
+                    temp = null;
+                    this.size++;
+                    this.Reposition();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -196,13 +232,20 @@ namespace DataStructures.LinkedList_Ordered_
         /// </returns>
         public bool IsEmpty()
         {
-            if (this.size == 0)
+            try
             {
-                return true;
+                if (this.size == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return false;
+                throw new Exception(ex.Message);
             }
         }
 
@@ -211,18 +254,25 @@ namespace DataStructures.LinkedList_Ordered_
         /// </summary>
         public void Print()
         {
-            if (this.head == null)
+            try
             {
-                Console.WriteLine("List is empty");
-            }
-            else
-            {
-                Node temp = this.head;
-                while (temp != null)
+                if (this.head == null)
                 {
-                    Console.WriteLine(temp.Data + " " + temp.Position);
-                    temp = temp.Next;
+                    Console.WriteLine("List is empty");
                 }
+                else
+                {
+                    Node temp = this.head;
+                    while (temp != null)
+                    {
+                        Console.WriteLine(temp.Data + " " + temp.Position);
+                        temp = temp.Next;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -240,14 +290,21 @@ namespace DataStructures.LinkedList_Ordered_
         /// </summary>
         public void Reposition()
         {
-            Node temp = this.head;
-
-            int i = 0;
-
-            while (temp != null)
+            try
             {
-                temp.Position = i++;
-                temp = temp.Next;
+                Node temp = this.head;
+
+                int i = 0;
+
+                while (temp != null)
+                {
+                    temp.Position = i++;
+                    temp = temp.Next;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -258,25 +315,32 @@ namespace DataStructures.LinkedList_Ordered_
         /// <returns>returns true or false</returns>
         public bool WriteToFile(string path)
         {
-            if (this.head == null)
+            try
             {
-                Console.WriteLine("list is already empty");
-                return false;
-            }
-            else
-            {
-                Node temp = this.head;
-                using (var writer = new System.IO.StreamWriter(path))
+                if (this.head == null)
                 {
-                    while (temp != null)
+                    Console.WriteLine("list is already empty");
+                    return false;
+                }
+                else
+                {
+                    Node temp = this.head;
+                    using (var writer = new System.IO.StreamWriter(path))
                     {
-                        writer.Write(temp.Data.ToString().Trim() + " ");
-                        temp = temp.Next;
+                        while (temp != null)
+                        {
+                            writer.Write(temp.Data.ToString().Trim() + " ");
+                            temp = temp.Next;
+                        }
                     }
                 }
-            }
 
-            return true;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

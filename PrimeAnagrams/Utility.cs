@@ -127,7 +127,6 @@ namespace DataStructures.PrimeAnagrams
 
             string[,]  primeAnagram2DArray = new string[1000,2];
             
-
             ////Here i points starts from the first element 
             for (int i = 0; i < list.Count; i++)
             {

@@ -5,7 +5,7 @@
 // <creator name="Rahul Gajare"/>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DataStructures.Calendar
+namespace DataStructures.CalendarQueue
 {
     using System;
     using System.Collections;
@@ -25,26 +25,19 @@ namespace DataStructures.Calendar
         /// </returns>
         public static bool IsNumber(string input)
         {
-            try
+            if (input.Trim().Equals(string.Empty))
             {
-                if (input.Trim().Equals(string.Empty))
+                return false;
+            }
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (char.IsDigit(input[i]) == false)
                 {
                     return false;
                 }
-                for (int i = 0; i < input.Length; i++)
-                {
-                    if (char.IsDigit(input[i]) == false)
-                    {
-                        return false;
-                    }
-                }
+            }
 
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            return true;
         }
 
         /// <summary>
@@ -73,6 +66,7 @@ namespace DataStructures.Calendar
             }
         }
 
+
         /// <summary>
         /// Days the of week.
         /// </summary>
@@ -82,18 +76,11 @@ namespace DataStructures.Calendar
         /// <returns></returns>
         public static int DayOfWeek(int month, int day, int year)
         {
-            try
-            {
-                int y0 = year - (14 - month) / 12;
-                int x = y0 + (y0 / 4) - y0 / 100 + y0 / 400;
-                int m0 = month + 12 * ((14 - month) / 12) - 2;
-                int d0 = (day + x + 31 * m0 / 12) % 7;
-                return d0;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            int y0 = year - (14 - month) / 12;
+            int x = y0 + (y0 / 4) - y0 / 100 + y0 / 400;
+            int m0 = month + 12 * ((14 - month) / 12) - 2;
+            int d0 = (day + x + 31 * m0 / 12) % 7;
+            return d0;
         }
     }
 }

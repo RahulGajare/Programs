@@ -5,7 +5,7 @@
 // <creator name="Rahul Gajare"/>
 // -----------------------------------------------------------------------------------------------------------------------------
 
-namespace DataStructures.BankingCashCounter
+namespace DataStructures.CalendarQueue
 {
     using System;
     using System.Collections.Generic;
@@ -14,7 +14,7 @@ namespace DataStructures.BankingCashCounter
     /// <summary>
     /// Queue Implementation
     /// </summary>
-    public class Queue
+    public class MyQueue<T>
     {
         /// <summary>
         /// The queue maximum size
@@ -34,7 +34,7 @@ namespace DataStructures.BankingCashCounter
         /// <summary>
         /// The queue array
         /// </summary>
-        private Person[] queueArray = new Person[1000];
+        private T[] queueArray = new T[1000];
 
         /// <summary>
         /// The size/
@@ -95,31 +95,24 @@ namespace DataStructures.BankingCashCounter
         /// </summary>
         /// <param name="data">The data.</param>
         /// <returns>returns true or false</returns>
-        public bool Enqueue(Person data)
+        public bool Enqueue(T data)
         {
-            try
+            if (this.rear == this.queueMaxSize - 1)
             {
-                if (this.rear == this.queueMaxSize - 1)
-                {
-                    Console.WriteLine("Queue Overflow");
-                    return false;
-                }
-                else
-                {
-                    if (this.front == -1)
-                    {
-                        this.front = 0;
-                    }
-
-                    this.rear++;
-                    this.queueArray[this.rear] = data;
-                    this.size++;
-                    return true;
-                }
+                Console.WriteLine("Queue Overflow");
+                return false;
             }
-            catch (Exception ex)
+            else
             {
-                throw new Exception(ex.Message);
+                if (this.front == -1)
+                {
+                    this.front = 0;
+                }
+
+                this.rear++;
+                this.queueArray[this.rear] = data;
+                this.size++;
+                return true;
             }
         }
 
@@ -127,27 +120,19 @@ namespace DataStructures.BankingCashCounter
         /// Dequeues this instance.
         /// </summary>
         /// <returns>returns true or false</returns>
-        public bool Dequeue()
+        public int Dequeue()
         {
-            try
+            if (this.front == -1 || this.front > this.rear)
             {
-                if (this.front == -1 || this.front > this.rear)
-                {
-                    Console.WriteLine("Queue Underflow");
-                    return false;
-                }
-                else
-                {
-                    Console.WriteLine(this.queueArray[this.front].Name + " removed from queue");
-                    Console.WriteLine("remaining Balance = " + this.queueArray[this.front].Balance);
-                    this.front++;
-                    this.size--;
-                    return true;
-                }
+                Console.WriteLine("Queue Underflow");
+                return -1;
             }
-            catch (Exception ex)
+            else
             {
-                throw new Exception(ex.Message);
+                int d = this.front;
+                this.front++;
+                this.size--;
+                return d;
             }
         }
 
@@ -156,23 +141,16 @@ namespace DataStructures.BankingCashCounter
         /// </summary>
         public void ShowElements()
         {
-            try
+            if (this.front == -1)
             {
-                if (this.front == -1)
-                {
-                    Console.WriteLine("Queue is Empty");
-                }
-                else
-                {
-                    for (int i = this.front; i <= this.rear; i++)
-                    {
-                        Console.WriteLine(this.queueArray[i]);
-                    }
-                }
+                Console.WriteLine("Queue is Empty");
             }
-            catch (Exception ex)
+            else
             {
-                throw new Exception(ex.Message);
+                for (int i = this.front; i <= this.rear; i++)
+                {
+                    Console.WriteLine(this.queueArray[i]);
+                }
             }
         }
 
@@ -182,15 +160,7 @@ namespace DataStructures.BankingCashCounter
         /// <returns>returns current size</returns>
         public int CheckSize()
         {
-            try
-            {
-
-                return this.size;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            return this.size;
         }
     }
 }

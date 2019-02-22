@@ -22,25 +22,32 @@ namespace DataStructures.BankingCashCounter
         /// <param name="person">The person.</param>
         public static void DepositeDetails(Person person)
         {
-            bool loopDeposite = true;
-
-            while (loopDeposite)
+            try
             {
-                Console.WriteLine("Enter the Money you want to Deposite,You have currently " + person.Balance + " in your account");
-                string amountToDeposite = Console.ReadLine();
+                bool loopDeposite = true;
 
-                if (Utility.IsNumber(amountToDeposite) == false)
+                while (loopDeposite)
                 {
-                    Console.WriteLine("Invalid Input");
-                    continue;
-                }
+                    Console.WriteLine("Enter the Money you want to Deposite,You have currently " + person.Balance + " in your account");
+                    string amountToDeposite = Console.ReadLine();
 
-                if (person.Deposite(Convert.ToInt32(amountToDeposite)) == false)
-                {
-                    continue;
-                }
+                    if (Utility.IsNumber(amountToDeposite) == false)
+                    {
+                        Console.WriteLine("Invalid Input");
+                        continue;
+                    }
 
-                loopDeposite = false;
+                    if (person.Deposite(Convert.ToInt32(amountToDeposite)) == false)
+                    {
+                        continue;
+                    }
+
+                    loopDeposite = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 

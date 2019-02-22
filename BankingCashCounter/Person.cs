@@ -33,14 +33,22 @@ namespace DataStructures.BankingCashCounter
         /// <param name="balance">The balance.</param>
         public Person(string name, int balance)
         {
-            this.name = name;
-            if (balance < 0)
+            try
             {
-                Console.WriteLine("Please provide a positive value for balance");
-                return;
-            }
+                this.name = name;
+                if (balance < 0)
+                {
+                    Console.WriteLine("Please provide a positive value for balance");
+                    return;
+                }
 
-            this.balance = balance;
+                this.balance = balance;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -74,16 +82,24 @@ namespace DataStructures.BankingCashCounter
         /// <returns> returns true or false</returns>
         public bool Deposite(int depositAmount)
         {
-            if (depositAmount <= 0)
+            try
             {
-                Console.WriteLine("Please Provide a positive value for amount to deposite");
-                Console.ReadKey();
-                return false;
-            }
+                if (depositAmount <= 0)
+                {
+                    Console.WriteLine("Please Provide a positive value for amount to deposite");
+                    Console.ReadKey();
+                    return false;
+                }
 
-            this.balance = this.balance + depositAmount;
-            Console.WriteLine("your total Balance = " + this.balance);
-            return true;
+                this.balance = this.balance + depositAmount;
+                Console.WriteLine("your total Balance = " + this.balance);
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -93,16 +109,24 @@ namespace DataStructures.BankingCashCounter
         /// <returns> returns true or false</returns>
         public bool Withdraw(int withdrawAmount)
         {
-            if (withdrawAmount > this.balance)
+            try
             {
-                Console.WriteLine("You dont have enough money in your Account");
-                Console.ReadKey();
-                return false; 
-            }
+                if (withdrawAmount > this.balance)
+                {
+                    Console.WriteLine("You dont have enough money in your Account");
+                    Console.ReadKey();
+                    return false;
+                }
 
-            this.balance = this.balance - withdrawAmount;
-            Console.WriteLine("Remaining balance = " + this.balance);
-            return true;
-        }
+                this.balance = this.balance - withdrawAmount;
+                Console.WriteLine("Remaining balance = " + this.balance);
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }        }
     }
 }

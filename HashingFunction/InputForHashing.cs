@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+namespace DataStructures.HashingFunction
+{
+    class InputForHashing
+    {
+        public static void temp()
+        {
+            int[] HashArray = new int[10];
+            string path = string.Empty;
+            bool loopPath = true;
+            while (loopPath)
+            {
+                Console.WriteLine("Specify the path");
+                path = Console.ReadLine();
+
+                if (File.Exists(path) == false)
+                {
+                    Console.WriteLine("Specified Path does not exist");
+                    Console.Read();
+                    continue;
+                }
+
+                loopPath = false;
+            }
+
+            string dataFromFile = System.IO.File.ReadAllText(path);
+            string[] splitArray = dataFromFile.Split(" ");
+
+            for ( int i=0; i< splitArray.Length; i++)
+            {
+                if (splitArray[i].Trim() != string.Empty)
+                {
+                    HashArray[i] = Convert.ToInt32(splitArray[i]);
+                }
+            }
+
+
+        }
+    }
+}

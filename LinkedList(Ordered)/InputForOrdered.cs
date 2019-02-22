@@ -22,64 +22,71 @@ namespace DataStructures.LinkedList_Ordered_
         /// </summary>
         public static void OrderedLinkedList()
         {
-            string path = string.Empty;
-            SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
-
-            bool loopPath = true;
-            while (loopPath)
+            try
             {
-                Console.WriteLine("Specify the path");
-                path = Console.ReadLine();
+                string path = string.Empty;
+                SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
 
-                if (File.Exists(path) == false)
+                bool loopPath = true;
+                while (loopPath)
                 {
-                    Console.WriteLine("Specified Path does not exist");
+                    Console.WriteLine("Specify the path");
+                    path = Console.ReadLine();
+
+                    if (File.Exists(path) == false)
+                    {
+                        Console.WriteLine("Specified Path does not exist");
+                        Console.Read();
+                        continue;
+                    }
+
+                    loopPath = false;
+                }
+
+                string dataFromFile = System.IO.File.ReadAllText(path);
+                string[] splitArray = dataFromFile.Split(" ");
+
+                //// Array.Sort(splitArray);
+
+                foreach (string word in splitArray)
+                {
+                    if (word.Trim() != string.Empty)
+                    {
+                        singlyLinkedList.Add(Convert.ToInt32(word.Trim()));
+                    }
+                }
+
+                Console.WriteLine("Enter the number you want to search");
+                string number = Console.ReadLine();
+
+                if (Utility.IsNumber(number) == false)
+                {
+                    Console.WriteLine("Enter only Numbers, try Again");
                     Console.Read();
-                    continue;
                 }
 
-                loopPath = false;
-            }
+                int numberToSearch = Convert.ToInt32(number);
 
-            string dataFromFile = System.IO.File.ReadAllText(path);
-            string[] splitArray = dataFromFile.Split(" ");
-
-            //// Array.Sort(splitArray);
-
-            foreach (string word in splitArray)
-            {
-                if (word.Trim() != string.Empty)
+                if (singlyLinkedList.Contains(numberToSearch))
                 {
-                    singlyLinkedList.Add(Convert.ToInt32(word.Trim()));
+                    if (singlyLinkedList.Delete(numberToSearch))
+                    {
+                        Console.WriteLine("Word " + numberToSearch + " has been removed ");
+                    }
                 }
-            }
+                else
+                {
+                    singlyLinkedList.Add(numberToSearch);
+                    Console.WriteLine("The word " + numberToSearch + " not found , Added to linked list and written to file");
+                }
 
-            Console.WriteLine("Enter the number you want to search");
-            string number = Console.ReadLine();
-
-            if (Utility.IsNumber(number) == false)
-            {
-                Console.WriteLine("Enter only Numbers, try Again");
+                singlyLinkedList.WriteToFile(path);
                 Console.Read();
             }
-
-            int numberToSearch = Convert.ToInt32(number);
-
-            if (singlyLinkedList.Contains(numberToSearch))
+            catch (Exception ex)
             {
-                if (singlyLinkedList.Delete(numberToSearch))
-                {
-                    Console.WriteLine("Word " + numberToSearch + " has been removed ");
-                }
+                throw new Exception(ex.Message);
             }
-            else
-            {
-                singlyLinkedList.Add(numberToSearch);
-                Console.WriteLine("The word " + numberToSearch + " not found , Added to linked list and written to file");
-            }
-
-            singlyLinkedList.WriteToFile(path);
-            Console.Read();
         }
     }
 }
