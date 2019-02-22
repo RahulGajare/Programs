@@ -17,7 +17,7 @@ namespace DataStructures.BalancedParenthses
     public class InputForParentheses
     {
         /// <summary>
-        /// Checks the parenthses.
+        /// Checks the parentheses.
         /// </summary>
         public static void CheckParentheses()
         {
