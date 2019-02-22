@@ -6,6 +6,7 @@ using DataStructures.LinkedList_UnOrdered_;
 using DataStructures.PalindromChecker;
 using DataStructures.Calendar;
 using DataStructures.PrimeNumberIn2DArray;
+using DataStructures.PrimeAnagrams;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,7 +30,7 @@ namespace DataStructures
                     Console.WriteLine("3) Balanced Parentheses");
                     Console.WriteLine("4) Banking cash Counter");
                     Console.WriteLine("5) Palindrome Checker using Deque");
-                    Console.WriteLine("6) Calendar");
+                    Console.WriteLine("6) PrimeAnagrams in 2D array");                       
                     Console.WriteLine("7) PrimeNumber in 2D array");
 
                     Console.WriteLine("======================================================================================================================");
@@ -84,7 +85,7 @@ namespace DataStructures
 
                         case 6:
                             {
-                                InputForCalendar.StartCalendar();
+                                _2DPrimeAnagrams.Print2DPrimeAnagram();
                                 break;
                             }
 

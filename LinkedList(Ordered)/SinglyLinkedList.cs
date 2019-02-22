@@ -1,4 +1,9 @@
-﻿
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="singlyLinkedList.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace DataStructures.LinkedList_Ordered_
 {
@@ -7,23 +12,61 @@ namespace DataStructures.LinkedList_Ordered_
     using System.Text;
 
     /// <summary>
-    /// 
+    /// Singly linked list
     /// </summary>
-    /// <seealso cref="DataStructures.LinkedList_Ordered_.LinkedList" />
-    public class SinglyLinkedList : LinkedList
+    /// <seealso cref="DataStructures.LinkedList_Ordered_.ILinkedList" />
+    public class SinglyLinkedList : ILinkedList
     {
+        /// <summary>
+        /// The head
+        /// </summary>
         private Node head;
+
+        /// <summary>
+        /// The last
+        /// </summary>
         private Node last;
+
+        /// <summary>
+        /// The size/
+        /// </summary>
         private long size = 0;
+
+        /// <summary>
+        /// Sorts the linked list.
+        /// </summary>
+        /// <param name="head">The head.</param>
+        public static void SortLinkedList(Node head)
+        {
+            Node i;
+            Node j;
+
+            i = head;
+
+            for (i = head; i.Next != null; i = i.Next)
+            {
+                for (j = i.Next; j != null; j = j.Next)
+                {
+                    if (i.Data > j.Data)
+                    {
+                        int temp = i.Data;
+                        i.Data = j.Data;
+                        j.Data = temp;
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// Adds the specified number.
         /// </summary>
-        /// <param name="word">The number.</param>
-        /// <returns>returns true or false</returns>
+        /// <param name="number">The number.</param>
+        /// <returns>
+        /// returns true or false
+        /// </returns>
         public bool Add(int number)
         {
-            Node n = new Node(number, size);
+            Node n = new Node(number, this.size);
             this.size++;
 
             if (this.head == null && this.last == null)
@@ -37,7 +80,7 @@ namespace DataStructures.LinkedList_Ordered_
                 this.last = n;
             }
 
-            SortLinkedList(head);
+            SortLinkedList(this.head);
             return true;
         }
 
@@ -66,54 +109,49 @@ namespace DataStructures.LinkedList_Ordered_
         }
 
         /// <summary>
-        /// Deletes the specified position.
+        /// Deletes the specified number to delete.
         /// </summary>
-        /// <param name="pos">The position.</param>
-        /// <returns> return true or false</returns>
+        /// <param name="numberToDelete">The number to delete.</param>
+        /// <returns>returns true or false</returns>
         public bool Delete(int numberToDelete)
         {
-            if (head == null)
+            if (this.head == null)
             {
                 Console.WriteLine("list is already empty");
                 return false;
             }
             else
             {
-                Node temp = head;
+                Node temp = this.head;
                 Node remove = null;
 
                 if (temp.Data.Equals(numberToDelete))
                 {
                     remove = temp;
-                    head = temp.Next;
+                    this.head = temp.Next;
                     return true;
                 }
-                
-                for (int i = 0; i < size; i++)
+
+                for (int i = 0; i < this.size; i++)
                 {
-
-
                     if (temp.Next.Data.Equals(numberToDelete))
                     {
                         remove = temp.Next;
-                        temp.Next =remove.Next;
+                        temp.Next = remove.Next;
                         break;
                     }
+
                     temp = temp.Next;
-
                 }
-
-               
 
                 Console.WriteLine("removed " + remove.Data);
                 remove.Next = null;
 
-                Reposition();                                                   
+                this.Reposition();
 
-                this.size = size - 1;
+                this.size = this.size - 1;
                 return true;
             }
-
         }
 
         /// <summary>
@@ -213,27 +251,11 @@ namespace DataStructures.LinkedList_Ordered_
             }
         }
 
-        public static void SortLinkedList(Node head)
-        {
-            Node i;
-            Node j;
-
-            i = head;
-
-            for (i = head; i.Next != null; i = i.Next)
-            {
-                for (j = i.Next; j != null; j = j.Next)
-                {
-                    if (i.Data > j.Data)
-                    {
-                        int temp = i.Data;
-                        i.Data = j.Data;
-                        j.Data = temp;
-                    }
-                }
-            }
-        }
-
+        /// <summary>
+        /// Writes to file.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns>returns true or false</returns>
         public bool WriteToFile(string path)
         {
             if (this.head == null)
@@ -248,14 +270,12 @@ namespace DataStructures.LinkedList_Ordered_
                 {
                     while (temp != null)
                     {
-                        
-                            writer.Write(temp.Data.ToString().Trim() + " ");
-                            temp = temp.Next;
-                        
+                        writer.Write(temp.Data.ToString().Trim() + " ");
+                        temp = temp.Next;
                     }
                 }
-                    
             }
+
             return true;
         }
     }

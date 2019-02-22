@@ -1,27 +1,26 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="LinkedList.cs" company="Bridgelabz">
+// <copyright file="ILinkedList.cs" company="Bridgelabz">
 //   Copyright © 2018 Company
 // </copyright>
 // <creator name="Rahul Gajare"/>
 // --------------------------------------------------------------------------------------------------------------------
-namespace DataStructures.LinkedList_UnOrdered_
+namespace DataStructures.LinkedList_Ordered_
 {
     using System;
     using System.Collections.Generic;
     using System.Text;
 
     /// <summary>
-    /// Consist of methods for singly Linked List
+    /// Linked list Interface
     /// </summary>
-    /// <typeparam name="T">string </typeparam>
-    public interface ILinkedList<T>
+    public interface ILinkedList
     {
         /// <summary>
-        /// Adds the specified word.
+        /// Adds the specified number.
         /// </summary>
-        /// <param name="word">The word.</param>
-        /// <returns></returns>
-        bool Add(T word);
+        /// <param name="number">The number.</param>
+        /// <returns>returns true or false</returns>
+        bool Add(int number);
 
         /// <summary>
         /// Determines whether this instance is empty.
@@ -34,23 +33,23 @@ namespace DataStructures.LinkedList_UnOrdered_
         /// <summary>
         /// Sizes this instance.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>returns true or false</returns>
         long Size();
 
         /// <summary>
-        /// Deletes the specified position.
+        /// Deletes the specified number to search.
         /// </summary>
-        /// <param name="pos">The position.</param>
-        /// <returns></returns>
-        bool Delete(string wordToSearch);
+        /// <param name="numberToSearch">The number to search.</param>
+        /// <returns>returns true or false</returns>
+        bool Delete(int numberToSearch);
 
         /// <summary>
         /// Inserts the specified data.
         /// </summary>
         /// <param name="data">The data.</param>
         /// <param name="pos">The position.</param>
-        /// <returns></returns>
-        bool Insert(T data, long pos);
+        /// <returns>returns true or false</returns>
+        bool Insert(int data, long pos);
 
         /// <summary>
         /// Prints this instance.
@@ -64,8 +63,6 @@ namespace DataStructures.LinkedList_UnOrdered_
         /// <returns>
         ///   <c>true</c> if [contains] [the specified word]; otherwise, <c>false</c>.
         /// </returns>
-        bool Contains(T word);
-
-
+        bool Contains(int word);
     }
 }

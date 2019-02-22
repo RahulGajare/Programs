@@ -1,11 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Utility.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace DataStructures.PrimeNumberIn2DArray
 {
-    class Utility
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// Utility Class
+    /// </summary>
+    public class Utility
     {
+        /// <summary>
+        /// Determines whether the specified input is number.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified input is number; otherwise, <c>false</c>.
+        /// </returns>
         public static bool IsNumber(string input)
         {
             try
@@ -39,7 +56,6 @@ namespace DataStructures.PrimeNumberIn2DArray
                 name = name.Trim();
                 if (string.IsNullOrEmpty(name))
                 {
-                    
                     return true;
                 }
                 else
@@ -79,5 +95,7 @@ namespace DataStructures.PrimeNumberIn2DArray
                 throw new Exception(ex.Message);
             }
         }
+
+
     }
 }

@@ -1,11 +1,21 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="PrimeNumber.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace DataStructures.PrimeNumberIn2DArray
 {
-    class PrimeNumber
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// generates primeNumber between given range
+    /// </summary>
+    public class PrimeNumber
     {
         /// <summary>
         /// Gets the prime numbers list.
@@ -49,7 +59,7 @@ namespace DataStructures.PrimeNumberIn2DArray
                 Console.WriteLine("Enter the Last Number ,you want to print Prime Numbers till");
                 string strLast = Console.ReadLine();
 
-                if (Utility. IsNumber(strLast) == false)
+                if (Utility.IsNumber(strLast) == false)
                 {
                     Console.WriteLine("Invalid Number");
                     continue;

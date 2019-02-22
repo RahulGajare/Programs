@@ -1,4 +1,9 @@
-﻿
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file="SinglyLinkedList.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace DataStructures.LinkedList_UnOrdered_
 {
@@ -9,12 +14,23 @@ namespace DataStructures.LinkedList_UnOrdered_
     /// <summary>
     /// Singly Linked list
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T"> any parameter</typeparam>
     /// <seealso cref="DataStructures.LinkedList_UnOrdered_.LinkedList{T}" />
     public class SinglyLinkedList<T> : ILinkedList<T>
     {
+        /// <summary>
+        /// The head
+        /// </summary>
         private Node<T> head;
+
+        /// <summary>
+        /// The last
+        /// </summary>
         private Node<T> last;
+
+        /// <summary>
+        /// The size
+        /// </summary>
         private long size = 0;
 
         /// <summary>
@@ -24,7 +40,7 @@ namespace DataStructures.LinkedList_UnOrdered_
         /// <returns>returns true or false</returns>
         public bool Add(T word)
         {
-            Node<T> n = new Node<T>(word, size);
+            Node<T> n = new Node<T>(word, this.size);
             this.size++;
 
             if (this.head == null && this.last == null)
@@ -66,54 +82,47 @@ namespace DataStructures.LinkedList_UnOrdered_
         }
 
         /// <summary>
-        /// Deletes the specified position.
+        /// Deletes the specified word to delete.
         /// </summary>
-        /// <param name="pos">The position.</param>
-        /// <returns> return true or false</returns>
+        /// <param name="wordToDelete">The word to delete.</param>
+        /// <returns>returns true or false</returns>
         public bool Delete(string wordToDelete)
         {
-            if (head == null)
+            if (this.head == null)
             {
                 Console.WriteLine("list is already empty");
                 return false;
             }
             else
             {
-                Node<T> temp = head;
+                Node<T> temp = this.head;
                 Node<T> remove = null;
 
                 if (temp.Data.Equals(wordToDelete))
                 {
                     remove = temp;
-                    head = temp.Next;
+                    this.head = temp.Next;
                     return true;
                 }
-                
-                for (int i = 0; i < size; i++)
+
+                for (int i = 0; i < this.size; i++)
                 {
-
-
                     if (temp.Next.Data.Equals(wordToDelete))
                     {
                         remove = temp.Next;
-                        temp.Next =remove.Next;
+                        temp.Next = remove.Next;
                         break;
                     }
+
                     temp = temp.Next;
-
                 }
-
-               
 
                 Console.WriteLine("removed " + remove.Data);
                 remove.Next = null;
-
-                Reposition();                                                   
-
-                this.size = size - 1;
+                this.Reposition();
+                this.size = this.size - 1;
                 return true;
             }
-
         }
 
         /// <summary>
@@ -213,6 +222,11 @@ namespace DataStructures.LinkedList_UnOrdered_
             }
         }
 
+        /// <summary>
+        /// Writes to file.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns>returns true or false</returns>
         public bool WriteToFile(string path)
         {
             if (this.head == null)
@@ -234,8 +248,8 @@ namespace DataStructures.LinkedList_UnOrdered_
                         }
                     }
                 }
-                    
             }
+
             return true;
         }
     }

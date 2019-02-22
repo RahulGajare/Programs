@@ -1,17 +1,29 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="_2DArrayPrimeNumber.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace DataStructures.PrimeNumberIn2DArray
 {
-    class _2DArrayPrimeNumber
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// Stores the prime number in 2D array
+    /// </summary>
+    public class _2DArrayPrimeNumber
     {
+        /// <summary>
+        /// 2s the d array.
+        /// </summary>
         public static void _2DArray()
         {
-            int[,] prime2DArray = new int[30,11];
+            int[,] prime2DArray = new int[30, 11];
             ArrayList arr = PrimeNumber.GetPrimeNumbersList();
-
 
             int changeColumn = 100;
             int row = 0;
@@ -32,8 +44,8 @@ namespace DataStructures.PrimeNumberIn2DArray
                     changeColumn = changeColumn + 100;
                     row++;
                 }
-
             }
+
             PrintMatrix(prime2DArray);
         }
 
@@ -54,8 +66,7 @@ namespace DataStructures.PrimeNumberIn2DArray
                         if (array[row, col] != 0)
                         {
                             Console.Write("  " + array[row, col] + "  ");
-                        }
-                       
+                        }                      
                     }
 
                     Console.WriteLine();

@@ -1,12 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="InputForOrdered.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace DataStructures.LinkedList_Ordered_
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+
+    /// <summary>
+    /// Takes required inputs
+    /// </summary>
     public class InputForOrdered
     {
+        /// <summary>
+        /// reads and writes to file
+        /// </summary>
         public static void OrderedLinkedList()
         {
             string path = string.Empty;
@@ -28,9 +41,8 @@ namespace DataStructures.LinkedList_Ordered_
                 loopPath = false;
             }
 
-
             string dataFromFile = System.IO.File.ReadAllText(path);
-            String[] splitArray = dataFromFile.Split(" ");
+            string[] splitArray = dataFromFile.Split(" ");
 
             //// Array.Sort(splitArray);
 
@@ -40,13 +52,12 @@ namespace DataStructures.LinkedList_Ordered_
                 {
                     singlyLinkedList.Add(Convert.ToInt32(word.Trim()));
                 }
-
             }
 
             Console.WriteLine("Enter the number you want to search");
             string number = Console.ReadLine();
 
-            if (utility.IsNumber(number) == false)
+            if (Utility.IsNumber(number) == false)
             {
                 Console.WriteLine("Enter only Numbers, try Again");
                 Console.Read();
@@ -59,7 +70,6 @@ namespace DataStructures.LinkedList_Ordered_
                 if (singlyLinkedList.Delete(numberToSearch))
                 {
                     Console.WriteLine("Word " + numberToSearch + " has been removed ");
-
                 }
             }
             else

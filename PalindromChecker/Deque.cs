@@ -1,88 +1,135 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Deque.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace DataStructures.PalindromChecker
 {
-    class Deque<T>
-    {
-        DequeNode<T> front;
-        DequeNode<T> rear;
-        long size = 0;
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
 
+    /// <summary>
+    /// Deque class
+    /// </summary>
+    /// <typeparam name="T">any parameter</typeparam>
+    public class Deque<T>
+    {
+        /// <summary>
+        /// The front
+        /// </summary>
+        private DequeNode<T> front;
+
+        /// <summary>
+        /// The rear
+        /// </summary>
+        private DequeNode<T> rear;
+
+        /// <summary>
+        /// The size
+        /// </summary>
+        private long size = 0;
+
+        /// <summary>
+        /// Adds the front.
+        /// </summary>
+        /// <param name="data">The data.</param>
         public void AddFront(T data)
         {
-            if (front == null)
+            if (this.front == null) //// if front is null , it means this is the first element
             {
-                front.Data = data;
-                rear = front;
+                this.front.Data = data;
+                this.rear = this.front;
             }
             else
             {
                 DequeNode<T> tempNode = null;
                 tempNode.Data = data;
-                tempNode.Next = front;
-                front.Pre = tempNode;
-                front = tempNode;
+                tempNode.Next = this.front;
+                this.front.Pre = tempNode;
+                this.front = tempNode;
             }
-            size++;
+
+            this.size++; ////increasing the size of queue
         }
 
+        /// <summary>
+        /// Adds the data to rear of queue
+        /// </summary>
+        /// <param name="data">The data.</param>
         public void Addrear(T data)
         {
-            if (front == null)
+            if (this.front == null)
             {
                 DequeNode<T> dequeNode = new DequeNode<T>(data);
-                front = dequeNode;
-                rear = front;
+                this.front = dequeNode;
+                this.rear = this.front;
             }
             else
             {
                 DequeNode<T> dequeNode = new DequeNode<T>(data);
-                rear.Next = dequeNode;
-                dequeNode.Pre = rear;
-                rear = dequeNode;
+                this.rear.Next = dequeNode;
+                dequeNode.Pre = this.rear;
+                this.rear = dequeNode;
             }
-            size++;
+
+            this.size++;
         }
 
+        /// <summary>
+        /// Removes the front.
+        /// </summary>
+        /// <returns>returns the removed data from the front </returns>
         public T RemoveFront()
         {
             T dataToRemove = default(T);
-            if (front == null)
+            if (this.front == null)
             {
                 Console.WriteLine("Allready empty, nothing to delete");
             }
             else
             {
-                dataToRemove = front.Data;
-                front = front.Next;
-
+                dataToRemove = this.front.Data;
+                this.front = this.front.Next;
             }
-            size--;
-            return dataToRemove;
 
+            this.size--;
+            return dataToRemove;
         }
+
+        /// <summary>
+        /// Removes the rear.
+        /// </summary>
+        /// <returns>returns the removed data from the rear</returns>
         public T RemoveRear()
         {
             T dataToRemove = default(T);
-            if (front == null)
+            if (this.front == null)
             {
                 Console.WriteLine("Allready empty, nothing to delete");
             }
             else
             {
-                 dataToRemove = rear.Data;
-                rear = rear.Pre;
-                rear.Next = null;
+                 dataToRemove = this.rear.Data;
+                this.rear = this.rear.Pre;
+                this.rear.Next = null;
             }
-            size--;
+
+            this.size--;
             return dataToRemove;
         }
 
+        /// <summary>
+        /// Determines whether this instance is empty.
+        /// </summary>
+        /// <returns>
+        ///   <c>true</c> if this instance is empty; otherwise, <c>false</c>.
+        /// </returns>
         public bool IsEmpty()
         {
-            if (front == null)
+            if (this.front == null)
             {
                 return true;
             }
@@ -92,10 +139,13 @@ namespace DataStructures.PalindromChecker
             }
         }
 
+        /// <summary>
+        /// Sizes this instance.
+        /// </summary>
+        /// <returns>returns current size</returns>
         public long Size()
         {
-            return size;
+            return this.size;
         }
-
     }
 }

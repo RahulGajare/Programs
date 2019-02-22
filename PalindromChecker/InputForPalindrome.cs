@@ -1,11 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="InputForPalindrome.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace DataStructures.PalindromChecker
 {
-    class InputForPalindrome
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// Input for palindrome
+    /// </summary>
+    public class InputForPalindrome
     {
+        /// <summary>
+        /// Checks the palindrome.
+        /// </summary>
         public static void CheckPalindrome()
         {
             Deque<char> deque = new Deque<char>();
@@ -29,9 +42,6 @@ namespace DataStructures.PalindromChecker
             }
 
             Console.WriteLine("Given String is a Palindrome");
-
-
-
         }
     }
 }

@@ -11,12 +11,31 @@ namespace DataStructures.LinkedList_Ordered_
     using System.Collections.Generic;
     using System.Text;
 
+    /// <summary>
+    /// Node class
+    /// </summary>
     public class Node
     {
+        /// <summary>
+        /// The next
+        /// </summary>
         private Node next;
+
+        /// <summary>
+        /// The data
+        /// </summary>
         private int data;
+
+        /// <summary>
+        /// The position
+        /// </summary>
         private long position;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Node"/> class.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        /// <param name="position">The position.</param>
         public Node(int data, long position)
         {
             this.position = position;
@@ -55,7 +74,7 @@ namespace DataStructures.LinkedList_Ordered_
         /// </value>
         public int Data
         {
-            get { return this.data;}
+            get { return this.data; }
             set { this.data = value; }
         }
     }

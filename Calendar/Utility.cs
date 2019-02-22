@@ -43,56 +43,26 @@ namespace DataStructures.Calendar
         /// <summary>
         /// Checks the leap year.
         /// </summary>
-        public static void CheckLeapYear()
+        public static bool CheckLeapYear(int year)
         {
             try
             {
-                int year;
-                bool keepLooping = true;
-                //// Keeps asking for year  untill valid year is given
-                while (keepLooping)
+                if (year % 4 == 0 && year % 100 != 0)
                 {
-                    Console.WriteLine("Enter the year you want to check");
-                    string stringYear = Console.ReadLine();
-
-                    if (Utility.IsNumber(stringYear) == false)
+                    return true;
+                }
+                else
+                {
+                    if (year % 400 == 0)
                     {
-                        Console.WriteLine("Invalid year");
-                        continue;
+                        return true;
                     }
-
-                    if (stringYear.Length != 4)
-                    {
-                        Console.WriteLine("Year should be of 4 digit number.");
-                        continue;
-                    }
-                    else
-                    {
-                        year = Convert.ToInt32(stringYear);
-
-                        if (year % 4 == 0 && year % 100 != 0)
-                        {
-                            Console.WriteLine("Year " + year + " is a Leap Year");
-                        }
-                        else
-                        {
-                            if (year % 400 == 0)
-                            {
-                                Console.WriteLine("Year " + year + " is a Leap Year");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Year " + year + " is not a Leap Year");
-                            }
-                        }
-                    }
-
-                    keepLooping = false;
+                    return false;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                throw new Exception(ex.Message);
             }
         }
 
