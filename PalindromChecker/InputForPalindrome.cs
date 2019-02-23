@@ -21,27 +21,34 @@ namespace DataStructures.PalindromChecker
         /// </summary>
         public static void CheckPalindrome()
         {
-            Deque<char> deque = new Deque<char>();
-            Console.WriteLine("Enter the String");
-            string userString = Console.ReadLine();
-
-            //// adding elements to rear
-            for (int i = 0; i < userString.Length; i++)
+            try
             {
-                char c = userString[i];
-                deque.Addrear(c);
-            }
+                Deque<char> deque = new Deque<char>();
+                Console.WriteLine("Enter the String");
+                string userString = Console.ReadLine();
 
-            while (deque.Size() > 1)
-            {
-                if (deque.RemoveFront() != deque.RemoveRear())
+                //// adding elements to rear
+                for (int i = 0; i < userString.Length; i++)
                 {
-                    Console.WriteLine("Given String is not Palindrome");
-                    return;
+                    char c = userString[i];
+                    deque.Addrear(c);
                 }
-            }
 
-            Console.WriteLine("Given String is a Palindrome");
+                while (deque.Size() > 1)
+                {
+                    if (deque.RemoveFront() != deque.RemoveRear())
+                    {
+                        Console.WriteLine("Given String is not Palindrome");
+                        return;
+                    }
+                }
+
+                Console.WriteLine("Given String is a Palindrome");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

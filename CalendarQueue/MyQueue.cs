@@ -12,8 +12,9 @@ namespace DataStructures.CalendarQueue
     using System.Text;
 
     /// <summary>
-    /// Queue Implementation
+    /// MyQueue Class
     /// </summary>
+    /// <typeparam name="T">Any Parameter</typeparam>
     public class MyQueue<T>
     {
         /// <summary>

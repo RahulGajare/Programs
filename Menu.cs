@@ -8,29 +8,30 @@
 namespace DataStructures
 {
     using System;
+    using System.Collections.Generic;
+    using System.Text;
     using DataStructures.BalancedParenthses;
     using DataStructures.BankingCashCounter;
     using DataStructures.Calendar;
     using DataStructures.CalendarQueue;
     using DataStructures.LinkedList_Ordered_;
     using DataStructures.LinkedList_UnOrdered_;
+    using DataStructures.Number_Of_BinaryTrees;
     using DataStructures.PalindromChecker;   
-    using DataStructures.PrimeNumberIn2DArray;
-    using DataStructures.PrimeAnagrams;
-    using DataStructures.PrimeAnagramStack;    
     using DataStructures.PrimeAnagramQueue;
-    using System.Collections.Generic;
-    using System.Text;
+    using DataStructures.PrimeAnagrams;
+    using DataStructures.PrimeAnagramStack;
+    using DataStructures.PrimeNumberIn2DArray;
 
     /// <summary>
-    /// Entry Point of this project
+    /// Entry menu for this project
     /// </summary>
     public class Menu
     {
         /// <summary>
         /// Defines the entry point of the application.
         /// </summary>
-        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception">handles and throws Exception</exception>
         public static void Main()
         {
             try
@@ -51,6 +52,7 @@ namespace DataStructures
                     Console.WriteLine("8) Calendar by Queue");
                     Console.WriteLine("9) Prime Anagram Stack in Reverse Order");
                     Console.WriteLine("10) Prime Anagram Queue");
+                    Console.WriteLine("11) Count Number Of Binary tree Possible");
 
                     Console.WriteLine("======================================================================================================================");
 
@@ -116,7 +118,7 @@ namespace DataStructures
 
                         case 8:
                             {
-                                // InputForCalendarQueue.StartCalendar();
+                                InputForCalendarQueue.StartCalendar();
                                 break;
                             }
 
@@ -134,6 +136,7 @@ namespace DataStructures
 
                         case 11:
                             {
+                                InputForBinaryTree.BinaryTree();
                                 break;
                             }
 

@@ -1,15 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="InputForHashing.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace DataStructures.HashingFunction
 {
-    class InputForHashing
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+
+    /// <summary>
+    /// This class is for taking required inputs
+    /// </summary>
+    public class InputForHashing
     {
-        public static void temp()
+        /// <summary>
+        /// Temporaries this instance.
+        /// </summary>
+        public static void Temp()
         {
-            int[] HashArray = new int[10];
+            int[] hashArray = new int[10];
             string path = string.Empty;
             bool loopPath = true;
             while (loopPath)
@@ -30,15 +43,13 @@ namespace DataStructures.HashingFunction
             string dataFromFile = System.IO.File.ReadAllText(path);
             string[] splitArray = dataFromFile.Split(" ");
 
-            for ( int i=0; i< splitArray.Length; i++)
+            for (int i = 0; i < splitArray.Length; i++)
             {
                 if (splitArray[i].Trim() != string.Empty)
                 {
-                    HashArray[i] = Convert.ToInt32(splitArray[i]);
+                    hashArray[i] = Convert.ToInt32(splitArray[i]);
                 }
             }
-
-
         }
     }
 }

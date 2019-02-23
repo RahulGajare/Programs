@@ -58,8 +58,16 @@ namespace DataStructures.BalancedParenthses
         /// <returns> returns the top element from the stack</returns>
         public long Pop()
         {
-            this.top--;
-            return this.stackArray[this.top];           
+            if (this.top == 0)
+            {
+                this.top--;
+                return this.stackArray[this.top + 1];        
+            }
+            else
+            {
+                this.top--;
+                return this.stackArray[this.top];
+            }            
         }
 
         /// <summary>

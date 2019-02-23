@@ -19,7 +19,7 @@ namespace DataStructures.PrimeAnagrams
         /// <summary>
         /// Print2s the d prime anagram.
         /// </summary>
-        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"> throws Exception</exception>
         public static void Print2DPrimeAnagram()
         {
             try

@@ -135,8 +135,8 @@ namespace DataStructures.PrimeAnagramStack
         /// Gets the anagrams.
         /// </summary>
         /// <param name="list">The list.</param>
-        /// <returns></returns>
-        public static ArrayList  GetAnagrams(ArrayList list)
+        /// <returns>returns Array List of anagrams</returns>
+        public static ArrayList GetAnagrams(ArrayList list)
         {
             try
             {
@@ -155,7 +155,6 @@ namespace DataStructures.PrimeAnagramStack
                                 if (CheckAnagram(list[i].ToString(), list[j].ToString()))
                                 {
                                     primeAnagramArray.Add(string.Empty + list[i].ToString() + "is anagram of " + list[j].ToString());
-
                                 }
                             }
                         }
@@ -297,7 +296,7 @@ namespace DataStructures.PrimeAnagramStack
                 {
                     for (int col = 0; col < colCount; col++)
                     {
-                        if (array[row, col] != null && array[row , col].Trim() != "")
+                        if (array[row, col] != null && array[row, col].Trim() != string.Empty)
                         {
                             Console.WriteLine("  " + array[row, col] + "  ");
                         }

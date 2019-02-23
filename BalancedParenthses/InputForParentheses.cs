@@ -21,31 +21,46 @@ namespace DataStructures.BalancedParenthses
         /// </summary>
         public static void CheckParentheses()
         {
+            string userExpression = string.Empty;
+
             try
             {
-                Console.WriteLine("Enter the size of Stack");
-                string stringStackSize = Console.ReadLine();
+                ////Console.WriteLine("Enter the size of Stack");
+                ////string stringStackSize = Console.ReadLine();
 
-                if (Utility.IsNumber(stringStackSize) == false)
-                {
-                    Console.WriteLine("invalid number,Enter a positive Integer");
-                    Console.Read();
-                    return;
-                }
+                ////if (Utility.IsNumber(stringStackSize) == false)
+                ////{
+                ////    Console.WriteLine("invalid number,Enter a positive Integer");
+                ////    Console.Read();
+                ////    return;
+                ////}
 
                 Stack stack = new Stack();
 
-                stack.StackInitialise(Convert.ToInt32(stringStackSize));
+                stack.StackInitialise(Convert.ToInt32(150));
 
-                Console.WriteLine("Enter the Expression");
-                string userExpression = Console.ReadLine();
+                bool loopForExpression = true;
+                {
+                    while (loopForExpression)
+                    {
+                        Console.WriteLine("Enter the Expression");
+                        userExpression = Console.ReadLine();
 
+                        if (Utility.CheckString(userExpression))
+                        {
+                            Console.WriteLine("invlaid Expression");
+                            continue;
+                        }
+                    }
+
+                    loopForExpression = false;                 
+                }
+              
                 long expressionlength = userExpression.Length;
 
                 for (int i = 0; i < expressionlength; i++)
                 {
                     char character = userExpression[i];
-
                     if (character == '(')
                     {
                         stack.Push(character);
@@ -60,7 +75,7 @@ namespace DataStructures.BalancedParenthses
                             }
                             catch (Exception)
                             {
-                                Console.WriteLine("Experession is not Balanced Parentheses");
+                                Console.WriteLine("Experession is  Balanced Parentheses");
                                 Console.Read();
                             }
                         }

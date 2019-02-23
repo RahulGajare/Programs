@@ -37,9 +37,16 @@ namespace DataStructures.PrimeAnagramStack
         /// <param name="stackSize">Size of the stack.</param>
         public void StackInitialise(int stackSize)
         {
-            this.maxSize = stackSize;
-            this.stackArray = new string[this.maxSize];
-            this.top = -1;
+            try
+            {
+                this.maxSize = stackSize;
+                this.stackArray = new string[this.maxSize];
+                this.top = -1;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -48,8 +55,15 @@ namespace DataStructures.PrimeAnagramStack
         /// <param name="character">The character.</param>
         public void Push(string character)
         {
-            this.top++;
-            this.stackArray[this.top] = character;
+            try
+            {
+                this.top++;
+                this.stackArray[this.top] = character;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -58,13 +72,20 @@ namespace DataStructures.PrimeAnagramStack
         /// <returns> returns the top element from the stack</returns>
         public string Pop()
         {
-            if (this.top == 1)
+            try
             {
-                return string.Empty;
-            }
+                if (this.top == 1)
+                {
+                    return string.Empty;
+                }
 
-            this.top--;
-            return this.stackArray[this.top];           
+                this.top--;
+                return this.stackArray[this.top];
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }          
         }
 
         /// <summary>
@@ -73,7 +94,14 @@ namespace DataStructures.PrimeAnagramStack
         /// <returns>returns the top element</returns>
         public string Peek()
         {
-            return this.stackArray[this.top];
+            try
+            {
+                return this.stackArray[this.top];
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -84,7 +112,14 @@ namespace DataStructures.PrimeAnagramStack
         /// </returns>
         public bool IsEmpty()
         {
-            return this.top == -1;
+            try
+            {
+                return this.top == -1;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -95,7 +130,14 @@ namespace DataStructures.PrimeAnagramStack
         /// </returns>
         public bool IsFull()
         {
-            return this.top == this.maxSize - 1;
+            try
+            {
+                return this.top == this.maxSize - 1;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

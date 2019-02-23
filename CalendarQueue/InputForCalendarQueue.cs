@@ -1,6 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="InputForCalendarQueue.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace DataStructures.CalendarQueue
 {
@@ -8,8 +11,14 @@ namespace DataStructures.CalendarQueue
     using System.Collections.Generic;
     using System.Text;
 
+    /// <summary>
+    /// Takes required input for this class
+    /// </summary>
     public class InputForCalendarQueue
     {
+        /// <summary>
+        /// Starts the calendar.
+        /// </summary>
         public static void StartCalendar()
         {
             int month = 0;
@@ -62,7 +71,7 @@ namespace DataStructures.CalendarQueue
                 loopForYear = false;
             }
 
-            Calendar.PrintCalendar(month,year);
+            Calendar.PrintCalendar(month, year);
         }
     }
 }

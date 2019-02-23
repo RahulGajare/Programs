@@ -22,22 +22,30 @@ namespace DataStructures.PrimeAnagramStack
         /// </summary>
         public static void StartPrimeAnagramStack()
         {
-           ArrayList primeAnagramList = Utility.GetAnagrams(Utility.GetPrimeNumbersList());
-
-            Stack primeAnagramStack = new Stack();
-            primeAnagramStack.StackInitialise(1000);
-
-            foreach (string word in primeAnagramList)
+            try
             {
-                primeAnagramStack.Push(word);
-            }
+                ArrayList primeAnagramList = Utility.GetAnagrams(Utility.GetPrimeNumbersList());
 
-            Console.WriteLine("pushed To Stack");
-            while (primeAnagramStack.Pop() != string.Empty)
-            {
-                Console.WriteLine(primeAnagramStack.Pop());
+                Stack primeAnagramStack = new Stack();
+                primeAnagramStack.StackInitialise(1000);
+
+                foreach (string word in primeAnagramList)
+                {
+                    primeAnagramStack.Push(word);
+                }
+
+                Console.WriteLine("pushed To Stack");
+                while (primeAnagramStack.Pop() != string.Empty)
+                {
+                    Console.WriteLine(primeAnagramStack.Pop());
+                }
+
+                Console.WriteLine("Poped Out of Stack in ReverseOreder");
             }
-            Console.WriteLine("Poped Out of Stack in ReverseOreder");
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

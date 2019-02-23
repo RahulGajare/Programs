@@ -13,7 +13,7 @@ namespace DataStructures.PrimeAnagrams
     using System.Text;
 
     /// <summary>
-    /// Utilty class
+    /// Utility class
     /// </summary>
     public class Utility
     {
@@ -137,7 +137,7 @@ namespace DataStructures.PrimeAnagrams
         /// <param name="list">The list.</param>
         /// <returns> returns 2D array of string containing Anagrams</returns>
         /// <exception cref="Exception">throws Exception</exception>
-        public static string [,] GetAnagrams(ArrayList list)
+        public static string[,] GetAnagrams(ArrayList list)
         {
             try
             {

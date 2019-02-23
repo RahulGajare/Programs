@@ -1,18 +1,18 @@
-﻿// -------------------------------------------------------------------------------------------------------------------------
+﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="Utility.cs" company="Bridgelabz">
 //   Copyright © 2018 Company
 // </copyright>
 // <creator name="Rahul Gajare"/>
-// -----------------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 
-namespace DataStructures.BalancedParenthses
+namespace DataStructures.Number_Of_BinaryTrees
 {
     using System;
     using System.Collections.Generic;
     using System.Text;
 
     /// <summary>
-    /// Utility class
+    /// Utility Class
     /// </summary>
     public class Utility
     {
@@ -55,13 +55,40 @@ namespace DataStructures.BalancedParenthses
             {
                 name = name.Trim();
                 if (string.IsNullOrEmpty(name))
-                {              
+                {
                     return true;
                 }
                 else
                 {
-                    return false; 
+                    return false;
                 }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// returns true if string contain any special Character
+        /// </summary>
+        /// <param name="userName">Takes the username </param>
+        /// <returns>returns  if string contains any Character </returns>
+        public static bool ContainsCharacter(string userName)
+        {
+            try
+            {
+                char[] userNameCharacter = userName.ToCharArray();
+                //// check each character in given string wheather it is a Character.
+                for (int i = 0; i < userNameCharacter.Length; i++)
+                {
+                    if (!char.IsLetterOrDigit(userNameCharacter[i]))
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
             }
             catch (Exception ex)
             {

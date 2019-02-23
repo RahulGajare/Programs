@@ -14,6 +14,9 @@ namespace DataStructures.CalendarQueue
     using System.Text;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// Utility class
+    /// </summary>
     public class Utility
     {
         /// <summary>
@@ -29,6 +32,7 @@ namespace DataStructures.CalendarQueue
             {
                 return false;
             }
+
             for (int i = 0; i < input.Length; i++)
             {
                 if (char.IsDigit(input[i]) == false)
@@ -43,6 +47,9 @@ namespace DataStructures.CalendarQueue
         /// <summary>
         /// Checks the leap year.
         /// </summary>
+        /// <param name="year">The year.</param>
+        /// <returns>returns true or false</returns>
+        /// <exception cref="Exception">Handles and throws new Exception</exception>
         public static bool CheckLeapYear(int year)
         {
             try
@@ -57,6 +64,7 @@ namespace DataStructures.CalendarQueue
                     {
                         return true;
                     }
+
                     return false;
                 }
             }
@@ -66,20 +74,19 @@ namespace DataStructures.CalendarQueue
             }
         }
 
-
         /// <summary>
         /// Days the of week.
         /// </summary>
         /// <param name="month">The month.</param>
         /// <param name="day">The day.</param>
         /// <param name="year">The year.</param>
-        /// <returns></returns>
+        /// <returns>returns the day</returns>
         public static int DayOfWeek(int month, int day, int year)
         {
-            int y0 = year - (14 - month) / 12;
-            int x = y0 + (y0 / 4) - y0 / 100 + y0 / 400;
-            int m0 = month + 12 * ((14 - month) / 12) - 2;
-            int d0 = (day + x + 31 * m0 / 12) % 7;
+            int y0 = year - ((14 - month) / 12);
+            int x = y0 + (y0 / 4) - (y0 / 100) + (y0 / 400);
+            int m0 = month + (12 * ((14 - month) / 12)) - 2;
+            int d0 = (day + x + (31 * m0 / 12)) % 7;
             return d0;
         }
     }
