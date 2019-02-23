@@ -4,7 +4,11 @@ using System.Text;
 
 namespace DataStructures.CalendarQueue
 {
-    class InputForCalendarQueue
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    public class InputForCalendarQueue
     {
         public static void StartCalendar()
         {

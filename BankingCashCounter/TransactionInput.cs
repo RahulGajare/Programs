@@ -57,24 +57,31 @@ namespace DataStructures.BankingCashCounter
         /// <param name="person">The person.</param>
         public static void WithdrawlDetails(Person person)
         {
-            bool loopWithdraw = true;
-            while (loopWithdraw)
+            try
             {
-                Console.WriteLine("Enter the Money you want to Withdraw,You have currently " + person.Balance + " in your account");
-                string amountToWithdraw = Console.ReadLine();
-
-                if (Utility.IsNumber(amountToWithdraw) == false)
+                bool loopWithdraw = true;
+                while (loopWithdraw)
                 {
-                    Console.WriteLine("Invalid Input");
-                    continue;
-                }
+                    Console.WriteLine("Enter the Money you want to Withdraw,You have currently " + person.Balance + " in your account");
+                    string amountToWithdraw = Console.ReadLine();
 
-                if (person.Withdraw(Convert.ToInt32(amountToWithdraw)) == false)
-                {
-                    continue;
-                }
+                    if (Utility.IsNumber(amountToWithdraw) == false)
+                    {
+                        Console.WriteLine("Invalid Input");
+                        continue;
+                    }
 
-                loopWithdraw = false;
+                    if (person.Withdraw(Convert.ToInt32(amountToWithdraw)) == false)
+                    {
+                        continue;
+                    }
+
+                    loopWithdraw = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }

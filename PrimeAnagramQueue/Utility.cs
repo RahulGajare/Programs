@@ -5,7 +5,7 @@
 // <creator name="Rahul Gajare"/>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DataStructures.PrimeAnagrams
+namespace DataStructures.PrimeAnagramQueue
 {
     using System;
     using System.Collections;
@@ -13,7 +13,7 @@ namespace DataStructures.PrimeAnagrams
     using System.Text;
 
     /// <summary>
-    /// Utilty class
+    /// Utility Class
     /// </summary>
     public class Utility
     {
@@ -23,164 +23,136 @@ namespace DataStructures.PrimeAnagrams
         /// <returns> returns array of prime Numbers</returns>
         public static ArrayList GetPrimeNumbersList()
         {
-            try
+            ArrayList primeNumberArrayList = new ArrayList();
+            bool primeNumberFound = false; ////for checking if there is atleast one primeNumber between the given range;
+            bool flag = true; //// to Print to console if a number is Prime.
+            int initialNumber = 0;
+            int lastNumber = 0;
+            bool initialFlag = true;
+            int indexForPrimeArray = 0;
+
+            while (initialFlag)
             {
-                ArrayList primeNumberArrayList = new ArrayList();
-                bool primeNumberFound = false; ////for checking if there is atleast one primeNumber between the given range;
-                bool flag = true; //// to Print to console if a number is Prime.
-                int initialNumber = 0;
-                int lastNumber = 0;
-                bool initialFlag = true;
-                int indexForPrimeArray = 0;
+                Console.WriteLine("Enter the Initial Range");
+                string strInitial = Console.ReadLine();
 
-                while (initialFlag)
+                if (IsNumber(strInitial) == false)
                 {
-                    Console.WriteLine("Enter the Initial Range");
-                    string strInitial = Console.ReadLine();
-
-                    if (IsNumber(strInitial) == false)
-                    {
-                        Console.WriteLine("Invalid Number");
-                        continue;
-                    }
-
-                    initialNumber = Convert.ToInt32(strInitial);
-
-                    if (initialNumber < 0)
-                    {
-                        Console.WriteLine("Enter a number greater then 0");
-                        continue;
-                    }
-
-                    initialFlag = false;
+                    Console.WriteLine("Invalid Number");
+                    continue;
                 }
 
-                bool lastFlag = true; //// keep asking the user till valid number is given.
-                while (lastFlag)
+                initialNumber = Convert.ToInt32(strInitial);
+
+                if (initialNumber < 0)
                 {
-                    Console.WriteLine("Enter the Last Number ,you want to print Prime Numbers till");
-                    string strLast = Console.ReadLine();
-
-                    if (IsNumber(strLast) == false)
-                    {
-                        Console.WriteLine("Invalid Number");
-                        continue;
-                    }
-
-                    lastNumber = Convert.ToInt32(strLast);
-
-                    if (lastNumber <= initialNumber)
-                    {
-                        Console.WriteLine("Last number should be greater than the initial Value ");
-                        continue;
-                    }
-
-                    lastFlag = false;
+                    Console.WriteLine("Enter a number greater then 0");
+                    continue;
                 }
 
-                //// For keep checking for PrimeNumber till last Range.
-                for (int i = initialNumber; i <= lastNumber; i++)
-                {
-                    if (i == 2)
-                    {
-                        flag = true;
-                    }
-
-                    if (i % 2 == 0 && i != 2)
-                    {
-                        continue;
-                    }
-
-                    if (i == 1)
-                    {
-                        continue;
-                    }
-
-                    //// checking for divisibility for each odd number.
-                    for (int j = 3; j < i; j = j + 2)
-                    {
-                        if (i % j == 0)
-                        {
-                            flag = false;
-                            break;
-                        }
-                    }
-
-                    if (flag)
-                    {
-                        primeNumberArrayList.Add(i);
-                        indexForPrimeArray++;
-                        primeNumberFound = true;
-                    }
-                    else
-                    {
-                        flag = true;
-                    }
-                }
-
-                if (primeNumberFound == false)
-                {
-                    Console.WriteLine("There are no Prime Numbers between range " + initialNumber + " & " + lastNumber);
-                }
-
-                return primeNumberArrayList;
+                initialFlag = false;
             }
-            catch (Exception ex)
+
+            bool lastFlag = true; //// keep asking the user till valid number is given.
+            while (lastFlag)
             {
-                throw new Exception(ex.Message);
+                Console.WriteLine("Enter the Last Number ,you want to print Prime Numbers till");
+                string strLast = Console.ReadLine();
+
+                if (IsNumber(strLast) == false)
+                {
+                    Console.WriteLine("Invalid Number");
+                    continue;
+                }
+
+                lastNumber = Convert.ToInt32(strLast);
+
+                if (lastNumber <= initialNumber)
+                {
+                    Console.WriteLine("Last number should be greater than the initial Value ");
+                    continue;
+                }
+
+                lastFlag = false;
             }
+
+            //// For keep checking for PrimeNumber till last Range.
+            for (int i = initialNumber; i <= lastNumber; i++)
+            {
+                if (i == 2)
+                {
+                    flag = true;
+                }
+
+                if (i % 2 == 0 && i != 2)
+                {
+                    continue;
+                }
+
+                if (i == 1)
+                {
+                    continue;
+                }
+
+                //// checking for divisibility for each odd number.
+                for (int j = 3; j < i; j = j + 2)
+                {
+                    if (i % j == 0)
+                    {
+                        flag = false;
+                        break;
+                    }
+                }
+
+                if (flag)
+                {
+                    primeNumberArrayList.Add(i);
+                    indexForPrimeArray++;
+                    primeNumberFound = true;
+                }
+                else
+                {
+                    flag = true;
+                }
+            }
+
+            if (primeNumberFound == false)
+            {
+                Console.WriteLine("There are no Prime Numbers between range " + initialNumber + " & " + lastNumber);
+            }
+
+            return primeNumberArrayList;
         }
 
         /// <summary>
         /// Gets the anagrams.
         /// </summary>
         /// <param name="list">The list.</param>
-        /// <returns> returns 2D array of string containing Anagrams</returns>
-        /// <exception cref="Exception">throws Exception</exception>
-        public static string [,] GetAnagrams(ArrayList list)
+        /// <returns>returns Array List Containing Prime Anagram</returns>
+        public static ArrayList GetAnagrams(ArrayList list)
         {
-            try
+            ArrayList primeAnagramArray = new ArrayList();
+
+            ////Here i points starts from the first element 
+            for (int i = 0; i < list.Count; i++)
             {
-                int rowForAnagram = 0;
-                int columnForAnagram = 0;
-                int rowForNotAnagram = 0;
-                int columnForNotAnagram = 1;
-
-                string[,] primeAnagram2DArray = new string[1000, 2];
-
-                ////Here i points starts from the first element 
-                for (int i = 0; i < list.Count; i++)
+                //// Here the element at i is compared to each element at value of j.
+                for (int j = 0; j < list.Count; j++)
                 {
-                    //// Here the element at i is compared to each element at value of j.
-                    for (int j = 0; j < list.Count; j++)
+                    if (j != i)
                     {
-                        if (j != i)
+                        if (list[i].ToString().Length == list[j].ToString().Length)
                         {
-                            if (list[i].ToString().Length == list[j].ToString().Length)
+                            if (CheckAnagram(list[i].ToString(), list[j].ToString()))
                             {
-                                if (CheckAnagram(list[i].ToString(), list[j].ToString()))
-                                {
-                                    primeAnagram2DArray[rowForAnagram, columnForAnagram] = string.Empty + list[i].ToString() + "is anagram of " + list[j].ToString();
-                                    rowForAnagram++;
-                                }
-                                else
-                                {
-                                    if (j == list.Count)
-                                    {
-                                        primeAnagram2DArray[rowForNotAnagram, columnForNotAnagram] = list[i].ToString();
-                                    }
-                                }
+                                primeAnagramArray.Add(string.Empty + list[i].ToString() + "is anagram of " + list[j].ToString());
                             }
                         }
                     }
                 }
+            }
 
-                return primeAnagram2DArray;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            return primeAnagramArray;
         }
 
         /// <summary>
@@ -314,7 +286,7 @@ namespace DataStructures.PrimeAnagrams
                         {
                             Console.WriteLine("  " + array[row, col] + "  ");
                         }
-                    }                 
+                    }
                 }
             }
             catch (Exception ex)

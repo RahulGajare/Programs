@@ -16,11 +16,17 @@ namespace DataStructures.Calendar
     /// </summary>
     public class Calendar
     {
+        /// <summary>
+        /// Prints the calendar.
+        /// </summary>
+        /// <param name="month">The month.</param>
+        /// <param name="year">The year.</param>
+        /// <exception cref="Exception">throws exception </exception>
         public static void PrintCalendar(int month, int year)
         {
             try
             {
-                string[] monthsArray = { "", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+                string[] monthsArray = { string.Empty, "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
                 int[] numberOfDaysArray = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
                 if (month == 2 && Utility.CheckLeapYear(year))
@@ -30,18 +36,18 @@ namespace DataStructures.Calendar
 
                 Console.WriteLine(monthsArray[month]);
                 Console.WriteLine(year);
-                Console.WriteLine(" S M T W TH F S");
+                Console.WriteLine(" S  M  T  W  TH  F  S");
 
                 int day = Utility.DayOfWeek(month, 1, year);
 
                 for (int i = 0; i < day; i++)
                 {
-                    Console.Write(" ");
+                    Console.Write("   ");
                 }
 
                 for (int i = 0; i <= numberOfDaysArray[month]; i++)
                 {
-                    Console.Write(i + " ");
+                    Console.Write(i + "  ");
 
                     if ((i + day) % 7 == 0 || (i == numberOfDaysArray[month]))
                     {

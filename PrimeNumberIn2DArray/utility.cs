@@ -95,7 +95,5 @@ namespace DataStructures.PrimeNumberIn2DArray
                 throw new Exception(ex.Message);
             }
         }
-
-
     }
 }

@@ -184,7 +184,6 @@ namespace DataStructures.BankingCashCounter
         {
             try
             {
-
                 return this.size;
             }
             catch (Exception ex)

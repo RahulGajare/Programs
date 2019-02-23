@@ -5,15 +5,16 @@
 // <creator name="Rahul Gajare"/>
 // -----------------------------------------------------------------------------------------------------------------------------
 
-namespace DataStructures.CalendarQueue
+namespace DataStructures.PrimeAnagramQueue
 {
     using System;
     using System.Collections.Generic;
     using System.Text;
 
     /// <summary>
-    /// Queue Implementation
+    /// MyQueue class
     /// </summary>
+    /// <typeparam name="T">any parameter</typeparam>
     public class MyQueue<T>
     {
         /// <summary>
@@ -34,7 +35,7 @@ namespace DataStructures.CalendarQueue
         /// <summary>
         /// The queue array
         /// </summary>
-        private T[] queueArray = new T[1000];
+        private string[] queueArray = new string[1000];
 
         /// <summary>
         /// The size/
@@ -95,7 +96,7 @@ namespace DataStructures.CalendarQueue
         /// </summary>
         /// <param name="data">The data.</param>
         /// <returns>returns true or false</returns>
-        public bool Enqueue(T data)
+        public bool Enqueue(string data)
         {
             if (this.rear == this.queueMaxSize - 1)
             {
@@ -120,16 +121,16 @@ namespace DataStructures.CalendarQueue
         /// Dequeues this instance.
         /// </summary>
         /// <returns>returns true or false</returns>
-        public int Dequeue()
+        public string Dequeue()
         {
             if (this.front == -1 || this.front > this.rear)
             {
                 Console.WriteLine("Queue Underflow");
-                return -1;
+                return string.Empty;
             }
             else
             {
-                int d = this.front;
+                string d = this.queueArray[this.front];
                 this.front++;
                 this.size--;
                 return d;

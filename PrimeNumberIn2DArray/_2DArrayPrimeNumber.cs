@@ -22,31 +22,38 @@ namespace DataStructures.PrimeNumberIn2DArray
         /// </summary>
         public static void _2DArray()
         {
-            int[,] prime2DArray = new int[30, 11];
-            ArrayList arr = PrimeNumber.GetPrimeNumbersList();
-
-            int changeColumn = 100;
-            int row = 0;
-            int column = 0;
-
-            foreach (int num in arr)
+            try
             {
-                if (num < changeColumn)
-                {
-                    prime2DArray[row, column] = num;
-                    row++;
-                }
-                else
-                {
-                    row = 0;
-                    column++;
-                    prime2DArray[row, column] = num;
-                    changeColumn = changeColumn + 100;
-                    row++;
-                }
-            }
+                int[,] prime2DArray = new int[30, 11];
+                ArrayList arr = PrimeNumber.GetPrimeNumbersList();
 
-            PrintMatrix(prime2DArray);
+                int changeColumn = 100;
+                int row = 0;
+                int column = 0;
+
+                foreach (int num in arr)
+                {
+                    if (num < changeColumn)
+                    {
+                        prime2DArray[row, column] = num;
+                        row++;
+                    }
+                    else
+                    {
+                        row = 0;
+                        column++;
+                        prime2DArray[row, column] = num;
+                        changeColumn = changeColumn + 100;
+                        row++;
+                    }
+                }
+
+                PrintMatrix(prime2DArray);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -57,24 +64,31 @@ namespace DataStructures.PrimeNumberIn2DArray
         {
             try
             {
-                var rowCount = array.GetLength(0);
-                var colCount = array.GetLength(1);
-                for (int row = 0; row < rowCount; row++)
+                try
                 {
-                    for (int col = 0; col < colCount; col++)
+                    var rowCount = array.GetLength(0);
+                    var colCount = array.GetLength(1);
+                    for (int row = 0; row < rowCount; row++)
                     {
-                        if (array[row, col] != 0)
+                        for (int col = 0; col < colCount; col++)
                         {
-                            Console.Write("  " + array[row, col] + "  ");
-                        }                      
-                    }
+                            if (array[row, col] != 0)
+                            {
+                                Console.Write("  " + array[row, col] + "  ");
+                            }
+                        }
 
-                    Console.WriteLine();
+                        Console.WriteLine();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                throw new Exception(ex.Message);
             }
         }
     }

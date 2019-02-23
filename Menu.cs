@@ -7,24 +7,30 @@
 
 namespace DataStructures
 {
+    using System;
     using DataStructures.BalancedParenthses;
     using DataStructures.BankingCashCounter;
+    using DataStructures.Calendar;
+    using DataStructures.CalendarQueue;
     using DataStructures.LinkedList_Ordered_;
     using DataStructures.LinkedList_UnOrdered_;
-    using DataStructures.PalindromChecker;
-    using DataStructures.Calendar;
+    using DataStructures.PalindromChecker;   
     using DataStructures.PrimeNumberIn2DArray;
     using DataStructures.PrimeAnagrams;
-    using DataStructures.CalendarQueue;
-    using System;
+    using DataStructures.PrimeAnagramStack;    
+    using DataStructures.PrimeAnagramQueue;
     using System.Collections.Generic;
     using System.Text;
 
     /// <summary>
-    /// Entery Point of this project
+    /// Entry Point of this project
     /// </summary>
     public class Menu
     {
+        /// <summary>
+        /// Defines the entry point of the application.
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         public static void Main()
         {
             try
@@ -40,9 +46,11 @@ namespace DataStructures
                     Console.WriteLine("3) Balanced Parentheses");
                     Console.WriteLine("4) Banking cash Counter");
                     Console.WriteLine("5) Palindrome Checker using Deque");
-                    Console.WriteLine("6) PrimeAnagrams in 2D array");                       
+                    Console.WriteLine("6) PrimeAnagrams in 2D array");
                     Console.WriteLine("7) PrimeNumber in 2D array");
                     Console.WriteLine("8) Calendar by Queue");
+                    Console.WriteLine("9) Prime Anagram Stack in Reverse Order");
+                    Console.WriteLine("10) Prime Anagram Queue");
 
                     Console.WriteLine("======================================================================================================================");
 
@@ -66,7 +74,7 @@ namespace DataStructures
 
                         case 1:
                             {
-                                InputForUnordered.UnOrderedList(); 
+                                InputForUnordered.UnOrderedList();
                                 break;
                             }
 
@@ -108,49 +116,44 @@ namespace DataStructures
 
                         case 8:
                             {
-                                InputForCalendarQueue.StartCalendar();
+                                // InputForCalendarQueue.StartCalendar();
                                 break;
                             }
 
                         case 9:
                             {
-                                
+                                PrimeAnagramStack.PrimeAnagramStack.StartPrimeAnagramStack();
                                 break;
                             }
 
                         case 10:
                             {
-                                
+                                PrimeAnagramQueue.PrimeAnagramQueue.StartPrimeAnagramQueue();
                                 break;
                             }
 
                         case 11:
                             {
-                                
                                 break;
                             }
 
                         case 12:
                             {
-                                
-                                break;
+                               break;
                             }
 
                         case 13:
                             {
-                                
                                 break;
                             }
 
                         case 14:
                             {
-                                
                                 break;
                             }
 
                         case 15:
                             {
-                                
                                 break;
                             }
 
@@ -167,6 +170,5 @@ namespace DataStructures
                 throw new Exception(ex.Message);
             }
         }
-    
     }
 }

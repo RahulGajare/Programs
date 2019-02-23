@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace DataStructures.CalendarQueue
 {
-    class Calendar
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    public class Calendar
     {
         public static void PrintCalendar(int month, int year)
         {
@@ -51,10 +53,12 @@ namespace DataStructures.CalendarQueue
                 {
                     Console.Write("" + queueInt.Dequeue() + "\t");      
                 }
+
                 if (i > 9)
                 {
                     Console.Write("" + i + "\t");
                 }
+
                 if ((i + day) % 7 == 0)
                 {
                     Console.WriteLine();

@@ -38,21 +38,29 @@ namespace DataStructures.PalindromChecker
         /// <param name="data">The data.</param>
         public void AddFront(T data)
         {
-            if (this.front == null) //// if front is null , it means this is the first element
+            try
             {
-                this.front.Data = data;
-                this.rear = this.front;
-            }
-            else
-            {
-                DequeNode<T> tempNode = null;
-                tempNode.Data = data;
-                tempNode.Next = this.front;
-                this.front.Pre = tempNode;
-                this.front = tempNode;
-            }
+                //// if front is null , it means this is the first element
+                if (this.front == null) 
+                {
+                    this.front.Data = data;
+                    this.rear = this.front;
+                }
+                else
+                {
+                    DequeNode<T> tempNode = null;
+                    tempNode.Data = data;
+                    tempNode.Next = this.front;
+                    this.front.Pre = tempNode;
+                    this.front = tempNode;
+                }
 
-            this.size++; ////increasing the size of queue
+                this.size++; ////increasing the size of queue
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -61,21 +69,28 @@ namespace DataStructures.PalindromChecker
         /// <param name="data">The data.</param>
         public void Addrear(T data)
         {
-            if (this.front == null)
+            try
             {
-                DequeNode<T> dequeNode = new DequeNode<T>(data);
-                this.front = dequeNode;
-                this.rear = this.front;
-            }
-            else
-            {
-                DequeNode<T> dequeNode = new DequeNode<T>(data);
-                this.rear.Next = dequeNode;
-                dequeNode.Pre = this.rear;
-                this.rear = dequeNode;
-            }
+                if (this.front == null)
+                {
+                    DequeNode<T> dequeNode = new DequeNode<T>(data);
+                    this.front = dequeNode;
+                    this.rear = this.front;
+                }
+                else
+                {
+                    DequeNode<T> dequeNode = new DequeNode<T>(data);
+                    this.rear.Next = dequeNode;
+                    dequeNode.Pre = this.rear;
+                    this.rear = dequeNode;
+                }
 
-            this.size++;
+                this.size++;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>

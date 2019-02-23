@@ -1,11 +1,11 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Utility.cs" company="Bridgelabz">
+// <copyright file="utility.cs" company="Bridgelabz">
 //   Copyright © 2018 Company
 // </copyright>
 // <creator name="Rahul Gajare"/>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DataStructures.PrimeAnagrams
+namespace DataStructures.PrimeAnagramStack
 {
     using System;
     using System.Collections;
@@ -13,7 +13,7 @@ namespace DataStructures.PrimeAnagrams
     using System.Text;
 
     /// <summary>
-    /// Utilty class
+    /// Utility Class
     /// </summary>
     public class Utility
     {
@@ -135,18 +135,12 @@ namespace DataStructures.PrimeAnagrams
         /// Gets the anagrams.
         /// </summary>
         /// <param name="list">The list.</param>
-        /// <returns> returns 2D array of string containing Anagrams</returns>
-        /// <exception cref="Exception">throws Exception</exception>
-        public static string [,] GetAnagrams(ArrayList list)
+        /// <returns></returns>
+        public static ArrayList  GetAnagrams(ArrayList list)
         {
             try
             {
-                int rowForAnagram = 0;
-                int columnForAnagram = 0;
-                int rowForNotAnagram = 0;
-                int columnForNotAnagram = 1;
-
-                string[,] primeAnagram2DArray = new string[1000, 2];
+                ArrayList primeAnagramArray = new ArrayList();
 
                 ////Here i points starts from the first element 
                 for (int i = 0; i < list.Count; i++)
@@ -160,22 +154,15 @@ namespace DataStructures.PrimeAnagrams
                             {
                                 if (CheckAnagram(list[i].ToString(), list[j].ToString()))
                                 {
-                                    primeAnagram2DArray[rowForAnagram, columnForAnagram] = string.Empty + list[i].ToString() + "is anagram of " + list[j].ToString();
-                                    rowForAnagram++;
-                                }
-                                else
-                                {
-                                    if (j == list.Count)
-                                    {
-                                        primeAnagram2DArray[rowForNotAnagram, columnForNotAnagram] = list[i].ToString();
-                                    }
+                                    primeAnagramArray.Add(string.Empty + list[i].ToString() + "is anagram of " + list[j].ToString());
+
                                 }
                             }
                         }
                     }
                 }
 
-                return primeAnagram2DArray;
+                return primeAnagramArray;
             }
             catch (Exception ex)
             {
@@ -310,11 +297,11 @@ namespace DataStructures.PrimeAnagrams
                 {
                     for (int col = 0; col < colCount; col++)
                     {
-                        if (array[row, col] != null && array[row, col].Trim() != string.Empty)
+                        if (array[row, col] != null && array[row , col].Trim() != "")
                         {
                             Console.WriteLine("  " + array[row, col] + "  ");
                         }
-                    }                 
+                    }             
                 }
             }
             catch (Exception ex)

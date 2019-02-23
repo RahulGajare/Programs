@@ -5,14 +5,22 @@
 // <creator name="Rahul Gajare"/>
 // -----------------------------------------------------------------------------------------------------------------------------
 
-
 namespace DataStructures.Calendar
 {
     using System;
     using System.Collections.Generic;
     using System.Text;
-    class InputForCalendar
+
+    /// <summary>
+    /// Takes input 
+    /// </summary>
+    public class InputForCalendar
     {
+        /// <summary>
+        /// Starts the calendar.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        /// <exception cref="Exception">throws exception</exception>
         public static void StartCalendar(string[] args)
         {
             try
@@ -20,7 +28,7 @@ namespace DataStructures.Calendar
                 int year = 0;
                 int month = 0;
 
-                if (args.Length < 2 || args.Length > 2)
+                if (args.Length != 2)
                 {
                     Console.WriteLine("Please Enter the month and Year correctly in MM/YYYY");
                     Console.Read();

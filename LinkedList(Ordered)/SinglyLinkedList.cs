@@ -124,7 +124,7 @@ namespace DataStructures.LinkedList_Ordered_
 
                 return false;
             }
-            catch ( ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }

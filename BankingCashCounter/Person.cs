@@ -46,7 +46,6 @@ namespace DataStructures.BankingCashCounter
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }
@@ -97,7 +96,6 @@ namespace DataStructures.BankingCashCounter
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }
@@ -121,12 +119,11 @@ namespace DataStructures.BankingCashCounter
                 this.balance = this.balance - withdrawAmount;
                 Console.WriteLine("Remaining balance = " + this.balance);
                 return true;
-
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
-            }        }
+            }
+        }
     }
 }
