@@ -21,7 +21,7 @@ namespace DataStructures.Calendar
         /// </summary>
         /// <param name="args">The arguments.</param>
         /// <exception cref="Exception">throws exception</exception>
-        public static void StartCalendar(string[] args)
+        public static void Temp(string[] args)
         {
             try
             {

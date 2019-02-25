@@ -98,22 +98,29 @@ namespace DataStructures.CalendarQueue
         /// <returns>returns true or false</returns>
         public bool Enqueue(T data)
         {
-            if (this.rear == this.queueMaxSize - 1)
+            try
             {
-                Console.WriteLine("Queue Overflow");
-                return false;
-            }
-            else
-            {
-                if (this.front == -1)
+                if (this.rear == this.queueMaxSize - 1)
                 {
-                    this.front = 0;
+                    Console.WriteLine("Queue Overflow");
+                    return false;
                 }
+                else
+                {
+                    if (this.front == -1)
+                    {
+                        this.front = 0;
+                    }
 
-                this.rear++;
-                this.queueArray[this.rear] = data;
-                this.size++;
-                return true;
+                    this.rear++;
+                    this.queueArray[this.rear] = data;
+                    this.size++;
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -123,17 +130,24 @@ namespace DataStructures.CalendarQueue
         /// <returns>returns true or false</returns>
         public int Dequeue()
         {
-            if (this.front == -1 || this.front > this.rear)
+            try
             {
-                Console.WriteLine("Queue Underflow");
-                return -1;
+                if (this.front == -1 || this.front > this.rear)
+                {
+                    Console.WriteLine("Queue Underflow");
+                    return -1;
+                }
+                else
+                {
+                    int d = this.front;
+                    this.front++;
+                    this.size--;
+                    return d;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                int d = this.front;
-                this.front++;
-                this.size--;
-                return d;
+                throw new Exception(ex.Message);
             }
         }
 
@@ -142,16 +156,23 @@ namespace DataStructures.CalendarQueue
         /// </summary>
         public void ShowElements()
         {
-            if (this.front == -1)
+            try
             {
-                Console.WriteLine("Queue is Empty");
-            }
-            else
-            {
-                for (int i = this.front; i <= this.rear; i++)
+                if (this.front == -1)
                 {
-                    Console.WriteLine(this.queueArray[i]);
+                    Console.WriteLine("Queue is Empty");
                 }
+                else
+                {
+                    for (int i = this.front; i <= this.rear; i++)
+                    {
+                        Console.WriteLine(this.queueArray[i]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -161,7 +182,14 @@ namespace DataStructures.CalendarQueue
         /// <returns>returns current size</returns>
         public int CheckSize()
         {
-            return this.size;
+            try
+            {
+                return this.size;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

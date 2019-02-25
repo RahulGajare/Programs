@@ -37,9 +37,16 @@ namespace DataStructures.BalancedParenthses
         /// <param name="stackSize">Size of the stack.</param>
         public void StackInitialise(int stackSize)
         {
-            this.maxSize = stackSize;
-            this.stackArray = new char[this.maxSize];
-            this.top = -1;
+            try
+            {
+                this.maxSize = stackSize;
+                this.stackArray = new char[this.maxSize];
+                this.top = -1;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -48,8 +55,15 @@ namespace DataStructures.BalancedParenthses
         /// <param name="character">The character.</param>
         public void Push(char character)
         {
-            this.top++;
-            this.stackArray[this.top] = character;
+            try
+            {
+                this.top++;
+                this.stackArray[this.top] = character;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -58,16 +72,23 @@ namespace DataStructures.BalancedParenthses
         /// <returns> returns the top element from the stack</returns>
         public long Pop()
         {
-            if (this.top == 0)
+            try
             {
-                this.top--;
-                return this.stackArray[this.top + 1];        
+                if (this.top == 0)
+                {
+                    this.top--;
+                    return this.stackArray[this.top + 1];
+                }
+                else
+                {
+                    this.top--;
+                    return this.stackArray[this.top];
+                }
             }
-            else
+            catch (Exception ex)
             {
-                this.top--;
-                return this.stackArray[this.top];
-            }            
+                throw new Exception(ex.Message);
+            }  
         }
 
         /// <summary>
@@ -76,7 +97,14 @@ namespace DataStructures.BalancedParenthses
         /// <returns>returns the top element</returns>
         public long Peek()
         {
-            return this.stackArray[this.top];
+            try
+            {
+                return this.stackArray[this.top];
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -87,7 +115,14 @@ namespace DataStructures.BalancedParenthses
         /// </returns>
         public bool IsEmpty()
         {
-            return this.top == -1;
+            try
+            {
+                return this.top == -1;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -98,7 +133,14 @@ namespace DataStructures.BalancedParenthses
         /// </returns>
         public bool IsFull()
         {
-            return this.top == this.maxSize - 1;
+            try
+            {
+                return this.top == this.maxSize - 1;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

@@ -39,6 +39,7 @@ namespace DataStructures.BalancedParenthses
 
                 stack.StackInitialise(Convert.ToInt32(150));
 
+                ////keep asking until valid expression is given
                 bool loopForExpression = true;
                 {
                     while (loopForExpression)
@@ -58,6 +59,7 @@ namespace DataStructures.BalancedParenthses
               
                 long expressionlength = userExpression.Length;
 
+                ////loop our each letter in the expression 
                 for (int i = 0; i < expressionlength; i++)
                 {
                     char character = userExpression[i];
@@ -82,6 +84,7 @@ namespace DataStructures.BalancedParenthses
                     }
                 }
 
+                ////if Stack is Empty ,it Means the Expression is Balanced
                 if (stack.IsEmpty())
                 {
                     Console.WriteLine("Experession have Balanced Parentheses");

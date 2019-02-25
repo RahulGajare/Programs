@@ -5,7 +5,7 @@
 // <creator name="Rahul Gajare"/>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace DataStructures.PrimeAnagrams
+namespace DataStructures.HashingFunction
 {
     using System;
     using System.Collections;
@@ -141,10 +141,10 @@ namespace DataStructures.PrimeAnagrams
         {
             try
             {
-                int rowForAnagram = 0; ////rows for storing Anagram 2D array
-                int columnForAnagram = 0; ////Column for storing Anagram 2D Array
-                int rowForNotAnagram = 0; ////rows for storing non Anagram 2D array
-                int columnForNotAnagram = 1; ////Column for storing non Anagram 2D Array
+                int rowForAnagram = 0;
+                int columnForAnagram = 0;
+                int rowForNotAnagram = 0;
+                int columnForNotAnagram = 1;
 
                 string[,] primeAnagram2DArray = new string[1000, 2];
 

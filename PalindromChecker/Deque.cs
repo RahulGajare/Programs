@@ -99,19 +99,26 @@ namespace DataStructures.PalindromChecker
         /// <returns>returns the removed data from the front </returns>
         public T RemoveFront()
         {
-            T dataToRemove = default(T);
-            if (this.front == null)
+            try
             {
-                Console.WriteLine("Allready empty, nothing to delete");
-            }
-            else
-            {
-                dataToRemove = this.front.Data;
-                this.front = this.front.Next;
-            }
+                T dataToRemove = default(T);
+                if (this.front == null)
+                {
+                    Console.WriteLine("Allready empty, nothing to delete");
+                }
+                else
+                {
+                    dataToRemove = this.front.Data;
+                    this.front = this.front.Next;
+                }
 
-            this.size--;
-            return dataToRemove;
+                this.size--;
+                return dataToRemove;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -120,20 +127,27 @@ namespace DataStructures.PalindromChecker
         /// <returns>returns the removed data from the rear</returns>
         public T RemoveRear()
         {
-            T dataToRemove = default(T);
-            if (this.front == null)
+            try
             {
-                Console.WriteLine("Allready empty, nothing to delete");
-            }
-            else
-            {
-                 dataToRemove = this.rear.Data;
-                this.rear = this.rear.Pre;
-                this.rear.Next = null;
-            }
+                T dataToRemove = default(T);
+                if (this.front == null)
+                {
+                    Console.WriteLine("Allready empty, nothing to delete");
+                }
+                else
+                {
+                    dataToRemove = this.rear.Data;
+                    this.rear = this.rear.Pre;
+                    this.rear.Next = null;
+                }
 
-            this.size--;
-            return dataToRemove;
+                this.size--;
+                return dataToRemove;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -144,13 +158,20 @@ namespace DataStructures.PalindromChecker
         /// </returns>
         public bool IsEmpty()
         {
-            if (this.front == null)
+            try
             {
-                return true;
+                if (this.front == null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return false;
+                throw new Exception(ex.Message);
             }
         }
 

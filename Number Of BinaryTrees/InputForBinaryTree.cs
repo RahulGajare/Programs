@@ -21,32 +21,39 @@ namespace DataStructures.Number_Of_BinaryTrees
         /// </summary>
         public static void BinaryTree()
         {
-            int numberOfElements = 0;
-            bool loop = true;
-            while (loop)
+            try
             {
-                Console.WriteLine("Enter the Number Of Elements");
-                string stringElements = Console.ReadLine();
-
-                if (Utility.IsNumber(stringElements) == false)
+                int numberOfElements = 0;
+                bool loop = true;
+                while (loop)
                 {
-                    Console.WriteLine("Invalid Input");
-                    continue;
-                }            
+                    Console.WriteLine("Enter the Number Of Elements");
+                    string stringElements = Console.ReadLine();
 
-                numberOfElements = Convert.ToInt32(stringElements);
+                    if (Utility.IsNumber(stringElements) == false)
+                    {
+                        Console.WriteLine("Invalid Input");
+                        continue;
+                    }
 
-                if (numberOfElements < 0)
-                {
-                    Console.WriteLine("the Number of elements should be greater than 0");
-                    continue;
+                    numberOfElements = Convert.ToInt32(stringElements);
+
+                    if (numberOfElements < 0)
+                    {
+                        Console.WriteLine("the Number of elements should be greater than 0");
+                        continue;
+                    }
+
+                    loop = false;
                 }
 
-                loop = false;
+                int numberOfBinaryTrees = CountBinaryTrees.CountBinaryTree(numberOfElements);
+                Console.WriteLine("Number Of Binary trees possible = " + numberOfBinaryTrees);
             }
-
-           int numberOfBinaryTrees = CountBinaryTrees.CountBinaryTree(numberOfElements);
-            Console.WriteLine("Number Of Binary trees possible = " + numberOfBinaryTrees);
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

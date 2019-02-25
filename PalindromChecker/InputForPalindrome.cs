@@ -34,6 +34,7 @@ namespace DataStructures.PalindromChecker
                     deque.Addrear(c);
                 }
 
+                ////loop till size of queue and comparing the letters at front and rear of the queue
                 while (deque.Size() > 1)
                 {
                     if (deque.RemoveFront() != deque.RemoveRear())

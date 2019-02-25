@@ -29,6 +29,7 @@ namespace DataStructures.Calendar
                 string[] monthsArray = { string.Empty, "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
                 int[] numberOfDaysArray = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
+                ////to check if the given year is aleap year
                 if (month == 2 && Utility.CheckLeapYear(year))
                 {
                     numberOfDaysArray[month] = 29;
@@ -38,6 +39,7 @@ namespace DataStructures.Calendar
                 Console.WriteLine(year);
                 Console.WriteLine(" S  M  T  W  TH  F  S");
 
+                ////getting the first day of specified month and year
                 int day = Utility.DayOfWeek(month, 1, year);
 
                 for (int i = 0; i < day; i++)
@@ -49,6 +51,7 @@ namespace DataStructures.Calendar
                 {
                     Console.Write(i + "  ");
 
+                    ////for moving to next Line after one week
                     if ((i + day) % 7 == 0 || (i == numberOfDaysArray[month]))
                     {
                         Console.WriteLine();

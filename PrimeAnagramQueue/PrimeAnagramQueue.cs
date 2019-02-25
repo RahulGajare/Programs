@@ -22,17 +22,24 @@ namespace DataStructures.PrimeAnagramQueue
         /// </summary>
         public static void StartPrimeAnagramQueue()
         {
-            ArrayList primeAnagramList = Utility.GetAnagrams(Utility.GetPrimeNumbersList());
-            MyQueue<string> primeAnagramQueue = new MyQueue<string>();
-
-            foreach (string word in primeAnagramList)
+            try
             {
-                primeAnagramQueue.Enqueue(word);
+                ArrayList primeAnagramList = Utility.GetAnagrams(Utility.GetPrimeNumbersList());
+                MyQueue<string> primeAnagramQueue = new MyQueue<string>();
+
+                foreach (string word in primeAnagramList)
+                {
+                    primeAnagramQueue.Enqueue(word);
+                }
+
+                while (primeAnagramQueue.CheckSize() != 0)
+                {
+                    Console.WriteLine(primeAnagramQueue.Dequeue());
+                }
             }
-
-            while (primeAnagramQueue.CheckSize() != 0)
+            catch (Exception ex)
             {
-                Console.WriteLine(primeAnagramQueue.Dequeue());
+                throw new Exception(ex.Message);
             }
         }
     }

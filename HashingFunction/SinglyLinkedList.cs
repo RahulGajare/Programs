@@ -5,18 +5,17 @@
 // <creator name="Rahul Gajare"/>
 // -----------------------------------------------------------------------------------------------------------------------------
 
-namespace DataStructures.PrimeAnagramQueue
+namespace DataStructures.HashingFunction
 {
     using System;
     using System.Collections.Generic;
     using System.Text;
-    using DataStructures.LinkedList_Ordered_;
-    
+
     /// <summary>
     /// Singly linked list
     /// </summary>
     /// <seealso cref="DataStructures.LinkedList_Ordered_.ILinkedList" />
-    public class SinglyLinkedList 
+    public class SinglyLinkedList : ILinkedList
     {
         /// <summary>
         /// The head
@@ -103,11 +102,12 @@ namespace DataStructures.PrimeAnagramQueue
         /// <summary>
         /// Determines whether this instance contains the object.
         /// </summary>
-        /// <param name="word">The number.</param>
+        /// <param name="number">The number.</param>
         /// <returns>
-        /// <c>true</c> if [contains] [the specified number]; otherwise, <c>false</c>.
+        ///   <c>true</c> if [contains] [the specified number]; otherwise, <c>false</c>.
         /// </returns>
-        public bool Contains(int word)
+        /// <exception cref="Exception">Handles and throws Exception</exception>
+        public bool Contains(int number)
         {
             try
             {
@@ -115,7 +115,7 @@ namespace DataStructures.PrimeAnagramQueue
 
                 while (temp != null)
                 {
-                    if (temp.Data.Equals(word))
+                    if (temp.Data == number)
                     {
                         return true;
                     }
@@ -150,7 +150,7 @@ namespace DataStructures.PrimeAnagramQueue
                     Node temp = this.head;
                     Node remove = null;
 
-                    if (temp.Data.Equals(numberToDelete))
+                    if (temp.Data == numberToDelete)
                     {
                         remove = temp;
                         this.head = temp.Next;
@@ -283,14 +283,7 @@ namespace DataStructures.PrimeAnagramQueue
         /// <returns> returns size</returns>
         public long Size()
         {
-            try
-            {
-                return this.size;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            return this.size;
         }
 
         /// <summary>
@@ -327,13 +320,13 @@ namespace DataStructures.PrimeAnagramQueue
             {
                 if (this.head == null)
                 {
-                    Console.WriteLine("list is already empty");
+                    ////Console.WriteLine("list is already empty");
                     return false;
                 }
                 else
                 {
                     Node temp = this.head;
-                    using (var writer = new System.IO.StreamWriter(path))
+                    using (var writer = new System.IO.StreamWriter(path, true))
                     {
                         while (temp != null)
                         {

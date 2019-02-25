@@ -28,13 +28,12 @@ namespace DataStructures.LinkedList_UnOrdered_
             bool loopPath = true;
             while (loopPath)
             {
-                Console.WriteLine("Specify the path");
+                Console.WriteLine("Specify the File path");
                 path = Console.ReadLine();
 
                 if (File.Exists(path) == false)
                 {
                     Console.WriteLine("Specified Path does not exist");
-                    Console.Read();
                     continue;
                 }
 

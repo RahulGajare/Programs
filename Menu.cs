@@ -14,6 +14,7 @@ namespace DataStructures
     using DataStructures.BankingCashCounter;
     using DataStructures.Calendar;
     using DataStructures.CalendarQueue;
+    using DataStructures.HashingFunction;
     using DataStructures.LinkedList_Ordered_;
     using DataStructures.LinkedList_UnOrdered_;
     using DataStructures.Number_Of_BinaryTrees;
@@ -53,6 +54,7 @@ namespace DataStructures
                     Console.WriteLine("9) Prime Anagram Stack in Reverse Order");
                     Console.WriteLine("10) Prime Anagram Queue");
                     Console.WriteLine("11) Count Number Of Binary tree Possible");
+                    Console.WriteLine("12) Hashing Function");
 
                     Console.WriteLine("======================================================================================================================");
 
@@ -142,6 +144,7 @@ namespace DataStructures
 
                         case 12:
                             {
+                                InputForHashing.StartHashing();
                                break;
                             }
 

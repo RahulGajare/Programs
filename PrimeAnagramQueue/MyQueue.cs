@@ -98,22 +98,29 @@ namespace DataStructures.PrimeAnagramQueue
         /// <returns>returns true or false</returns>
         public bool Enqueue(string data)
         {
-            if (this.rear == this.queueMaxSize - 1)
+            try
             {
-                Console.WriteLine("Queue Overflow");
-                return false;
-            }
-            else
-            {
-                if (this.front == -1)
+                if (this.rear == this.queueMaxSize - 1)
                 {
-                    this.front = 0;
+                    Console.WriteLine("Queue Overflow");
+                    return false;
                 }
+                else
+                {
+                    if (this.front == -1)
+                    {
+                        this.front = 0;
+                    }
 
-                this.rear++;
-                this.queueArray[this.rear] = data;
-                this.size++;
-                return true;
+                    this.rear++;
+                    this.queueArray[this.rear] = data;
+                    this.size++;
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -123,17 +130,24 @@ namespace DataStructures.PrimeAnagramQueue
         /// <returns>returns true or false</returns>
         public string Dequeue()
         {
-            if (this.front == -1 || this.front > this.rear)
+            try
             {
-                Console.WriteLine("Queue Underflow");
-                return string.Empty;
+                if (this.front == -1 || this.front > this.rear)
+                {
+                    Console.WriteLine("Queue Underflow");
+                    return string.Empty;
+                }
+                else
+                {
+                    string d = this.queueArray[this.front];
+                    this.front++;
+                    this.size--;
+                    return d;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                string d = this.queueArray[this.front];
-                this.front++;
-                this.size--;
-                return d;
+                throw new Exception(ex.Message);
             }
         }
 
@@ -142,16 +156,23 @@ namespace DataStructures.PrimeAnagramQueue
         /// </summary>
         public void ShowElements()
         {
-            if (this.front == -1)
+            try
             {
-                Console.WriteLine("Queue is Empty");
-            }
-            else
-            {
-                for (int i = this.front; i <= this.rear; i++)
+                if (this.front == -1)
                 {
-                    Console.WriteLine(this.queueArray[i]);
+                    Console.WriteLine("Queue is Empty");
                 }
+                else
+                {
+                    for (int i = this.front; i <= this.rear; i++)
+                    {
+                        Console.WriteLine(this.queueArray[i]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -161,7 +182,14 @@ namespace DataStructures.PrimeAnagramQueue
         /// <returns>returns current size</returns>
         public int CheckSize()
         {
-            return this.size;
+            try
+            {
+                return this.size;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

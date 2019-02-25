@@ -21,57 +21,64 @@ namespace DataStructures.CalendarQueue
         /// </summary>
         public static void StartCalendar()
         {
-            int month = 0;
-            int year = 0;
-
-            bool loopForMonth = true;
-            while (loopForMonth)
+            try
             {
-                Console.WriteLine("Enter the month");
-                string stringMonth = Console.ReadLine();
+                int month = 0;
+                int year = 0;
 
-                if (Utility.IsNumber(stringMonth) == false)
+                bool loopForMonth = true;
+                while (loopForMonth)
                 {
-                    Console.WriteLine("Invalid Month");
+                    Console.WriteLine("Enter the month");
+                    string stringMonth = Console.ReadLine();
 
-                    continue;
+                    if (Utility.IsNumber(stringMonth) == false)
+                    {
+                        Console.WriteLine("Invalid Month");
+
+                        continue;
+                    }
+
+                    month = Convert.ToInt32(stringMonth);
+                    if (month <= 0 || month > 12)
+                    {
+                        Console.WriteLine("Invalid Month");
+                        continue;
+                    }
+
+                    loopForMonth = false;
                 }
 
-                month = Convert.ToInt32(stringMonth);
-                if (month <= 0 || month > 12)
+                bool loopForYear = true;
+                while (loopForYear)
                 {
-                    Console.WriteLine("Invalid Month");
-                    continue;
+                    Console.WriteLine("Enter the year");
+                    string stringYear = Console.ReadLine();
+
+                    if (Utility.IsNumber(stringYear) == false)
+                    {
+                        Console.WriteLine("Invalid Month");
+
+                        continue;
+                    }
+
+                    if (stringYear.Length < 4)
+                    {
+                        Console.WriteLine("Wrong Year specified");
+                        Console.Read();
+                        return;
+                    }
+
+                    year = Convert.ToInt32(stringYear);
+                    loopForYear = false;
                 }
 
-                loopForMonth = false;
+                Calendar.PrintCalendar(month, year);
             }
-
-            bool loopForYear = true;
-            while (loopForYear)
+            catch (Exception ex)
             {
-                Console.WriteLine("Enter the year");
-                string stringYear = Console.ReadLine();
-
-                if (Utility.IsNumber(stringYear) == false)
-                {
-                    Console.WriteLine("Invalid Month");
-
-                    continue;
-                }
-
-                if (stringYear.Length < 4)
-                {
-                    Console.WriteLine("Wrong Year specified");
-                    Console.Read();
-                    return;
-                }
-
-                year = Convert.ToInt32(stringYear);
-                loopForYear = false;
+                throw new Exception(ex.Message);
             }
-
-            Calendar.PrintCalendar(month, year);
         }
     }
 }
