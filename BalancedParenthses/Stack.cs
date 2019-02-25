@@ -39,7 +39,7 @@ namespace DataStructures.BalancedParenthses
         {
             try
             {
-                this.maxSize = stackSize;
+                this.maxSize = stackSize; //// to set the maximum size for the stack
                 this.stackArray = new char[this.maxSize];
                 this.top = -1;
             }
@@ -57,7 +57,7 @@ namespace DataStructures.BalancedParenthses
         {
             try
             {
-                this.top++;
+                this.top++; //// Top values increases for each pushed data
                 this.stackArray[this.top] = character;
             }
             catch (Exception ex)
@@ -74,9 +74,10 @@ namespace DataStructures.BalancedParenthses
         {
             try
             {
+                //// checks if weather the current data is the last data in Stack
                 if (this.top == 0)
                 {
-                    this.top--;
+                    this.top--; //// top values keeps decreasing for each popped out data
                     return this.stackArray[this.top + 1];
                 }
                 else
@@ -99,7 +100,7 @@ namespace DataStructures.BalancedParenthses
         {
             try
             {
-                return this.stackArray[this.top];
+                return this.stackArray[this.top]; ////returns the data which is at the top.
             }
             catch (Exception ex)
             {
@@ -117,7 +118,7 @@ namespace DataStructures.BalancedParenthses
         {
             try
             {
-                return this.top == -1;
+                return this.top == -1; //// if the Top value is -1 that means the stack is empty
             }
             catch (Exception ex)
             {
@@ -135,7 +136,7 @@ namespace DataStructures.BalancedParenthses
         {
             try
             {
-                return this.top == this.maxSize - 1;
+                return this.top == this.maxSize - 1; //// if the top value reaches the max size of stack,it means the stack is full
             }
             catch (Exception ex)
             {

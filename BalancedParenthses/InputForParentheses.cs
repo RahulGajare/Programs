@@ -22,53 +22,63 @@ namespace DataStructures.BalancedParenthses
         public static void CheckParentheses()
         {
             string userExpression = string.Empty;
+            long expressionlength = 0;
 
             try
             {
-                ////Console.WriteLine("Enter the size of Stack");
-                ////string stringStackSize = Console.ReadLine();
-
-                ////if (Utility.IsNumber(stringStackSize) == false)
-                ////{
-                ////    Console.WriteLine("invalid number,Enter a positive Integer");
-                ////    Console.Read();
-                ////    return;
-                ////}
-
                 Stack stack = new Stack();
 
                 stack.StackInitialise(Convert.ToInt32(150));
 
                 ////keep asking until valid expression is given
                 bool loopForExpression = true;
-                {
-                    while (loopForExpression)
-                    {
-                        Console.WriteLine("Enter the Expression");
-                        userExpression = Console.ReadLine();
 
-                        if (Utility.CheckString(userExpression))
-                        {
-                            Console.WriteLine("invlaid Expression");
-                            continue;
-                        }
+                expressionLength: ////goto lable for this while loop
+                while (loopForExpression)
+                {
+                    Console.WriteLine("Enter the Expression");
+                    userExpression = Console.ReadLine();
+
+                    if (Utility.CheckString(userExpression))
+                    {
+                        Console.WriteLine("invlaid Expression");
+                        continue;
                     }
 
-                    loopForExpression = false;                 
+                    break;
                 }
-              
-                long expressionlength = userExpression.Length;
+
+                expressionlength = userExpression.Length;
+                //// checks if the expression starts with ')' and gives message (Invalid expression)
+                for (int i = 0; i < expressionlength; i++)
+                {
+                    char character = userExpression[i];
+
+                    if (character == '(')
+                    {
+                        break;
+                    }
+
+                    if (character == ')')
+                    {
+                        Console.WriteLine("Invalid Expression");
+                        goto expressionLength; //// goes to the lable to ask for expression again.
+                    }
+                }
 
                 ////loop our each letter in the expression 
                 for (int i = 0; i < expressionlength; i++)
                 {
                     char character = userExpression[i];
+
+                    //// pushes the charcter '(' if found.
                     if (character == '(')
                     {
                         stack.Push(character);
                     }
                     else
                     {
+                        //// pops the caharacter  ')' out of stack if found
                         if (character == ')')
                         {
                             try
@@ -77,14 +87,14 @@ namespace DataStructures.BalancedParenthses
                             }
                             catch (Exception)
                             {
-                                Console.WriteLine("Experession is  Balanced Parentheses");
+                                Console.WriteLine("Experession is  not Balanced Parentheses");
                                 Console.Read();
                             }
                         }
                     }
                 }
 
-                ////if Stack is Empty ,it Means the Expression is Balanced
+                ////if Stack is Empty ,it means the Expression is Balanced
                 if (stack.IsEmpty())
                 {
                     Console.WriteLine("Experession have Balanced Parentheses");
@@ -98,8 +108,8 @@ namespace DataStructures.BalancedParenthses
             }
             catch (Exception ex)
             {
-               throw new Exception(ex.Message);
-            }         
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
