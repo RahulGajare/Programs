@@ -112,7 +112,6 @@ namespace DataStructures.BankingCashCounter
                 if (withdrawAmount > this.balance)
                 {
                     Console.WriteLine("You dont have enough money in your Account");
-                    Console.ReadKey();
                     return false;
                 }
 
