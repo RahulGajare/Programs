@@ -1,4 +1,4 @@
-﻿
+﻿using OOP.DeckOfCards;
 using OOP.InventoryDetails;
 using OOP.RegexReplace;
 using System;
@@ -21,6 +21,7 @@ namespace OOP
                     Console.WriteLine("Select the program from below .Enter 0 to exit");
                     Console.WriteLine("1) Inventory data Managament");
                     Console.WriteLine("2) Regex Replacment");
+                    Console.WriteLine("3) Deck Of Cards");
 
                     Console.WriteLine("======================================================================================================================");
 
@@ -44,7 +45,7 @@ namespace OOP
 
                         case 1:
                             {
-                                CreateObject.CreateObjects();
+                                ReadJson.ReadJsonFile();
                                 break;
                             }
 
@@ -56,7 +57,8 @@ namespace OOP
 
                         case 3:
                             {
-                              
+                                OOP.DeckOfCards.DeckOfCards deck = new DeckOfCards.DeckOfCards();
+                                deck.InitializeDeckOfCards();
                                 break;
                             }
 
