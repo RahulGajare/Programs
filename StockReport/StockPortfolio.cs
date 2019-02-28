@@ -8,13 +8,13 @@ namespace OOP.StockReport
     {
         private string stockName;
         private long numberOfShares;
-        private double price;
+        private double priceOfShare;
 
         public StockPortfolio(string stockName, long numberOfShares, double price)
         {
             this.stockName = stockName;
             this.numberOfShares = numberOfShares;
-            this.price = price;
+            this.priceOfShare = price;
         }
 
         public string StockName
@@ -29,10 +29,10 @@ namespace OOP.StockReport
             set { this.numberOfShares = value; }
         }
 
-        public double Price
+        public double PriceOfShare
         {
-            get { return this.price; }
-            set { this.price = value; }
+            get { return this.priceOfShare; }
+            set { this.priceOfShare = value; }
         }
 
     }

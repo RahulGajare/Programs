@@ -1,4 +1,5 @@
 ﻿using OOP.DeckOfCards;
+using OOP.Commercial_Data_Processing;
 using OOP.InventoryDetails;
 using OOP.RegexReplace;
 using System;
@@ -22,6 +23,8 @@ namespace OOP
                     Console.WriteLine("1) Inventory data Managament");
                     Console.WriteLine("2) Regex Replacment");
                     Console.WriteLine("3) Deck Of Cards");
+                    Console.WriteLine("4) Stock Report");
+                    Console.WriteLine("5) Commercial Data Processing");
 
                     Console.WriteLine("======================================================================================================================");
 
@@ -45,7 +48,7 @@ namespace OOP
 
                         case 1:
                             {
-                                ReadJson.ReadJsonFile();
+                                InventoryManager.GetInventoryList();
                                 break;
                             }
 
@@ -64,13 +67,13 @@ namespace OOP
 
                         case 4:
                             {
-                                
+                                StockReport.ReadJson.Readjsonfile();
                                 break;
                             }
 
                         case 5:
                             {
-                                
+                                StartCommercial.InitialiseShares();
                                 break;
                             }
 

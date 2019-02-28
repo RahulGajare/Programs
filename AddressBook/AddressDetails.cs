@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OOP.AddressBook
 {
-    class AddressBook
+    class Person
     {
         private string firstName;
         private string lastName;
@@ -22,30 +22,41 @@ namespace OOP.AddressBook
 
         public string LastName
         {
-            get { return this.firstName; }
-            set { this.firstName = value; }
+            get { return this.lastName; }
+            set { this.lastName = value; }
         }
-      
+
         public string Address
         {
-            get { return this.firstName; }
-            set { this.firstName = value; }
+            get { return this.address; }
+            set { this.address = value; }
         }
         public string City
         {
-            get { return this.firstName; }
-            set { this.firstName = value; }
+            get { return this.city; }
+            set { this.city = value; }
+        }
+        public string State
+        {
+            get { return this.state; }
+            set { this.state = value; }
         }
         public string Zip
         {
-            get { return this.firstName; }
-            set { this.firstName = value; }
+            get { return this.zip; }
+            set { this.zip = value; }
         }
         public string PhoneNumber
         {
-            get { return this.firstName; }
-            set { this.firstName = value; }
+            get { return this.phoneNumber; }
+            set { this.phoneNumber = value; }
         }
-        
+
+        public void AddPerson()
+        {
+
+        }
+
+
     }
 }

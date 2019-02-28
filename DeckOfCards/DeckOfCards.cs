@@ -8,7 +8,7 @@ namespace OOP.DeckOfCards
     {
         int[,] deckOfCards = new int[4, 13];
         Random random = new Random();
-        static int player = 1;
+         int player = 1;
 
         public void InitializeDeckOfCards()
         {         
@@ -155,7 +155,7 @@ namespace OOP.DeckOfCards
                     }
                 case 12:
                     {
-                        return "Queen";
+                        return "Ace";
                     }
                 default:
                     {

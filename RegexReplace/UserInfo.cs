@@ -13,35 +13,33 @@ namespace OOP.RegexReplace
             string fullName = string.Empty;
             string contactNumber = string.Empty;
 
-            //// loops till input for name matches the expression.
-            while (true)
-            {
-                Console.WriteLine("Enter your Name");
-                name = Console.ReadLine();
+            ////// loops till input for name matches the expression.
+            //while (true)
+            //{
+            //    Console.WriteLine("Enter your Name");
+            //    name = Console.ReadLine();
 
-                if (!Regex.IsMatch(name, @"^[a-zA-Z]+$"))
-                {
-                    Console.WriteLine("Wrong input");
-                    continue;
-                }
+            //    if (!Regex.IsMatch(name, @"^[a-zA-Z]+$"))
+            //    {
+            //        Console.WriteLine("Wrong input");
+            //        continue;
+            //    }
 
 
-                break;
-            }
+            //    break;
+            //}
 
             ////loops till input for Full Name matches the expression.
             while (true)
             {
-                Console.WriteLine("Enter your Full Name");
+                Console.WriteLine("Enter your Full Name (First last)");
                 fullName = Console.ReadLine();
 
-                if (!Regex.IsMatch(fullName, "[a-zA-z]+\\s[a-zA-z]+$"))
+                if (!Regex.IsMatch(fullName, "^[a-zA-z]+\\s[a-zA-z]+$"))
                 {
                     Console.WriteLine("Wrong input");
                     continue;
                 }
-
-
 
                 break;
             }
@@ -49,7 +47,7 @@ namespace OOP.RegexReplace
            //// loops till input for Contact Number matches the expression.
             while (true)
             {
-                Console.WriteLine("Enter your Contact Number");
+                Console.WriteLine("Enter your Contact Number (10 digits)");
                 contactNumber = Console.ReadLine();
 
                 if (!Regex.IsMatch(contactNumber, "^[0-9]{10}$"))
@@ -62,7 +60,9 @@ namespace OOP.RegexReplace
                 break;
             }
 
-            PatternReplacer.ReplacePattern(name, fullName, contactNumber);
+            string[] nameArray = fullName.Split(" ");
+
+            PatternReplacer.ReplacePattern(nameArray[0], fullName, contactNumber);
 
 
         }

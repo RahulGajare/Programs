@@ -4,7 +4,11 @@ using System.Text;
 
 namespace OOP.AddressBook
 {
-    class Menu
+    class LoadAddressBook
     {
+        public static void LoadAddressbook()
+        {
+
+        }
     }
 }
