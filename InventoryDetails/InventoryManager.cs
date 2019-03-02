@@ -1,23 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="InventoryManager.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace OOP.InventoryDetails
 {
-    class InventoryManager
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// InventoryManager Class
+    /// </summary>
+    public class InventoryManager
     {
+        /// <summary>
+        /// Gets the inventory list.
+        /// </summary>
         public static void GetInventoryList()
         {
-            InventoryDetails[] inventoryList = InventoryFactory.ReadJsonFile();
-            for (int i = 0; i < inventoryList.Length; i++)
+            InventoryDetails  inventoryDetail = InventoryFactory.ReadJsonFile();
+
+            foreach (InventoryTypes inventoryTypes in inventoryDetail.InventoryDetailsList)
             {
-                Console.WriteLine("Name : " + inventoryList[i].Name + "\nPrice Per Kg: " + inventoryList[i].PricePerKg + "\n Weight: " + inventoryList[i].Weight);
-                Console.WriteLine("Total price :" + inventoryList[i].PricePerKg * inventoryList[i].Weight);
-                Console.WriteLine("--------------------------------");
+                List<Rice> riceList = inventoryTypes.RiceList;
+                List<Wheat> wheatList = inventoryTypes.WheatList;
+                List<Pulses> pulsesList = inventoryTypes.PulsesList;
+               
+                foreach (Rice rice in riceList)
+                {
+                    Console.WriteLine("Rice type");
+                    Console.WriteLine("Name : " +rice.Name +"\nWeight : "+ rice.Weight + "\nPrice per Kg : " +rice.PricePerKg );
+                    Console.WriteLine("Total price of " + rice.Name + " = " +(rice.Weight*rice.PricePerKg));
+                    Console.WriteLine("------------------------------------------");
+                }
 
-            }
-
-            CreateObject.CreateObjects(inventoryList);
+              
+                foreach (Wheat wheat in wheatList)
+                {
+                    Console.WriteLine("Wheat type");
+                    Console.WriteLine("Name : " + wheat.Name + "\nWeight : " + wheat.Weight + "\nPrice per Kg : " + wheat.PricePerKg);
+                    Console.WriteLine("Total price of " + wheat.Name + " = " + (wheat.Weight * wheat.PricePerKg));
+                    Console.WriteLine("------------------------------------------");
+                }
+               
+                foreach (Pulses pulse in pulsesList)
+                {
+                    Console.WriteLine("Pulse type");
+                    Console.WriteLine("Name : " + pulse.Name + "\nWeight : " + pulse.Weight + "\nPrice per Kg : " + pulse.PricePerKg);
+                    Console.WriteLine("Total price of " + pulse.Name + " = " + (pulse.Weight * pulse.PricePerKg));
+                    Console.WriteLine("------------------------------------------");
+                }
+            }         
         }
     }
 }

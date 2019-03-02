@@ -1,20 +1,20 @@
 ﻿// -------------------------------------------------------------------------------------------------------------------------
-// <copyright file="UserDetails.cs" company="Bridgelabz">
+// <copyright file="Rice.cs" company="Bridgelabz">
 //   Copyright © 2018 Company
 // </copyright>
 // <creator name="Rahul Gajare"/>
 // -----------------------------------------------------------------------------------------------------------------------------
 
-namespace OOP.RegexReplace
+namespace OOP.InventoryDetails
 {
     using System;
     using System.Collections.Generic;
     using System.Text;
 
     /// <summary>
-    /// User Details Class
+    /// Rice Class
     /// </summary>
-    public class UserDetails
+    public class Rice
     {
         /// <summary>
         /// The name
@@ -22,14 +22,14 @@ namespace OOP.RegexReplace
         private string name;
 
         /// <summary>
-        /// The full name
+        /// The weight
         /// </summary>
-        private string fullName;
+        private long weight;
 
         /// <summary>
-        /// The contact number
+        /// The price per kg
         /// </summary>
-        private string contactNumber;
+        private double pricePerKG;
 
         /// <summary>
         /// Gets or sets the name.
@@ -44,27 +44,27 @@ namespace OOP.RegexReplace
         }
 
         /// <summary>
-        /// Gets or sets the full name.
+        /// Gets or sets the weight.
         /// </summary>
         /// <value>
-        /// The full name.
+        /// The weight.
         /// </value>
-        public string FullName
+        public long Weight
         {
-            get { return this.fullName; }
-            set { this.fullName = value; }
+            get { return this.weight; }
+            set { this.weight = value; }
         }
 
         /// <summary>
-        /// Gets or sets the contact number.
+        /// Gets or sets the price per kg.
         /// </summary>
         /// <value>
-        /// The contact number.
+        /// The price per kg.
         /// </value>
-        public string ContactNumber
+        public double PricePerKg
         {
-            get { return this.contactNumber; }
-            set { this.contactNumber = value; }
+            get { return this.pricePerKG; }
+            set { this.pricePerKG = value; }
         }
     }
 }

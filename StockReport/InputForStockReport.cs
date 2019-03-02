@@ -1,12 +1,24 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="InputForStockReport.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace OOP.StockReport
 {
-    class InputForStockReport
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// InputForStockReport Class    /// </summary>
+    public class InputForStockReport
     {
+        /// <summary>
+        /// Starts the stock report.
+        /// </summary>
         public static void StartStockReport()
         {
             int numberOfStocks = 0;

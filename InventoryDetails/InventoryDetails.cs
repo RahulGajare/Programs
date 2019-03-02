@@ -1,32 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="InventoryDetails.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace OOP.InventoryDetails
 {
-    class InventoryDetails
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// InventoryDetails Class
+    /// </summary>
+    public class InventoryDetails
     {
-        private string name;
-        private long weight;
-        private long pricePerKG;
+        private List<InventoryTypes> inventoryDetailsList = new List<InventoryTypes>();
 
-
-        public string Name
+        /// <summary>
+        /// Gets or sets the inventory details list.
+        /// </summary>
+        /// <value>
+        /// The inventory details list.
+        /// </value>
+        public List<InventoryTypes> InventoryDetailsList
         {
-            get { return this.name; }
-            set { this.name = value; }
-        }
-
-        public long Weight
-        {
-            get { return this.weight; }
-            set { this.weight = value; }
-        }
-
-        public long PricePerKg
-        {
-            get { return this.pricePerKG; }
-            set { this.pricePerKG = value; }
+            get{ return this.inventoryDetailsList; }
+            set { this.inventoryDetailsList = value; }
         }
     }
 }

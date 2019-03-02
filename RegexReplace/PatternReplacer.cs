@@ -1,12 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="PatternReplacer.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace OOP.RegexReplace
 {
-    class PatternReplacer
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Text.RegularExpressions;
+
+    /// <summary>
+    /// PatternReplacer Class
+    /// </summary>
+    public class PatternReplacer
     {
+        /// <summary>
+        /// Replaces the pattern.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="fullName">The full name.</param>
+        /// <param name="contactNumber">The contact number.</param>
         public static void ReplacePattern(string name, string fullName , string contactNumber)
         {
             //// Reads the Message from file to replace.
@@ -27,7 +43,6 @@ namespace OOP.RegexReplace
 
             Console.WriteLine(message);
             Console.Read();
-
         }
     }
 }

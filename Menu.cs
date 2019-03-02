@@ -1,15 +1,29 @@
-﻿using OOP.DeckOfCards;
-using OOP.Commercial_Data_Processing;
-using OOP.InventoryDetails;
-using OOP.RegexReplace;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="Menu.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace OOP
 {
-    class Menu
+    using OOP.AddressBook;
+    using OOP.DeckOfCards;
+    using OOP.Commercial_Data_Processing;
+    using OOP.InventoryDetails;
+    using OOP.RegexReplace;
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// Entry Point of this Project
+    /// </summary>
+    public class Menu
     {
+        /// <summary>
+        /// Defines the entry point of the application.
+        /// </summary>
         public static void Main()
         {
             try
@@ -25,6 +39,7 @@ namespace OOP
                     Console.WriteLine("3) Deck Of Cards");
                     Console.WriteLine("4) Stock Report");
                     Console.WriteLine("5) Commercial Data Processing");
+                    Console.WriteLine("6) Address Book");
 
                     Console.WriteLine("======================================================================================================================");
 
@@ -79,32 +94,25 @@ namespace OOP
 
                         case 6:
                             {
-                               
+                                StartAppView.InitialiseAddressBook();
                                 break;
                             }
 
                         case 7:
-                            {
-                                
-                                break;
+                            {                                
+                               break;
                             }
 
                         case 8:
-                            {
-                               
+                            {                              
                                 break;
                             }
 
                         case 9:
-                            {
-                                
+                            {                            
                                 break;
                             }
-
-                       
-
-                        
-
+                   
                         default:
                             {
                                 Console.WriteLine("Invalid Option");

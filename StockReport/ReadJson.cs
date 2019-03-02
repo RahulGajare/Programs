@@ -1,13 +1,26 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="ReadJson.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace OOP.StockReport
 {
-    class ReadJson
+    using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+
+    /// <summary>
+    /// Read Json class
+    /// </summary>
+    public class ReadJson
     {
+        /// <summary>
+        /// Readb json files this instance.
+        /// </summary>
         public static void Readjsonfile()
         {
             double totalValueOfAllStock = 0.0;
@@ -23,7 +36,6 @@ namespace OOP.StockReport
                     Console.WriteLine("--------------------------------");
 
                     totalValueOfAllStock = totalValueOfAllStock + (jsonObjectArray[i].NumberOfShares * jsonObjectArray[i].PriceOfShare);
-
                 }
 
                 Console.Write("Total value Of all Stocks = " + totalValueOfAllStock);

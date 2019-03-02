@@ -1,11 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="UserInput.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
+
 
 namespace OOP.Commercial_Data_Processing
 {
-    class UserInput
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// UserInput Class
+    /// </summary>
+    public class UserInput
     {
+        /// <summary>
+        /// Takes the user input.
+        /// </summary>
+        /// <param name="choosedOption">The choosed option.</param>
         public static void TakeUserInput(int choosedOption)
         {
             StockAccount stockAccount = new StockAccount();
@@ -13,8 +28,7 @@ namespace OOP.Commercial_Data_Processing
             double priceOfShare = 0;
             string symbol = string.Empty;
             string datetime = string.Empty;
-            while (true)
-            {
+           
                 if (choosedOption == 1)
                 {
                     while (true)
@@ -94,7 +108,7 @@ namespace OOP.Commercial_Data_Processing
 
                 }
 
-            }
+            
         }
     }
 }

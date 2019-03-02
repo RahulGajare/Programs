@@ -1,17 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="DeckOfCards.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace OOP.DeckOfCards
 {
-    class DeckOfCards
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// DeckOfCards Class
+    /// </summary>
+    public class DeckOfCards
     {
         int[,] deckOfCards = new int[4, 13];
         Random random = new Random();
          int player = 1;
 
+        /// <summary>
+        /// Initializes the deck of cards.
+        /// </summary>
         public void InitializeDeckOfCards()
-        {         
+        {
             ////loops 1 time for all 4 players.
             for (int playerNumber = 1; playerNumber <= 4; playerNumber++)
             {
@@ -22,10 +35,12 @@ namespace OOP.DeckOfCards
                 print(playerNumber);
                 Console.WriteLine("==============");
             }
-            
-
         }
 
+        /// <summary>
+        /// Distribute9s the cards.
+        /// </summary>
+        /// <param name="playerNumber">The player number.</param>
         public void Distribute9Cards(int playerNumber)
         {
             //// loops 9 times for each player so as to give 9 cards to each
@@ -35,6 +50,10 @@ namespace OOP.DeckOfCards
             }
         }
 
+        /// <summary>
+        /// Shuffles the cards.
+        /// </summary>
+        /// <param name="playerNumber">The player number.</param>
         public void ShuffleCards(int playerNumber)
         {
             int suit = this.random.Next(1,4);
@@ -50,6 +69,10 @@ namespace OOP.DeckOfCards
             }          
         }
 
+        /// <summary>
+        /// Prints the specified player number.
+        /// </summary>
+        /// <param name="playerNumber">The player number.</param>
         public void print(int playerNumber)
         {
            int suitLength = deckOfCards.GetLength(0);
@@ -66,6 +89,11 @@ namespace OOP.DeckOfCards
             }            
         }
 
+        /// <summary>
+        /// Gets the suit.
+        /// </summary>
+        /// <param name="suits">The suits.</param>
+        /// <returns> returns suit</returns>
         public static string GetSuit(int suits)
         {
             switch (suits)
@@ -93,6 +121,7 @@ namespace OOP.DeckOfCards
                         return "Spade";
                         
                     }
+
                 default:
                     {
                         return "In switch (default)";
@@ -101,6 +130,11 @@ namespace OOP.DeckOfCards
             }
         }
 
+        /// <summary>
+        /// Gets the rank.
+        /// </summary>
+        /// <param name="rank">The rank.</param>
+        /// <returns> returns rank</returns>
         public static string GetRank(int rank)
         {
             switch (rank)
@@ -109,54 +143,67 @@ namespace OOP.DeckOfCards
                     {
                         return "2";
                     }
+
                 case 1:
                     {
                         return "3";
                     }
+
                 case 2:
                     {
                         return "4";
                     }
+
                 case 3:
                     {
                         return "5";
                     }
+
                 case 4:
                     {
                         return "6";
                     }
+
                 case 5:
                     {
                         return "7";
                     }
+
                 case 6:
                     {
                         return "8";
                     }
+
                 case 7:
                     {
                         return "9";
                     }
+
                 case 8:
                     {
                         return "10";
                     }
+
                 case 9:
                     {
                         return "Jack";
                     }
+
                 case 10:
                     {
                         return "Queen";
                     }
+
                 case 11:
                     {
                         return "King";
                     }
+
                 case 12:
                     {
                         return "Ace";
                     }
+
                 default:
                     {
                         return string.Empty;

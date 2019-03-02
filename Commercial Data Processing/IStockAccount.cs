@@ -1,17 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="IStockAccount.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace OOP.Commercial_Data_Processing
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// IStockAccount Interface
+    /// </summary>
     interface IStockAccount
     {
-        void Stockaccount(string fileName);
-        double ValueOf();
-        void Buy(long numberOfShares, double price ,string symbol);
-        void Sell(string symbol);
-        void Save(string fileName);
+        void Buy(long numberOfShares, double price, string symbol);
         void printReport();
-
     }
 }

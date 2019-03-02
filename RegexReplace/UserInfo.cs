@@ -1,12 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="UserInfo.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace OOP.RegexReplace
 {
-    class UserInfo
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Text.RegularExpressions;
+
+    /// <summary>
+    /// User n Info Class
+    /// </summary>
+    public class UserInfo
     {
+        /// <summary>
+        /// Takes the user information.
+        /// </summary>
         public static void TakeUserInfo()
         {
             string name = string.Empty;
@@ -56,15 +69,12 @@ namespace OOP.RegexReplace
                     continue;
                 }
 
-
                 break;
             }
 
             string[] nameArray = fullName.Split(" ");
 
             PatternReplacer.ReplacePattern(nameArray[0], fullName, contactNumber);
-
-
         }
     }
 }
