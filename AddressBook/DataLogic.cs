@@ -49,10 +49,13 @@ namespace OOP.AddressBook
 
         public static AddressBook GetBookDetails(string bookname)
         {
-            string jsonData = File.ReadAllText("C:\\Users\\Bridge labz\\Desktop\\AddressBook\\" + bookname + ".json");
-            AddressBook jsonObject = JsonConvert.DeserializeObject<AddressBook>(jsonData);
 
-            return jsonObject;
+            string jsonData = File.ReadAllText("C:\\Users\\Bridge labz\\Desktop\\AddressBook\\" + bookname + ".json");
+            AddressBook addressBook = JsonConvert.DeserializeObject<AddressBook>(jsonData);
+
+            return addressBook;
+
+
         }
 
         public static void WriteAddressBookToFile(AddressBook addressBook)

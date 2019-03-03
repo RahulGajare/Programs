@@ -20,6 +20,7 @@ namespace OOP.AddressBook
                     continue;
                 }
 
+                
                 if (Utility.ContainsCharacter(addressBookName))
                 {
                     Console.WriteLine("No Special Characters allowed");

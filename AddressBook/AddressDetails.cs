@@ -51,13 +51,14 @@ namespace OOP.AddressBook
         /// </summary>
         private string phoneNumber;
 
-        public AddressDetails(string firstName, string lastName, string address, string city, string state, string phoneNumber)
+        public AddressDetails(string firstName, string lastName, string address, string city, string state, string zip ,string phoneNumber)
         {
             this.firstName = firstName;
             this.lastName = lastName;
             this.address = address;
             this.city = city;
             this.state = state;
+            this.zip = zip;
             this.phoneNumber = phoneNumber;
         }
        
@@ -148,13 +149,28 @@ namespace OOP.AddressBook
         /// <summary>
         /// Adds the person.
         /// </summary>
-        public static void CreateAddressDetails(string bookName,string firstName, string lastName , string address, string city, string state, string phoneNumber)
+        public static void CreateAddressDetails(string bookName,string firstName, string lastName , string address, string city, string state, string zip, string phoneNumber)
         {
-            AddressDetails addressDetails = new AddressDetails(firstName,lastName,address,city,state,phoneNumber);
+            AddressDetails addressDetails = new AddressDetails(firstName,lastName,address,city,state,zip,phoneNumber);
             AddressBook addressBook = DataLogic.GetBookDetails(bookName);
             addressBook.AddressDetailsList.Add(addressDetails);
             DataLogic.WriteAddressBookToFile(addressBook);
             Console.WriteLine("Added to AddressBook "+bookName);
+        }
+
+        public static List<string> GetFirstNameList(string bookName)
+        {
+            AddressBook addressBook = DataLogic.GetBookDetails(bookName);
+            List<string> firstNameList = new List<string>();
+
+            List<AddressDetails> list = addressBook.AddressDetailsList;
+
+            foreach (AddressDetails address in list)
+            {
+                firstNameList.Add(address.FirstName);
+            }
+
+            return firstNameList;
         }
 
         public override string ToString()
@@ -162,7 +178,20 @@ namespace OOP.AddressBook
             return "Name : " + this.FirstName + " " + this.LastName + "\nAddress : " + this.Address + "\nCity : " + this.City + "\nState : " + this.State + "\nZip  : " + this.Zip + "\nPhone Number : " + this.phoneNumber;
         }
 
+        public static bool DoesNameExist(string bookName,string name)
+        {
+            AddressBook addressBook = DataLogic.GetBookDetails(bookName);
+            List<AddressDetails> list = addressBook.AddressDetailsList;
+            foreach (AddressDetails address in list)
+            {
+                if (address.FirstName.Equals(name))
+                {
+                    return true;
+                }
+            }
 
+            return false;
+        }
 
 
     }

@@ -28,6 +28,11 @@ namespace OOP.AddressBook
                     continue;
                 }
 
+                if (AddressDetails.DoesNameExist(bookName, firstName))
+                {
+                    Console.WriteLine("First name with" + firstName + " Already exist, please enter another name");
+                }
+
                 break;
             }
 
@@ -116,7 +121,7 @@ namespace OOP.AddressBook
                 break;
             }
 
-            AddressDetails.CreateAddressDetails (bookName ,firstName,  lastName,  address,  city,  state,  phoneNumber);
+            AddressDetails.CreateAddressDetails (bookName ,firstName,  lastName,  address,  city,  state, zip, phoneNumber);
 
         }
     }

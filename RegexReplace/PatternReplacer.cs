@@ -31,7 +31,7 @@ namespace OOP.RegexReplace
             ////following are the patterns in message to replace with the user details.
             string namePattern = "<<name>>";
             string fullNamePattern = "<<full name>>";
-            string contactNumberPattern = "<<91-xxxxxxxxxx>>";
+            string contactNumberPattern = "<<xxxxxxxxxx>>";
             string datePattern = "01/01/2016";
             string date = DateTime.Now.ToShortDateString();
 

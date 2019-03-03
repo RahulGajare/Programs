@@ -14,7 +14,7 @@ namespace OOP.InventoryDetails
     /// <summary>
     /// InventoryManager Class
     /// </summary>
-    public class InventoryManager
+    public class Inventorymanager
     {
         /// <summary>
         /// Gets the inventory list.

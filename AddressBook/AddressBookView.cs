@@ -4,16 +4,24 @@ using System.Text;
 
 namespace OOP.AddressBook
 {
-    class AddressBookView
+    public class AddressBookView
     {
+        /// <summary>
+        /// Shows All the Options that can be used with addressbook.
+        /// </summary>
+        /// <param name="bookName"></param>
         public static void AddressbookView(string bookName)
         {
             int option = 0;
             while (true)
             {
+                Console.WriteLine("Choose what you want to do with AdressBook " + bookName +".");
+                Console.WriteLine("Press 0) To Go Back");
                 Console.WriteLine("press 1) To Open the BookDetails");
                 Console.WriteLine("Press 2) To Add Address");
                 Console.WriteLine("Press 3) To Edit an Address");
+                Console.WriteLine("Press 4) To Sort the " + bookName + " book details By Last Name");
+                Console.WriteLine("Press 5) To Sort the " + bookName + " book details By Zip");
 
                 string stringOption = Console.ReadLine();
 
@@ -27,12 +35,18 @@ namespace OOP.AddressBook
                     continue;
                 }
                 
-
+                ////calls the Method based on the Option Choosen.
                 switch (option)
                 {
-                    case 1:
+                    case 0:
                         {
 
+                            return;
+                        }
+
+                    case 1:
+                        {
+                            AddressBook.PrintAddressBookDetails(bookName);
                             break;
                         }
 
@@ -41,6 +55,26 @@ namespace OOP.AddressBook
                             InputForAddressDetails.TakeInputForAddress(bookName);
                             break;
                         }
+
+                    case 3:
+                        {
+                            AddressDetailsManupalationView.EditDetails(bookName);
+                            break;
+                        }
+
+                    case 4:
+                        {
+                            AddressDetailsManupalation.SortByLastName(bookName);
+                            break;
+                        }
+
+                    case 5:
+                        {
+                            AddressDetailsManupalation.SortByZip(bookName);
+                            break;
+                        }
+
+
                     default:
                         {
                             Console.WriteLine("Invalid Input");

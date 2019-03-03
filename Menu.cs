@@ -7,6 +7,7 @@
 
 namespace OOP
 {
+    using OOP.InventoryManagementProgram;
     using OOP.AddressBook;
     using OOP.DeckOfCards;
     using OOP.Commercial_Data_Processing;
@@ -40,6 +41,7 @@ namespace OOP
                     Console.WriteLine("4) Stock Report");
                     Console.WriteLine("5) Commercial Data Processing");
                     Console.WriteLine("6) Address Book");
+                    Console.WriteLine("7) Inventory Management Program");
 
                     Console.WriteLine("======================================================================================================================");
 
@@ -63,7 +65,7 @@ namespace OOP
 
                         case 1:
                             {
-                                InventoryManager.GetInventoryList();
+                                Inventorymanager.GetInventoryList();
                                 break;
                             }
 
@@ -99,7 +101,8 @@ namespace OOP
                             }
 
                         case 7:
-                            {                                
+                            {
+                                FirstView.StartInventoryManager();
                                break;
                             }
 
