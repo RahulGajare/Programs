@@ -62,7 +62,6 @@ namespace OOP.InventoryDetails
             inventoryTypes2.WheatList.Add(wheat2);
             inventoryTypes2.WheatList.Add(wheat3);
 
-
             Pulses pulse1 = new Pulses();
             pulse1.Name = "Green Gram";
             pulse1.PricePerKg = 20;
@@ -91,7 +90,7 @@ namespace OOP.InventoryDetails
             string jsonData = JsonConvert.SerializeObject(inventoryDetails);
 
             Console.WriteLine("Json string Created \n" + jsonData);
-            System.IO.File.WriteAllText("C:\\Users\\Bridge labz\\Desktop\\temp.json",jsonData);
+            System.IO.File.WriteAllText("C:\\Users\\Bridge labz\\Desktop\\temp.json", jsonData);
         }
     }  
 }

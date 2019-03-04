@@ -75,11 +75,8 @@ namespace OOP.Commercial_Data_Processing
         {
             try
             {
-                
-
                  ////decreasing top value after pushing each element
-                return this.stackArray[this.top--];
-                
+                return this.stackArray[this.top--];                
             }
             catch (Exception ex)
             {

@@ -7,16 +7,16 @@
 
 namespace OOP
 {
-    using OOP.InventoryManagementProgram;
-    using OOP.AddressBook;
-    using OOP.DeckOfCards;
-    using OOP.Commercial_Data_Processing;
-    using OOP.InventoryDetails;
-    using OOP.RegexReplace;
     using System;
     using System.Collections.Generic;
     using System.Text;
-
+    using OOP.AddressBook;
+    using OOP.Commercial_Data_Processing;
+    using OOP.DeckOfCards;
+    using OOP.InventoryDetails;
+    using OOP.InventoryManagementProgram;
+    using OOP.RegexReplace;
+   
     /// <summary>
     /// Entry Point of this Project
     /// </summary>
@@ -101,7 +101,7 @@ namespace OOP
                             }
 
                         case 7:
-                            {
+                            {                         
                                 FirstView.StartInventoryManager();
                                break;
                             }

@@ -1,11 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="AddressDetailsManipulationView.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace OOP.AddressBook
 {
-    class AddressDetailsManupalationView
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// AddressDetails Manipulation View
+    /// </summary>
+    public class AddressDetailsManipulationView
     {
+        /// <summary>
+        /// Edits the details.
+        /// </summary>
+        /// <param name="bookName">Name of the book.</param>
         public static void EditDetails(string bookName)
         {
             int option = 0;
@@ -14,11 +28,12 @@ namespace OOP.AddressBook
             Console.WriteLine("Enter the First Name you want to edit");
             nameToEdit = Console.ReadLine();
 
-            if (AddressDetails.DoesNameExist(nameToEdit,bookName) == false)
+            if (AddressDetails.DoesNameExist(nameToEdit, bookName) == false)
             {
                 Console.WriteLine("The Name You Entered Does not Exist");
                 return;
             }
+
             Console.WriteLine("------------------------------------------");
             AddressBook.PrintSingleAddresss(bookName, nameToEdit);
             Console.WriteLine("------------------------------------------");
@@ -39,43 +54,44 @@ namespace OOP.AddressBook
                     Console.WriteLine("Invalid Input");
                     continue;
                 }
-
-               
+             
                 option = Convert.ToInt32(stringOption);
 
-                switch(option)
+                ////calling the methods based on the Option Choosen.
+                switch (option)
                 {
                     case 0:
                         {
                             return;
                         }
+
                     case 1:
                         {
-                            AddressDetailsManupalation.ChangeAddress(bookName,nameToEdit);
+                            AddressDetailsManipulation.ChangeAddress(bookName,   nameToEdit);
                             break;
                         }
 
                     case 2:
                         {
-                            AddressDetailsManupalation.ChangeCity(bookName, nameToEdit);
+                            AddressDetailsManipulation.ChangeCity(bookName, nameToEdit);
                             break;
                         }
 
                     case 3:
                         {
-                            AddressDetailsManupalation.ChangeState(bookName, nameToEdit);
+                            AddressDetailsManipulation.ChangeState(bookName, nameToEdit);
                             break;
                         }
 
                     case 4:
                         {
-                            AddressDetailsManupalation.ChangeZip(bookName, nameToEdit);
+                            AddressDetailsManipulation.ChangeZip(bookName, nameToEdit);
                             break;
                         }
 
                     case 5:
                         {
-                            AddressDetailsManupalation.ChangePhoneNumber(bookName, nameToEdit);
+                            AddressDetailsManipulation.ChangePhoneNumber(bookName, nameToEdit);
                             break;
                         }
 
@@ -86,8 +102,6 @@ namespace OOP.AddressBook
                         }
                 }
             }
-
-
         }
     }
 }

@@ -40,6 +40,7 @@ namespace OOP.Commercial_Data_Processing
 
                 int option = Convert.ToInt32(stringOption);
                 
+                //// Calls the method based on choosen option by the user.
                 switch (option)
                 {
                     case 1:
@@ -56,13 +57,14 @@ namespace OOP.Commercial_Data_Processing
 
                     case 3:
                         {
-                            stockAccount.printReport();
+                            stockAccount.PrintReport();
                             break;
                         }
 
                     case 4:
                         {
-                            StockAccount.PrintSymbols();
+                            StockAccount stockaccount = new StockAccount();
+                            stockaccount.PrintSymbols();
                             break;
                         }
 

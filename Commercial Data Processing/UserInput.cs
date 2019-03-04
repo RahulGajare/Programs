@@ -5,7 +5,6 @@
 // <creator name="Rahul Gajare"/>
 // -----------------------------------------------------------------------------------------------------------------------------
 
-
 namespace OOP.Commercial_Data_Processing
 {
     using System;
@@ -20,7 +19,7 @@ namespace OOP.Commercial_Data_Processing
         /// <summary>
         /// Takes the user input.
         /// </summary>
-        /// <param name="choosedOption">The choosed option.</param>
+        /// <param name="choosedOption">The option.</param>
         public static void TakeUserInput(int choosedOption)
         {
             StockAccount stockAccount = new StockAccount();
@@ -83,11 +82,9 @@ namespace OOP.Commercial_Data_Processing
                     }
 
                     stockAccount.Buy(numberOfShares, priceOfShare, symbol);
-
-
                 }
 
-                if(choosedOption == 2)
+                if (choosedOption == 2)
                 {
                     while (true)
                     {
@@ -105,10 +102,7 @@ namespace OOP.Commercial_Data_Processing
                         stockAccount.Sell(symbol);
                         break;
                     }
-
-                }
-
-            
+                }         
         }
     }
 }

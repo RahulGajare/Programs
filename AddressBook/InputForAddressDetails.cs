@@ -1,12 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
-
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="InputForAddressDetails.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 namespace OOP.AddressBook
 {
-    class InputForAddressDetails
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Text.RegularExpressions;
+
+    /// <summary>
+    /// Input For AddressDetails
+    /// </summary>
+    public class InputForAddressDetails
     {
+        /// <summary>
+        /// Takes the input for address.
+        /// </summary>
+        /// <param name="bookName">Name of the book.</param>
         public static void TakeInputForAddress(string bookName)
         {
             string firstName = string.Empty;
@@ -20,9 +33,9 @@ namespace OOP.AddressBook
             while (true)
             {
                 Console.WriteLine("Enter the firstName");
-               firstName =  Console.ReadLine();
+               firstName = Console.ReadLine();
 
-                if (!Regex.IsMatch(firstName ,"^[a-zA-z]+$"))
+                if (!Regex.IsMatch(firstName, "^[a-zA-z]+$"))
                 {
                     Console.WriteLine("Wrong input,(Characters,number not allowed)");
                     continue;
@@ -61,7 +74,6 @@ namespace OOP.AddressBook
                     continue;
                 }
                
-
                 break;
             }
 
@@ -121,8 +133,7 @@ namespace OOP.AddressBook
                 break;
             }
 
-            AddressDetails.CreateAddressDetails (bookName ,firstName,  lastName,  address,  city,  state, zip, phoneNumber);
-
+            AddressDetails.CreateAddressDetails(bookName, firstName, lastName, address, city, state, zip, phoneNumber);
         }
     }
 }

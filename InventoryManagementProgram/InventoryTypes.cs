@@ -15,8 +15,7 @@ namespace OOP.InventoryManagementProgram
     /// InventoryTypes Class
     /// </summary>
     public class InventoryTypes
-    {
-        private InventoryTypes inventoryTypes = new InventoryTypes();
+    {       
         /// <summary>
         /// The rice list
         /// </summary>
@@ -31,12 +30,6 @@ namespace OOP.InventoryManagementProgram
         /// The pulses list
         /// </summary>
         private List<Pulses> pulsesList = new List<Pulses>();
-
-        public InventoryTypes InventoryTypesObject
-        {
-            get { return this.inventoryTypes; }
-            set { this.inventoryTypes = value; }
-        }
 
         /// <summary>
         /// Gets or sets the rice list.

@@ -17,7 +17,10 @@ namespace OOP.Commercial_Data_Processing
     /// <seealso cref="OOP.Commercial_Data_Processing.IStockAccount" />
     public class StockAccount : IStockAccount
     {
-        SinglyLinkedList<CompanyShares> companySharesList= new SinglyLinkedList<CompanyShares>();
+        /// <summary>
+        /// The company shares list
+        /// </summary>
+        private SinglyLinkedList<CompanyShares> companySharesList = new SinglyLinkedList<CompanyShares>();
 
         /// <summary>
         /// Buys the specified number of shares.
@@ -33,22 +36,22 @@ namespace OOP.Commercial_Data_Processing
             {
                 if (shares.Symbol.Equals(symbol))
                 {
-                    Console.WriteLine("You have already bought this share with symbol "+ symbol);
+                    Console.WriteLine("You have already bought this share with symbol " + symbol);
                     return;
                 }
             }
+
             string dateTime = DateTime.Now.ToString();
-            CompanyShares companyShares = new CompanyShares(numberOfShares, price, symbol,dateTime);
+            CompanyShares companyShares = new CompanyShares(numberOfShares, price, symbol, dateTime);
             companySharesList.Add(companyShares);
 
             DataLogic.WriteToFile(companySharesList);
-
         }
 
         /// <summary>
         /// Prints the report.
         /// </summary>
-        public void printReport()
+        public void PrintReport()
         {
             double totalValueOfAllStock = 0;
             List<CompanyShares> companySharesList = DataLogic.ReadFromFile();
@@ -56,15 +59,13 @@ namespace OOP.Commercial_Data_Processing
             foreach (CompanyShares cs in companySharesList)
             {
                 Console.WriteLine("StockName : " + cs.Symbol + "\nNumber of Shares: " + cs.NumberOfShares + "\nPrice Of each share: " + cs.PriceOfShare + "\nPurchased Date and Time : " + cs.DateTime);
-                Console.WriteLine("Total Value Of Stock " + cs.Symbol + ": " + cs.NumberOfShares * cs.PriceOfShare);
+                Console.WriteLine("Total Value Of Stock " + cs.Symbol + ": " + (cs.NumberOfShares * cs.PriceOfShare));
                 Console.WriteLine("--------------------------------");
 
                 totalValueOfAllStock = totalValueOfAllStock + (cs.NumberOfShares * cs.PriceOfShare);
-
             }
 
-            Console.WriteLine("Total value Of all Stocks = " + totalValueOfAllStock);
-            
+            Console.WriteLine("Total value Of all Stocks = " + totalValueOfAllStock);          
         }
 
         /// <summary>
@@ -89,7 +90,7 @@ namespace OOP.Commercial_Data_Processing
                 if (companyShares.Symbol.Equals(symbol))
                 {
                     companySharesList.Remove(companyShares);
-                    Console.WriteLine("Share with Symbol " + symbol + "removed" );
+                    Console.WriteLine("Share with Symbol " + symbol + "removed");
                     DataLogic.WriteToFile(companySharesList);
                     return;
                 }
@@ -118,7 +119,10 @@ namespace OOP.Commercial_Data_Processing
             throw new NotImplementedException();
         }
 
-        public static void PrintSymbols()
+        /// <summary>
+        /// Prints the symbols.
+        /// </summary>
+        public void PrintSymbols()
         {
             Stack symbolStack = DataLogic.ReadStockSymbols();
 
@@ -128,7 +132,6 @@ namespace OOP.Commercial_Data_Processing
             {
                 Console.Write(symbolStack.Pop() + " ");
             }
-        }
-      
+        }     
     }
 }

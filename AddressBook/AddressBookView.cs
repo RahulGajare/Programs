@@ -1,21 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="AddressBookView.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace OOP.AddressBook
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// AddressBook View
+    /// </summary>
     public class AddressBookView
     {
         /// <summary>
-        /// Shows All the Options that can be used with addressbook.
+        /// Address book the view.
         /// </summary>
-        /// <param name="bookName"></param>
+        /// <param name="bookName">Name of the book.</param>
         public static void AddressbookView(string bookName)
         {
             int option = 0;
             while (true)
             {
-                Console.WriteLine("Choose what you want to do with AdressBook " + bookName +".");
+                Console.WriteLine("Choose what you want to do with AdressBook " + bookName + ".");
                 Console.WriteLine("Press 0) To Go Back");
                 Console.WriteLine("press 1) To Open the BookDetails");
                 Console.WriteLine("Press 2) To Add Address");
@@ -40,7 +50,6 @@ namespace OOP.AddressBook
                 {
                     case 0:
                         {
-
                             return;
                         }
 
@@ -58,22 +67,21 @@ namespace OOP.AddressBook
 
                     case 3:
                         {
-                            AddressDetailsManupalationView.EditDetails(bookName);
+                            AddressDetailsManipulationView.EditDetails(bookName);
                             break;
                         }
 
                     case 4:
                         {
-                            AddressDetailsManupalation.SortByLastName(bookName);
+                            AddressDetailsManipulation.SortByLastName(bookName);
                             break;
                         }
 
                     case 5:
                         {
-                            AddressDetailsManupalation.SortByZip(bookName);
+                            AddressDetailsManipulation.SortByZip(bookName);
                             break;
                         }
-
 
                     default:
                         {
@@ -81,9 +89,7 @@ namespace OOP.AddressBook
                             break;
                         }
                 }
-
-            }
-            
+            }            
         }
     }
 }

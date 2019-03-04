@@ -1,11 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="InputForAddressBook.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 namespace OOP.AddressBook
 {
-    class InputForAddressBook
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// Input For AddressBook
+    /// </summary>
+    public class InputForAddressBook
     {
+        /// <summary>
+        /// Takes the input for address book.
+        /// </summary>
+        /// <returns>returns string</returns>
         public static string TakeInputForAddressBook()
         {
             string addressBookName = string.Empty;
@@ -19,8 +32,7 @@ namespace OOP.AddressBook
                     Console.WriteLine("You have to Specify a name");
                     continue;
                 }
-
-                
+            
                 if (Utility.ContainsCharacter(addressBookName))
                 {
                     Console.WriteLine("No Special Characters allowed");
@@ -28,9 +40,7 @@ namespace OOP.AddressBook
                 }
 
                 return addressBookName;
-
             }
-        }
-    
+        }   
     }
 }

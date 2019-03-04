@@ -16,6 +16,9 @@ namespace OOP.InventoryDetails
     /// </summary>
     public class InventoryDetails
     {
+        /// <summary>
+        /// The inventory details list
+        /// </summary>
         private List<InventoryTypes> inventoryDetailsList = new List<InventoryTypes>();
 
         /// <summary>
@@ -26,7 +29,7 @@ namespace OOP.InventoryDetails
         /// </value>
         public List<InventoryTypes> InventoryDetailsList
         {
-            get{ return this.inventoryDetailsList; }
+            get { return this.inventoryDetailsList; }
             set { this.inventoryDetailsList = value; }
         }
     }

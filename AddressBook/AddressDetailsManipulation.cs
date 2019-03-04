@@ -1,15 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Linq;
-
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="AddressDetailsManipulation.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 namespace OOP.AddressBook
 {
-    class AddressDetailsManupalation
-    {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Text.RegularExpressions;
 
-        public static void ChangeAddress(string bookName,string nameToEdit)
+    /// <summary>
+    /// AddressDetails Manipulation
+    /// </summary>
+    public class AddressDetailsManipulation
+    {
+        /// <summary>
+        /// Changes the address.
+        /// </summary>
+        /// <param name="bookName">Name of the book.</param>
+        /// <param name="nameToEdit">The name to edit.</param>
+        public static void ChangeAddress(string bookName, string nameToEdit)
         {
             while (true)
             {
@@ -22,17 +35,18 @@ namespace OOP.AddressBook
                     continue;
                 }
 
+                ////Getting the existing AddressBook from the file
                 AddressBook addressBook = DataLogic.GetBookDetails(bookName);
 
                 List<AddressDetails> list = addressBook.AddressDetailsList;
 
+                ////loops over all the Address Details and replaces the new addresses with old address.
                 foreach (AddressDetails addressDetail in list)
                 {
                     if (addressDetail.FirstName.Equals(nameToEdit))
                     {
                         addressDetail.Address = address;
-                        break;
-                  
+                        break;                 
                     }
                 }
 
@@ -41,11 +55,14 @@ namespace OOP.AddressBook
 
                 break;
             }
-
-
         }
 
-        public static void ChangeCity(string bookName,string nameToEdit)
+        /// <summary>
+        /// Changes the city.
+        /// </summary>
+        /// <param name="bookName">Name of the book.</param>
+        /// <param name="nameToEdit">The name to edit.</param>
+        public static void ChangeCity(string bookName, string nameToEdit)
         {
             while (true)
             {
@@ -58,10 +75,12 @@ namespace OOP.AddressBook
                     continue;
                 }
 
+                ////Getting the existing AddressBook from the file
                 AddressBook addressBook = DataLogic.GetBookDetails(bookName);
 
                 List<AddressDetails> list = addressBook.AddressDetailsList;
 
+                ////loops over all the Address Details and replaces the new City with old City.
                 foreach (AddressDetails addressDetail in list)
                 {
                     if (addressDetail.FirstName.Equals(nameToEdit))
@@ -77,6 +96,11 @@ namespace OOP.AddressBook
             }
         }
 
+        /// <summary>
+        /// Changes the state.
+        /// </summary>
+        /// <param name="bookName">Name of the book.</param>
+        /// <param name="nameToEdit">The name to edit.</param>
         public static void ChangeState(string bookName, string nameToEdit)
         {
             while (true)
@@ -94,6 +118,7 @@ namespace OOP.AddressBook
 
                 List<AddressDetails> list = addressBook.AddressDetailsList;
 
+                ////loops over all the Address Details and replaces the new state with old state.
                 foreach (AddressDetails addressDetail in list)
                 {
                     if (addressDetail.FirstName.Equals(nameToEdit))
@@ -109,6 +134,11 @@ namespace OOP.AddressBook
             }
         }
 
+        /// <summary>
+        /// Changes the zip.
+        /// </summary>
+        /// <param name="bookName">Name of the book.</param>
+        /// <param name="nameToEdit">The name to edit.</param>
         public static void ChangeZip(string bookName, string nameToEdit)
         {
             while (true)
@@ -126,6 +156,7 @@ namespace OOP.AddressBook
 
                 List<AddressDetails> list = addressBook.AddressDetailsList;
 
+                ////loops over all the Address Details and replaces the new Zip with old Zip.
                 foreach (AddressDetails addressDetail in list)
                 {
                     if (addressDetail.FirstName.Equals(nameToEdit))
@@ -141,6 +172,11 @@ namespace OOP.AddressBook
             }
         }
 
+        /// <summary>
+        /// Changes the phone number.
+        /// </summary>
+        /// <param name="bookName">Name of the book.</param>
+        /// <param name="nameToEdit">The name to edit.</param>
         public static void ChangePhoneNumber(string bookName, string nameToEdit)
         {
             while (true)
@@ -158,6 +194,7 @@ namespace OOP.AddressBook
 
                 List<AddressDetails> list = addressBook.AddressDetailsList;
 
+                ////loops over all the Address Details and replaces the new PhoneNumber with old PhoneNumber.
                 foreach (AddressDetails addressDetail in list)
                 {
                     if (addressDetail.FirstName.Equals(nameToEdit))
@@ -173,14 +210,20 @@ namespace OOP.AddressBook
             }
         }
 
+        /// <summary>
+        /// Sorts the last name of the by.
+        /// </summary>
+        /// <param name="bookName">Name of the book.</param>
         public static void SortByLastName(string bookName)
         {
             AddressBook addressBook = DataLogic.GetBookDetails(bookName);
 
             List<AddressDetails> list = addressBook.AddressDetailsList;
 
+            ////sorting the Objects in list by lastname
             var sortedList = list.OrderBy(v => v.LastName);
 
+            ////Printing to Console All details sorted by LastName
             foreach (AddressDetails address in sortedList)
             {
                 Console.WriteLine("----------------------------");
@@ -189,14 +232,20 @@ namespace OOP.AddressBook
             }
         }
 
+        /// <summary>
+        /// Sorts the by zip.
+        /// </summary>
+        /// <param name="bookName">Name of the book.</param>
         public static void SortByZip(string bookName)
         {
             AddressBook addressBook = DataLogic.GetBookDetails(bookName);
 
             List<AddressDetails> list = addressBook.AddressDetailsList;
 
+            ////sorting the Objects in list by Zip
             var sortedList = list.OrderBy(v => v.Zip);
 
+            ////Printing to Console All details sorted by Zip
             foreach (AddressDetails address in sortedList)
             {
                 Console.WriteLine("----------------------------");
@@ -204,8 +253,5 @@ namespace OOP.AddressBook
                 Console.WriteLine("----------------------------");
             }
         }
-
-
-
     }
 }

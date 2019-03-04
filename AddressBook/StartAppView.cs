@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------------------------------
-// <copyright file="StartApp.cs" company="Bridgelabz">
+// <copyright file="StartAppView.cs" company="Bridgelabz">
 //   Copyright © 2018 Company
 // </copyright>
 // <creator name="Rahul Gajare"/>
@@ -17,7 +17,7 @@ namespace OOP.AddressBook
     public class StartAppView
     {
         /// <summary>
-        /// Initialises the address book.
+        /// Initialize the address book.
         /// </summary>
         public static void InitialiseAddressBook()
         {
@@ -39,6 +39,7 @@ namespace OOP.AddressBook
 
                 option = Convert.ToInt32(stringOption);
 
+                ////calls the method Based on the Option Choosen.
                 switch (option)
                 {
                     case 1:
@@ -56,15 +57,14 @@ namespace OOP.AddressBook
 
                     case 3:
                         {
-
                             return; 
                         }
+
                     default:
                         {
                             Console.WriteLine("Invalid Input");
                             break;
-                        }
-                    
+                        }                   
                 }
             }
         }

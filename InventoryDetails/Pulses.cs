@@ -16,8 +16,19 @@ namespace OOP.InventoryDetails
     /// </summary>
     public class Pulses
     {
+        /// <summary>
+        /// The name
+        /// </summary>
         private string name;
+
+        /// <summary>
+        /// The weight
+        /// </summary>
         private long weight;
+
+        /// <summary>
+        /// The price per kg
+        /// </summary>
         private double pricePerKG;
 
         /// <summary>

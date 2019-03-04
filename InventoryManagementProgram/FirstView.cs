@@ -1,12 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="FirstView.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace OOP.InventoryManagementProgram
 {
-    class FirstView
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// FirstView class
+    /// </summary>
+    public class FirstView
     {
-        public static void StartInventoryManager()
+        /// <summary>
+        /// Starts the inventory manager.
+        /// </summary>
+       public static void StartInventoryManager()
         {
             int option = 0;
             while (true)
@@ -16,7 +29,7 @@ namespace OOP.InventoryManagementProgram
                 Console.WriteLine("1) Rice");
                 Console.WriteLine("2) Wheat");
                 Console.WriteLine("3) Pulses");
-                string stringOption =Console.ReadLine();
+                string stringOption = Console.ReadLine();
 
                 if (Utility.IsNumber(stringOption) == false)
                 {
@@ -26,12 +39,14 @@ namespace OOP.InventoryManagementProgram
 
                 option = Convert.ToInt32(stringOption);
 
+                ////Calls the metods base on the Choosen option.
                 switch (option)
                 {
                     case 0:
                         {
                             return;                           
                         }
+
                     case 1:
                         {
                             InventoryMenuView.InventoryMenuview("RICE");

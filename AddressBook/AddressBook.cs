@@ -8,17 +8,33 @@
 namespace OOP.AddressBook
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Text;
-    using System.Collections;
-
+  
     /// <summary>
     /// AddressBook Class
     /// </summary>
     public class AddressBook
-    {
+    {    
+        /// <summary>
+        /// The address book name
+        /// </summary>
         private string addressBookName;
+
+        /// <summary>
+        /// The address details list
+        /// </summary>
         private List<AddressDetails> addressDetailsList = new List<AddressDetails>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AddressBook"/> class.
+        /// </summary>
+        /// <param name="addressBookName">Name of the address book.</param>
+        public AddressBook(string addressBookName)
+        {
+            this.addressBookName = addressBookName;
+        }
 
         /// <summary>
         /// Gets or sets the address details.
@@ -42,18 +58,9 @@ namespace OOP.AddressBook
         }
 
         /// <summary>
-        /// assigns the address book name
+        /// Creates the address book.
         /// </summary>
-        /// <param name="addressBookName"></param>
-        public AddressBook(string addressBookName)
-        {
-            this.addressBookName = addressBookName;
-        }
-
-        /// <summary>
-        /// Creates new addressBook
-        /// </summary>
-        /// <param name="addressBookName"></param>
+        /// <param name="addressBookName">Name of the address book.</param>
         public static void CreateAddressBook(string addressBookName)
         {
             AddressBook addressBook = new AddressBook(addressBookName);
@@ -77,7 +84,7 @@ namespace OOP.AddressBook
                 //// Removes the extension name from all files.
                 foreach (string filename in fileNameList)
                 {
-                    Console.WriteLine(optionNumber + " ) " + filename.Replace(".json", ""));
+                    Console.WriteLine(optionNumber + " ) " + filename.Replace(".json", string.Empty));
                     optionNumber++;
                 }
 
@@ -86,7 +93,6 @@ namespace OOP.AddressBook
 
                 try
                 {
-
                     addressBookOption = Convert.ToInt32(stringaddressBookOption);
                     if (addressBookOption == 0)
                     {
@@ -94,24 +100,20 @@ namespace OOP.AddressBook
                     }
 
                     GetBookName(addressBookOption);
-
-
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     Console.WriteLine("Invalid Input");
                     Console.WriteLine("-----------------------------------------------");
                     continue;
                 }
             }
-
-
         }
 
         /// <summary>
-        /// Tells which Book was Choosen by the user
+        /// Gets the name of the book.
         /// </summary>
-        /// <param name="addressBookOption"></param>
+        /// <param name="addressBookOption">The address book option.</param>
         public static void GetBookName(int addressBookOption)
         {
             try
@@ -119,13 +121,12 @@ namespace OOP.AddressBook
                 ////Getting the All the names of Existing book in list.
                 List<string> fileNameList = DataLogic.GetAddressBookList();
 
-                string bookName = fileNameList[addressBookOption - 1].Replace(".json", "");
+                string bookName = fileNameList[addressBookOption - 1].Replace(".json", string.Empty);
 
                 ////Calling the method that will ask the user what to do with choosen Book
                 AddressBookView.AddressbookView(bookName);
 
                 AddressBook addressBook = DataLogic.GetBookDetails(bookName);
-
             }
             catch (Exception ex)
             {
@@ -136,9 +137,9 @@ namespace OOP.AddressBook
         }
 
         /// <summary>
-        /// Prints All the Details inside the address Book
+        /// Prints the address book details.
         /// </summary>
-        /// <param name="addressBookName"></param>
+        /// <param name="addressBookName">Name of the address book.</param>
         public static void PrintAddressBookDetails(string addressBookName)
         {
             AddressBook addressBook = DataLogic.GetBookDetails(addressBookName);
@@ -154,10 +155,10 @@ namespace OOP.AddressBook
         }
 
         /// <summary>
-        /// Prints the Only Details of given FirstName
+        /// Prints the single address.
         /// </summary>
-        /// <param name="bookName"></param>
-        /// <param name="firstName"></param>
+        /// <param name="bookName">Name of the book.</param>
+        /// <param name="firstName">The first name.</param>
         public static void PrintSingleAddresss(string bookName, string firstName)
         {
             AddressBook addressBook = DataLogic.GetBookDetails(bookName);
@@ -174,6 +175,5 @@ namespace OOP.AddressBook
                 }
             }
         }
-
     }
 }

@@ -8,12 +8,12 @@
 namespace OOP.InventoryDetails
 {
     using System;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization.Json;
-    using System.Text;
     using System.Collections;
-    using Newtonsoft.Json;
+    using System.Collections.Generic;
     using System.IO;
+    using System.Runtime.Serialization.Json;
+    using System.Text;      
+    using Newtonsoft.Json;
 
     /// <summary>
     /// InventoryFactory Class
@@ -28,7 +28,10 @@ namespace OOP.InventoryDetails
         {
             if (File.Exists("C:\\Users\\Bridge labz\\Desktop\\Inventory.json"))
             {
+                ////getting the JSon String From the File.
                 string jsonData = File.ReadAllText("C:\\Users\\Bridge labz\\Desktop\\Inventory.json");
+
+                ////Converting JsonString to Object;
                 InventoryDetails jsonObjectArray = JsonConvert.DeserializeObject<InventoryDetails>(jsonData);
 
                 return jsonObjectArray;

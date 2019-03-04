@@ -51,7 +51,17 @@ namespace OOP.AddressBook
         /// </summary>
         private string phoneNumber;
 
-        public AddressDetails(string firstName, string lastName, string address, string city, string state, string zip ,string phoneNumber)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AddressDetails"/> class.
+        /// </summary>
+        /// <param name="firstName">The first name.</param>
+        /// <param name="lastName">The last name.</param>
+        /// <param name="address">The address.</param>
+        /// <param name="city">The city.</param>
+        /// <param name="state">The state.</param>
+        /// <param name="zip">The zip.</param>
+        /// <param name="phoneNumber">The phone number.</param>
+        public AddressDetails(string firstName, string lastName, string address, string city, string state, string zip, string phoneNumber)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -147,17 +157,33 @@ namespace OOP.AddressBook
         }
 
         /// <summary>
-        /// Adds the person.
+        /// Creates the address details.
         /// </summary>
-        public static void CreateAddressDetails(string bookName,string firstName, string lastName , string address, string city, string state, string zip, string phoneNumber)
+        /// <param name="bookName">Name of the book.</param>
+        /// <param name="firstName">The first name.</param>
+        /// <param name="lastName">The last name.</param>
+        /// <param name="address">The address.</param>
+        /// <param name="city">The city.</param>
+        /// <param name="state">The state.</param>
+        /// <param name="zip">The zip.</param>
+        /// <param name="phoneNumber">The phone number.</param>
+        public static void CreateAddressDetails(string bookName, string firstName, string lastName, string address, string city, string state, string zip, string phoneNumber)
         {
-            AddressDetails addressDetails = new AddressDetails(firstName,lastName,address,city,state,zip,phoneNumber);
+            ////creating a object of addresDetails
+            AddressDetails addressDetails = new AddressDetails(firstName, lastName, address, city, state, zip, phoneNumber);
+
+            //// Getting the AddressBook and adding the newly created object in list.
             AddressBook addressBook = DataLogic.GetBookDetails(bookName);
             addressBook.AddressDetailsList.Add(addressDetails);
             DataLogic.WriteAddressBookToFile(addressBook);
-            Console.WriteLine("Added to AddressBook "+bookName);
+            Console.WriteLine("Added to AddressBook " + bookName);
         }
 
+        /// <summary>
+        /// Gets the first name list.
+        /// </summary>
+        /// <param name="bookName">Name of the book.</param>
+        /// <returns>returns the List of firstNames</returns>
         public static List<string> GetFirstNameList(string bookName)
         {
             AddressBook addressBook = DataLogic.GetBookDetails(bookName);
@@ -173,15 +199,18 @@ namespace OOP.AddressBook
             return firstNameList;
         }
 
-        public override string ToString()
-        {
-            return "Name : " + this.FirstName + " " + this.LastName + "\nAddress : " + this.Address + "\nCity : " + this.City + "\nState : " + this.State + "\nZip  : " + this.Zip + "\nPhone Number : " + this.phoneNumber;
-        }
-
-        public static bool DoesNameExist(string bookName,string name)
+        /// <summary>
+        /// Does the name exist.
+        /// </summary>
+        /// <param name="bookName">Name of the book.</param>
+        /// <param name="name">The name.</param>
+        /// <returns>returns true or false</returns>
+        public static bool DoesNameExist(string bookName, string name)
         {
             AddressBook addressBook = DataLogic.GetBookDetails(bookName);
             List<AddressDetails> list = addressBook.AddressDetailsList;
+
+            ////loops over all the Addressdetail to find wheather given name exist.
             foreach (AddressDetails address in list)
             {
                 if (address.FirstName.Equals(name))
@@ -193,6 +222,15 @@ namespace OOP.AddressBook
             return false;
         }
 
-
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
+        public override string ToString()
+        {
+            return "Name : " + this.FirstName + " " + this.LastName + "\nAddress : " + this.Address + "\nCity : " + this.City + "\nState : " + this.State + "\nZip  : " + this.Zip + "\nPhone Number : " + this.phoneNumber;
+        }   
     }
 }

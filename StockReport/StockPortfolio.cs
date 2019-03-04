@@ -16,8 +16,19 @@ namespace OOP.StockReport
     /// </summary>
     public class StockPortfolio
     {
+        /// <summary>
+        /// The stock name
+        /// </summary>
         private string stockName;
+
+        /// <summary>
+        /// The number of shares
+        /// </summary>
         private long numberOfShares;
+
+        /// <summary>
+        /// The price of share
+        /// </summary>
         private double priceOfShare;
 
         /// <summary>

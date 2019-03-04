@@ -25,23 +25,7 @@ namespace OOP.RegexReplace
             string name = string.Empty;
             string fullName = string.Empty;
             string contactNumber = string.Empty;
-
-            ////// loops till input for name matches the expression.
-            //while (true)
-            //{
-            //    Console.WriteLine("Enter your Name");
-            //    name = Console.ReadLine();
-
-            //    if (!Regex.IsMatch(name, @"^[a-zA-Z]+$"))
-            //    {
-            //        Console.WriteLine("Wrong input");
-            //        continue;
-            //    }
-
-
-            //    break;
-            //}
-
+        
             ////loops till input for Full Name matches the expression.
             while (true)
             {

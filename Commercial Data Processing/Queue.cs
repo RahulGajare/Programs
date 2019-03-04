@@ -34,7 +34,7 @@ namespace OOP.Commercial_Data_Processing
         /// <summary>
         /// The queue array
         /// </summary>
-        private String[] queueArray = new String[1000];
+        private string[] queueArray = new string[1000];
 
         /// <summary>
         /// The size/
@@ -95,7 +95,7 @@ namespace OOP.Commercial_Data_Processing
         /// </summary>
         /// <param name="data">The data.</param>
         /// <returns>returns true or false</returns>
-        public bool Enqueue(String data)
+        public bool Enqueue(string data)
         {
             try
             {

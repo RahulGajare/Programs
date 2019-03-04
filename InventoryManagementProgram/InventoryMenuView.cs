@@ -1,11 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// -------------------------------------------------------------------------------------------------------------------------
+// <copyright file="InventoryMenuView.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// -----------------------------------------------------------------------------------------------------------------------------
 
 namespace OOP.InventoryManagementProgram
 {
-    class InventoryMenuView
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// Inventory Menu View
+    /// </summary>
+    public class InventoryMenuView
     {
+        /// <summary>
+        /// Inventories the menu view.
+        /// </summary>
+        /// <param name="inventoryType">Type of the inventory.</param>
         public static void InventoryMenuview(string inventoryType)
         {
             int option = 0;
@@ -15,9 +29,9 @@ namespace OOP.InventoryManagementProgram
                 Console.WriteLine("Choose an Option");
                 Console.WriteLine("0) To Go Back");
                 Console.WriteLine("1) To view Existing Inventory for " + inventoryType);
-                Console.WriteLine("2) To Remove an " + inventoryType +" Item");
+                Console.WriteLine("2) To Remove an " + inventoryType + " Item");
                 Console.WriteLine("3) To Add " + inventoryType + " Item");
-                Console.WriteLine("4) To Edit from Existing "+ inventoryType + " Inventory");
+                Console.WriteLine("4) To Edit from Existing " + inventoryType + " Inventory");
 
                 string stringOption = Console.ReadLine();
 
@@ -29,6 +43,7 @@ namespace OOP.InventoryManagementProgram
 
                 option = Convert.ToInt32(stringOption);
 
+                //// Calls the mdethods based on the Option Choosen
                 switch (option)
                 {
                     case 0:
@@ -44,13 +59,13 @@ namespace OOP.InventoryManagementProgram
 
                     case 2:
                         {
-
+                            InputsForInventory.TakeInputForRemovingObject(inventoryType);
                             break;
                         }
 
                     case 3:
                         {
-
+                            InputsForInventory.TakeInputsForCreatingObject(inventoryType);
                             break;
                         }
 
@@ -59,8 +74,7 @@ namespace OOP.InventoryManagementProgram
                             break;
                         }
                 }
-            }
-           
+            }           
         }
     }
 }

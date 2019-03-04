@@ -31,7 +31,6 @@ namespace OOP.InventoryManagementProgram
         /// </summary>
         private double pricePerKG;
 
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Rice"/> class.
         /// </summary>
@@ -43,8 +42,8 @@ namespace OOP.InventoryManagementProgram
             this.name = name;
             this.weight = weight;
             this.pricePerKG = pricePerKG;
-
         }
+
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
@@ -81,14 +80,75 @@ namespace OOP.InventoryManagementProgram
             set { this.pricePerKG = value; }
         }
 
-        public static void CreateRiceObject(string name , double weight ,double pricePerKG)
+        /// <summary>
+        /// Creates the rice object.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="weight">The weight.</param>
+        /// <param name="pricePerKG">The price per kg.</param>
+        public static void CreateRiceObject(string name, double weight, double pricePerKG)
         {
-            Rice rice = new Rice(name ,weight ,pricePerKG);
-            InventoryTypes inventoryType = new InventoryTypes();
-            inventoryType.InventoryTypesObject.RiceList.Add(rice);
-
-            DataLogic.WriteToFile(inventoryType);
-
+            Rice rice = new Rice(name, weight, pricePerKG);
+            InventoryTypes inventoryTypes = InventoryFactory.ReadJsonFile();
+            inventoryTypes.RiceList.Add(rice);
+            Datalogic.WriteToFile(inventoryTypes);
+            Console.WriteLine("Added To inventory Succefully");
         }
+
+        /// <summary>
+        /// Removes the rice object.
+        /// </summary>
+        /// <param name="itemName">Name of the item.</param>
+        public static void RemoveRiceObject(string itemName)
+        {
+            InventoryTypes inventoryTypes = InventoryFactory.ReadJsonFile();
+            List<Rice> riceList = inventoryTypes.RiceList;
+
+            foreach (Rice rice in riceList)
+            {
+                if (rice.Name.Equals(itemName))
+                {
+                    riceList.Remove(rice);
+                    Datalogic.WriteToFile(inventoryTypes);
+                    Console.WriteLine("Item " + itemName + "removed Successfully");
+                    Console.WriteLine("--------------------------------------------");
+                    return;
+                }
+            }
+
+            Console.WriteLine("Item " + itemName + "to be removed not found");
+        }
+
+        /// <summary>
+        /// Does the object exist.
+        /// </summary>
+        /// <param name="itemName">Name of the item.</param>
+        /// <returns>returns true or false</returns>
+        public static bool DoesObjectExist(string itemName)
+        {
+            InventoryTypes inventoryTypes = InventoryFactory.ReadJsonFile();
+            List<Rice> riceList = inventoryTypes.RiceList;
+
+            foreach (Rice rice in riceList)
+            {
+                if (rice.Name.Equals(itemName))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
+        public override string ToString()
+        {
+            return "Name  : " + this.Name + "\nWeight : " + this.Weight + "\nPrice Per Kg : " + this.pricePerKG;
+        }     
     }
 }

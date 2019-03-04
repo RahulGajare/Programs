@@ -21,7 +21,8 @@ namespace OOP.InventoryDetails
         /// </summary>
         public static void GetInventoryList()
         {
-            InventoryDetails  inventoryDetail = InventoryFactory.ReadJsonFile();
+            ////Getting Inventory Objects from Inventory Factory.
+            InventoryDetails inventoryDetail = InventoryFactory.ReadJsonFile();
 
             foreach (InventoryTypes inventoryTypes in inventoryDetail.InventoryDetailsList)
             {
@@ -32,12 +33,11 @@ namespace OOP.InventoryDetails
                 foreach (Rice rice in riceList)
                 {
                     Console.WriteLine("Rice type");
-                    Console.WriteLine("Name : " +rice.Name +"\nWeight : "+ rice.Weight + "\nPrice per Kg : " +rice.PricePerKg );
-                    Console.WriteLine("Total price of " + rice.Name + " = " +(rice.Weight*rice.PricePerKg));
+                    Console.WriteLine("Name : " + rice.Name + " \nWeight : " + rice.Weight + "\nPrice per Kg : " + rice.PricePerKg);
+                    Console.WriteLine("Total price of " + rice.Name + " = " + (rice.Weight * rice.PricePerKg));
                     Console.WriteLine("------------------------------------------");
                 }
-
-              
+             
                 foreach (Wheat wheat in wheatList)
                 {
                     Console.WriteLine("Wheat type");

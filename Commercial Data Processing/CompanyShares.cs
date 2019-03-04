@@ -16,10 +16,24 @@ namespace OOP.Commercial_Data_Processing
     /// </summary>
     public class CompanyShares
     {
-       
+        /// <summary>
+        /// The number of shares
+        /// </summary>
         private long numberOfShares;
+
+        /// <summary>
+        /// The price of share
+        /// </summary>
         private double priceOfShare;
+
+        /// <summary>
+        /// The symbol
+        /// </summary>
         private string symbol;
+
+        /// <summary>
+        /// The datetime
+        /// </summary>
         private string datetime;
 
         /// <summary>
@@ -29,7 +43,7 @@ namespace OOP.Commercial_Data_Processing
         /// <param name="price">The price.</param>
         /// <param name="symbol">The symbol.</param>
         /// <param name="datetime">The datetime.</param>
-        public CompanyShares(long numberOfShares, double price ,string symbol , string datetime)
+        public CompanyShares(long numberOfShares, double price, string symbol, string datetime)
         {        
             this.numberOfShares = numberOfShares;
             this.priceOfShare = price;
@@ -84,6 +98,5 @@ namespace OOP.Commercial_Data_Processing
             get { return this.datetime; }
             set { this.datetime = value; }
         }
-
     }
 }

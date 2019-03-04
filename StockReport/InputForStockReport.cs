@@ -99,7 +99,7 @@ namespace OOP.StockReport
                     break;
                 }
 
-                StockPortfolio stockPortfolio = new StockPortfolio(stockName,numberOfShares,priceOfShares);
+                StockPortfolio stockPortfolio = new StockPortfolio(stockName, numberOfShares, priceOfShares);
                 stockList.Add(stockPortfolio);
             }
         }
