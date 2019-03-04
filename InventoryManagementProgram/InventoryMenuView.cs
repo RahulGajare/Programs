@@ -71,6 +71,7 @@ namespace OOP.InventoryManagementProgram
 
                     case 4:
                         {
+                            InventoryManipulationView.InventoryManipulationview(inventoryType);
                             break;
                         }
                 }

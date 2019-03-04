@@ -52,10 +52,57 @@ namespace OOP.InventoryManagementProgram
                 }
             }
 
-            Console.WriteLine("Choose what do you want to edit");
-            Console.WriteLine("1) Name");
-            Console.WriteLine("1) Weight");
-            Console.WriteLine("1) Price Per Kg");
+            EditMenu(inventoryType, itemName);
+        }
+
+        /// <summary>
+        /// Edits the menu.
+        /// </summary>
+        /// <param name="inventoryType">Type of the inventory.</param>
+        /// <param name="itemName">Name of the item.</param>
+        public static void EditMenu(string inventoryType, string itemName)
+        {
+            while (true)
+            {
+                Console.WriteLine("Choose what do you want to edit");
+                Console.WriteLine("0) To Go Back");
+                Console.WriteLine("1) Name");
+                Console.WriteLine("2) Weight");
+                Console.WriteLine("3) Price Per Kg");
+                string option = Console.ReadLine();
+
+                switch (option)
+                {
+                    case "0":
+                        {
+                            return;
+                        }
+
+                    case "1":
+                        {
+                            InventoryManupalation.ChangeName(inventoryType, itemName);
+                            break;
+                        }
+
+                    case "2":
+                        {
+                            InventoryManupalation.ChangeWeight(inventoryType, itemName);
+                            break;
+                        }
+
+                    case "3":
+                        {
+                            InventoryManupalation.ChangePrice(inventoryType, itemName);
+                            break;
+                        }
+
+                    default:
+                        {
+                            Console.WriteLine("Invalid Input");
+                            break;
+                        }
+                }
+            }         
         }
     }
 }
