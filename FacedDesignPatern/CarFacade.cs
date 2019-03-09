@@ -4,6 +4,9 @@ using System.Text;
 
 namespace DesignPattern.FacedDesignPatern
 {
+    /// <summary>
+    /// CarFacade Class
+    /// </summary>
     public class CarFacade
     {
         CarModel model;
@@ -11,6 +14,9 @@ namespace DesignPattern.FacedDesignPatern
         CarBody body;
         CarAccessories accessories;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CarFacade"/> class.
+        /// </summary>
         public CarFacade()
         {
             model = new CarModel();
@@ -19,6 +25,9 @@ namespace DesignPattern.FacedDesignPatern
             accessories = new CarAccessories();
         }
 
+        /// <summary>
+        /// Creates the complete car.
+        /// </summary>
         public void CreateCompleteCar()
         {
             Console.WriteLine("******** Creating a Car **********\n");

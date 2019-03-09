@@ -4,9 +4,16 @@ using System.Text;
 
 namespace DesignPattern.FacedDesignPatern
 {
-    class Program
+    /// <summary> 
+    /// Program class
+    /// </summary>
+    public class StartFaced
     {
-        static void StartFaced(string[] args)
+        /// <summary>
+        /// Starts the faced.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        public static void Startfaced()
         {
             CarFacade facade = new CarFacade();
 

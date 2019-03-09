@@ -4,7 +4,10 @@ using System.Text;
 
 namespace DesignPattern.FactoryDesignPattern
 {
-    class IiceCream
+    /// <summary>
+    /// IiceCream class
+    /// </summary>
+    public class IiceCream
     {
         interface IIceCream
         {

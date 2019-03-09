@@ -4,15 +4,26 @@ using System.Text;
 
 namespace DesignPattern.ObserverPattern
 {
-    class FlashNews
+    /// <summary>
+    /// FlashNews class
+    /// </summary>
+    public class FlashNews
     {
         WeatherStation weatherStation;
 
+        /// <summary>
+        /// Shows the temperature information in flash news.
+        /// </summary>
+        /// <param name="temperature">The temperature.</param>
         public void ShowTemperatureInfoInFlashNews(int temperature)
         {
             Console.WriteLine("Flash News: New temperature is " + temperature + ".");
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FlashNews"/> class.
+        /// </summary>
+        /// <param name="weatherStation">The weather station.</param>
         public FlashNews(WeatherStation weatherStation)
         {
             this.weatherStation = weatherStation;

@@ -4,8 +4,12 @@ using System.Text;
 
 namespace DesignPattern.FactoryDesignPattern
 {
-    class StartFactory
+    public class StartFactory
     {
+        /// <summary>
+        /// Gets this instance.
+        /// </summary>
+        /// <returns></returns>
         public static IiceCream Get()
         {
             Console.WriteLine("Press 1) for ChocolateIceCream");

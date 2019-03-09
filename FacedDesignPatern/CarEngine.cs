@@ -4,8 +4,14 @@ using System.Text;
 
 namespace DesignPattern.FacedDesignPatern
 {
-    class CarEngine
+    /// <summary>
+    /// CarEngine class
+    /// </summary>
+    public class CarEngine
     {
+        /// <summary>
+        /// Sets the engine.
+        /// </summary>
         public void SetEngine()
         {
             Console.WriteLine(" CarEngine - SetEngine");

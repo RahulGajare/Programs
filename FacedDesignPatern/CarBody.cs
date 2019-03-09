@@ -4,8 +4,14 @@ using System.Text;
 
 namespace DesignPattern.FacedDesignPatern
 {
-    class CarBody
+    /// <summary>
+    /// CarBody class
+    /// </summary>
+    public class CarBody
     {
+        /// <summary>
+        /// Sets the body.
+        /// </summary>
         public void SetBody()
         {
             Console.WriteLine(" CarBody - SetBody");

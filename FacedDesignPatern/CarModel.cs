@@ -4,8 +4,14 @@ using System.Text;
 
 namespace DesignPattern.FacedDesignPatern
 {
-    class CarModel
+    /// <summary>
+    /// CarModel class
+    /// </summary>
+    public class CarModel
     {
+        /// <summary>
+        /// Sets the model.
+        /// </summary>
         public void SetModel()
         {
             Console.WriteLine(" CarModel - SetModel");

@@ -4,6 +4,9 @@ using System.Text;
 
 namespace DesignPattern.FactoryDesignPattern
 {
+    /// <summary>
+    /// Factory class
+    /// </summary>
     static class Factory
     {
         /// <summary>

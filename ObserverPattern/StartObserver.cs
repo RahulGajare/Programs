@@ -5,10 +5,16 @@ using System.Text;
 namespace DesignPattern.ObserverPattern
 {
     public delegate void TemperatureReporter(int tempearture);
-    class StartObserver
+    /// <summary>
+    /// StartObserver class
+    /// </summary>
+    public class StartObserver
     {
-       
-        static void Main(string[] args)
+        /// <summary>
+        /// Defines the entry point of the application.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+       public static void Startobserver()
         {
             // Observer Pattern Using Delegates
             WeatherStation weatherStation = new WeatherStation();
