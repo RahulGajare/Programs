@@ -1,9 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="CarAccessories.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// --------------------------------------------------------------------------------------------------------------------
+
 
 namespace DesignPattern.AdapterDesignPattern
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     /// <summary>
 
     /// MainApp startup class for Structural
@@ -62,9 +71,9 @@ namespace DesignPattern.AdapterDesignPattern
 
         public override void Request()
         {
-            // Possibly do some other work
+            //// Possibly do some other work
 
-            //  and then call SpecificRequest
+            ////  and then call SpecificRequest
 
             _adaptee.SpecificRequest();
         }

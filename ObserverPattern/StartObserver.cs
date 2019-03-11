@@ -1,9 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Program.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// --------------------------------------------------------------------------------------------------------------------
+
 
 namespace DesignPattern.ObserverPattern
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
     public delegate void TemperatureReporter(int tempearture);
     /// <summary>
     /// StartObserver class
@@ -16,7 +24,7 @@ namespace DesignPattern.ObserverPattern
         /// <param name="args">The arguments.</param>
        public static void Startobserver()
         {
-            // Observer Pattern Using Delegates
+            //// Observer Pattern Using Delegates
             WeatherStation weatherStation = new WeatherStation();
             FlashNews flashNews = new FlashNews(weatherStation);
             NewsFeed newsFeed = new NewsFeed(weatherStation);

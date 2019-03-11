@@ -1,9 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="BirdAdaptrer.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator name="Rahul Gajare"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace DesignPattern.AdapterDesignPattern
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     class BirdAdapter : ToyDuck
     {
         // You need to implement the interface your 
